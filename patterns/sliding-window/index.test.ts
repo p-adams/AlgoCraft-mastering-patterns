@@ -1,5 +1,9 @@
 import { assertEquals } from "https://deno.land/std@0.113.0/testing/asserts.ts";
-import { longestSubstring, minWindowSubstring } from "./index.ts";
+import {
+  longestSubstring,
+  maxSumSubArray,
+  minWindowSubstring,
+} from "./index.ts";
 
 Deno.test("#longestSubstring", () => {
   assertEquals(3, longestSubstring("abcabcbb"));
@@ -19,4 +23,12 @@ Deno.test("#minWindowSubstring", () => {
   assertEquals("BANC", minWindowSubstring(input1, input2));
   assertEquals("aa", minWindowSubstring(input3, input4));
   assertEquals("ABC", minWindowSubstring(input5, input6));
+});
+
+Deno.test("#maxSumSubArray", () => {
+  assertEquals(9, maxSumSubArray([2, 1, 5, 1, 3, 2], 3));
+  assertEquals(24, maxSumSubArray([1, 4, 2, 10, 2, 3, 1, 0, 20], 4));
+  assertEquals(9, maxSumSubArray([1, 2, 3, 4, 5], 2));
+  assertEquals(5, maxSumSubArray([4, -2, 1, -3, 2, 3], 2));
+  assertEquals(8, maxSumSubArray([3, -1, 4, -2, 8], 1));
 });

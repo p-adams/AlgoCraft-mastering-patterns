@@ -78,8 +78,19 @@ function minWindowSubstring(s: string, t: string): string {
  * window technique can be used to maintain a fixed-size window and efficiently find the maximum sum.
  */
 
-function maxSumSubArray(arr: number[], k: number): number {
-  return -1;
+function maxSumSubArray(array: number[], k: number): number {
+  let [max, curr, start] = [0, 0, 0];
+  for (let end = 0; end < array.length; end++) {
+    curr += array[end];
+    if (end - start + 1 > k) {
+      curr -= array[start];
+      start += 1;
+    }
+    if (curr > max) {
+      max = curr;
+    }
+  }
+  return max;
 }
 
-export { longestSubstring, minWindowSubstring };
+export { longestSubstring, maxSumSubArray, minWindowSubstring };
