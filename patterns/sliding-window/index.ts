@@ -15,6 +15,13 @@ function longestSubstring(str: string): number {
   return max;
 }
 
+/**
+ * Minimum Window Substring: Given two strings, S and T,
+ * find the minimum window in S which will contain all the characters of T.
+ * This problem can be solved using the sliding window approach to find the smallest window
+ * that contains all the characters of T.
+ */
+
 function minWindowSubstring(s: string, t: string): string {
   const frequencyMap = new Map<string, number>();
 
