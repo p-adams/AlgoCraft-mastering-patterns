@@ -72,4 +72,14 @@ function minWindowSubstring(s: string, t: string): string {
     : s.substring(minWindowStart, minWindowStart + minLength);
 }
 
+/**
+ * Maximum Sum Subarray of Fixed Size K: Given an array of integers and a positive integer K,
+ * find the maximum sum of any contiguous subarray of size K. The sliding
+ * window technique can be used to maintain a fixed-size window and efficiently find the maximum sum.
+ */
+
+function maxSumSubArray(arr: number[], k: number): number {
+  return -1;
+}
+
 export { longestSubstring, minWindowSubstring };
