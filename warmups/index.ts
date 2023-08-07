@@ -11,5 +11,9 @@ function removeDuplicates(input: number[]): number[] {
   }
   return input;
 }
+// reverse an Array in Place
+function arrReverse(input: number[]): number[] {
+  return input;
+}
 
-export { maxMinElements, removeDuplicates };
+export { arrReverse, maxMinElements, removeDuplicates };
