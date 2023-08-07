@@ -14,15 +14,10 @@ function removeDuplicates(input: number[]): number[] {
 
 // reverse an Array in Place
 function arrReverse(input: number[]): number[] {
-  let i = 0;
-  let j = input.length - 1;
-  while (i < j) {
+  for (let i = 0, j = input.length - 1; i < j; ++i, --j) {
     const selement = input[i];
-
     input[i] = input[j];
     input[j] = selement;
-    i++;
-    j--;
   }
   return input;
 }
