@@ -15,9 +15,9 @@ function removeDuplicates(input: number[]): number[] {
 // reverse an Array in Place
 function arrReverse(input: number[]): number[] {
   for (let i = 0, j = input.length - 1; i < j; ++i, --j) {
-    const selement = input[i];
+    const temp = input[i];
     input[i] = input[j];
-    input[j] = selement;
+    input[j] = temp;
   }
   return input;
 }
