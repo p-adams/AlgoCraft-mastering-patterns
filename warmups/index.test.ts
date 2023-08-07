@@ -12,5 +12,6 @@ Deno.test("#removeDuplicates", () => {
 });
 
 Deno.test("#arrReverse", () => {
-  assertEquals([], arrReverse([]));
+  assertEquals([3, 2, 1], arrReverse([1, 2, 3]));
+  assertEquals([1, 33, 3, -2, 10], arrReverse([10, -2, 3, 33, 1]));
 });
