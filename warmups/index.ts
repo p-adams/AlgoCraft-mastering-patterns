@@ -22,4 +22,25 @@ function arrReverse(input: number[]): number[] {
   return input;
 }
 
-export { arrReverse, maxMinElements, removeDuplicates };
+// find max difference
+function findMaxDiff(input: number[]): number {
+  if (input.length < 2) {
+    return 0;
+  }
+  const fst = input[0];
+  let maxDiff = input[1] - fst;
+  let minEl = fst; // 7
+
+  for (let index = 1; index < input.length; index++) {
+    const element = input[index];
+    if (element - minEl > maxDiff) {
+      maxDiff = element - minEl;
+    }
+    if (element < minEl) {
+      minEl = element;
+    }
+  }
+  return maxDiff;
+}
+
+export { arrReverse, findMaxDiff, maxMinElements, removeDuplicates };

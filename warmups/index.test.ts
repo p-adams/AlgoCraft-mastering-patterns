@@ -1,5 +1,10 @@
 import { assertEquals } from "https://deno.land/std@0.113.0/testing/asserts.ts";
-import { arrReverse, maxMinElements, removeDuplicates } from "./index.ts";
+import {
+  arrReverse,
+  findMaxDiff,
+  maxMinElements,
+  removeDuplicates,
+} from "./index.ts";
 
 Deno.test("#maxMinElements", () => {
   assertEquals([5, 1], maxMinElements([1, 2, 3, 4, 5]));
@@ -14,4 +19,9 @@ Deno.test("#removeDuplicates", () => {
 Deno.test("#arrReverse", () => {
   assertEquals([3, 2, 1], arrReverse([1, 2, 3]));
   assertEquals([1, 33, 3, -2, 10], arrReverse([10, -2, 3, 33, 1]));
+});
+
+Deno.test("#findMax", () => {
+  assertEquals(5, findMaxDiff([7, 1, 5, 3, 6, 4]));
+  assertEquals(0, findMaxDiff([7]));
 });
