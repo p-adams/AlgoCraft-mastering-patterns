@@ -43,4 +43,35 @@ function findMaxDiff(input: number[]): number {
   return maxDiff;
 }
 
-export { arrReverse, findMaxDiff, maxMinElements, removeDuplicates };
+function checkPalindromeItr(s: string): boolean {
+  if (s.length <= 1) {
+    return true;
+  }
+  for (let index = 0, j = s.length - 1; index < j; index++, j--) {
+    if (s[index] !== s[j]) {
+      return false;
+    }
+  }
+  return true;
+}
+
+function checkPalindromeRec(s: string): boolean {
+  if (s.length <= 1) {
+    return true;
+  }
+
+  if (s[0] !== s[s.length - 1]) {
+    return false;
+  }
+
+  return checkPalindromeRec(s.slice(1, s.length - 1));
+}
+
+export {
+  arrReverse,
+  checkPalindromeItr,
+  checkPalindromeRec,
+  findMaxDiff,
+  maxMinElements,
+  removeDuplicates,
+};
