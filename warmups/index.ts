@@ -67,6 +67,10 @@ function checkPalindromeRec(s: string): boolean {
   return checkPalindromeRec(s.slice(1, s.length - 1));
 }
 
+function twoSum(input: number[], target: number): [number, number] {
+  return [0, 0];
+}
+
 export {
   arrReverse,
   checkPalindromeItr,
@@ -74,4 +78,5 @@ export {
   findMaxDiff,
   maxMinElements,
   removeDuplicates,
+  twoSum,
 };

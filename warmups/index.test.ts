@@ -6,6 +6,7 @@ import {
   findMaxDiff,
   maxMinElements,
   removeDuplicates,
+  twoSum,
 } from "./index.ts";
 
 Deno.test("#maxMinElements", () => {
@@ -35,4 +36,8 @@ Deno.test("#checkPalindrome", () => {
   assertEquals(true, checkPalindromeRec("radar"));
   assertEquals(false, checkPalindromeRec("store"));
   assertEquals(true, checkPalindromeRec("level"));
+});
+
+Deno.test("#twoSum", () => {
+  assertEquals([], twoSum([2, 7, 11, 15], 9));
 });
