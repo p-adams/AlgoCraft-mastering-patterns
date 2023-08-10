@@ -67,8 +67,17 @@ function checkPalindromeRec(s: string): boolean {
   return checkPalindromeRec(s.slice(1, s.length - 1));
 }
 
-function twoSum(input: number[], target: number): [number, number] {
-  return [0, 0];
+function twoSum(input: number[], target: number): [number, number] | [] {
+  const map = new Map<number, number>();
+  for (const [index, value] of input.entries()) {
+    const comp = target - value;
+    if (map.has(comp)) {
+      return [map.get(comp)!, index];
+    }
+    map.set(value, index);
+  }
+
+  return [];
 }
 
 export {

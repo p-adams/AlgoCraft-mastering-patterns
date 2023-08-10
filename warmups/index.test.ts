@@ -39,5 +39,5 @@ Deno.test("#checkPalindrome", () => {
 });
 
 Deno.test("#twoSum", () => {
-  assertEquals([], twoSum([2, 7, 11, 15], 9));
+  assertEquals([0, 1], twoSum([2, 7, 11, 15], 9));
 });
