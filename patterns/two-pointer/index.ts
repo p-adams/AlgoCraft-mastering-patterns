@@ -19,4 +19,10 @@ function containerWithMostWater(input: number[]): number {
   return maxArea;
 }
 
-export { containerWithMostWater };
+// Given an array nums and a value val,
+// remove all instances of that value in-place and return the new length.
+function removeElement(input: number[], val: number) {
+  return -1;
+}
+
+export { containerWithMostWater, removeElement };
