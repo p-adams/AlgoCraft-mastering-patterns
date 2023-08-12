@@ -34,6 +34,4 @@ function removeElement(input: number[], val: number) {
   return slow;
 }
 
-console.log(removeElement([3, 2, 2, 3], 3));
-
 export { containerWithMostWater, removeElement };
