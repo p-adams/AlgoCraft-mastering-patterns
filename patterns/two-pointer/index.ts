@@ -22,7 +22,18 @@ function containerWithMostWater(input: number[]): number {
 // Given an array nums and a value val,
 // remove all instances of that value in-place and return the new length.
 function removeElement(input: number[], val: number) {
-  return -1;
+  let slow = 0;
+
+  for (let fast = 0; fast < input.length; fast++) {
+    const element = input[fast];
+    if (element !== val) {
+      input[slow] = element;
+      slow++;
+    }
+  }
+  return slow;
 }
+
+console.log(removeElement([3, 2, 2, 3], 3));
 
 export { containerWithMostWater, removeElement };

@@ -7,4 +7,5 @@ Deno.test("#containerWithMostWater", () => {
 
 Deno.test("#removeElement ", () => {
   assertEquals(2, removeElement([3, 2, 2, 3], 3));
+  assertEquals(1, removeElement([2, 2, 2, 1], 2));
 });
