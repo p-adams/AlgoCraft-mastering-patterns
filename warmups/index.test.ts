@@ -7,6 +7,7 @@ import {
   maxMinElements,
   removeDuplicates,
   twoSum,
+  sumOfEvens,
 } from "./index.ts";
 
 Deno.test("#maxMinElements", () => {
@@ -40,4 +41,9 @@ Deno.test("#checkPalindrome", () => {
 
 Deno.test("#twoSum", () => {
   assertEquals([0, 1], twoSum([2, 7, 11, 15], 9));
+});
+
+Deno.test("#sumOfEvens", () => {
+  assertEquals(2, sumOfEvens([2, 7, 11, 15]));
+  assertEquals(30, sumOfEvens([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]));
 });

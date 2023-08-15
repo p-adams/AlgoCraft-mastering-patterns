@@ -80,6 +80,12 @@ function twoSum(input: number[], target: number): [number, number] | [] {
   return [];
 }
 
+function sumOfEvens(input: number[]): number {
+  return input
+    .filter(($i) => $i % 2 === 0)
+    .reduce((prev, curr) => curr + prev, 0);
+}
+
 export {
   arrReverse,
   checkPalindromeItr,
@@ -88,4 +94,5 @@ export {
   maxMinElements,
   removeDuplicates,
   twoSum,
+  sumOfEvens,
 };
