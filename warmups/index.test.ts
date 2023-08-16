@@ -50,5 +50,8 @@ Deno.test("#sumOfEvens", () => {
 });
 
 Deno.test("#emojiArtGenerator", () => {
-  assertEquals("🌈🚀🐶🐶🚀, ❓🚀🐶🌟🍔🚀!", emojiArtGenerator("Hello, World!"));
+  assertEquals(
+    "🇭🇳🇪🇬🇱🇷🇱🇷🇴🇲❓❓🇼🇸🇴🇲🇷🇺🇱🇷🇩🇪❓",
+    emojiArtGenerator("Hello, World!")
+  );
 });

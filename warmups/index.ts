@@ -95,8 +95,41 @@ function sumOfEvens(input: number[]): number {
     Test your program with various input strings to ensure it works correctly.
  * 
  */
-function emojiArtGenerator(_input: string): string {
-  return "";
+function emojiArtGenerator(input: string): string {
+  const $input = input.toLocaleLowerCase();
+  const alphabet_to_country: { [key: string]: string } = {
+    a: "🇦🇺",
+    b: "🇧🇷",
+    c: "🇨🇦",
+    d: "🇩🇪",
+    e: "🇪🇬",
+    f: "🇫🇷",
+    g: "🇬🇧",
+    h: "🇭🇳",
+    i: "🇮🇳",
+    j: "🇯🇵",
+    k: "🇰🇷",
+    l: "🇱🇷",
+    m: "🇲🇽",
+    n: "🇳🇬",
+    o: "🇴🇲",
+    p: "🇵🇪",
+    q: "🇶🇦",
+    r: "🇷🇺",
+    s: "🇸🇬",
+    t: "🇹🇷",
+    u: "🇺🇸",
+    v: "🇻🇳",
+    w: "🇼🇸",
+    x: "🇽🇰",
+    y: "🇾🇪",
+    z: "🇿🇦",
+  };
+
+  return $input
+    .split("")
+    .map(($i) => alphabet_to_country[$i] ?? "❓")
+    .join("");
 }
 
 export {
