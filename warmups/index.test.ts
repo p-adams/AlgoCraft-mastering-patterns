@@ -8,6 +8,7 @@ import {
   removeDuplicates,
   twoSum,
   sumOfEvens,
+  emojiArtGenerator,
 } from "./index.ts";
 
 Deno.test("#maxMinElements", () => {
@@ -46,4 +47,8 @@ Deno.test("#twoSum", () => {
 Deno.test("#sumOfEvens", () => {
   assertEquals(2, sumOfEvens([2, 7, 11, 15]));
   assertEquals(30, sumOfEvens([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]));
+});
+
+Deno.test("#emojiArtGenerator", () => {
+  assertEquals("🌈🚀🐶🐶🚀, ❓🚀🐶🌟🍔🚀!", emojiArtGenerator("Hello, World!"));
 });

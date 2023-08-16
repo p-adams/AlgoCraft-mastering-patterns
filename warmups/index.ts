@@ -85,11 +85,25 @@ function sumOfEvens(input: number[]): number {
     .filter(($i) => $i % 2 === 0)
     .reduce((prev, curr) => curr + prev, 0);
 }
+/**
+ * Create a program that takes a string as input and converts it into a piece of "emoji art."
+ * The program should replace each letter in the input string with a corresponding emoji.
+ * For example, you might map 'A' to 🌟, 'B' to 🌈, 'C' to 🍔, and so on.
+ *  Create a dictionary that maps letters to emojis.
+    Write a function that takes an input string and returns the corresponding emoji art.
+    Make sure to handle cases where a character doesn't have a corresponding emoji (you can replace it with a generic emoji like ❓).
+    Test your program with various input strings to ensure it works correctly.
+ * 
+ */
+function emojiArtGenerator(_input: string): string {
+  return "";
+}
 
 export {
   arrReverse,
   checkPalindromeItr,
   checkPalindromeRec,
+  emojiArtGenerator,
   findMaxDiff,
   maxMinElements,
   removeDuplicates,
