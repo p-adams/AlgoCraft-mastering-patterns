@@ -146,7 +146,13 @@ function _bingBong(): void {
 
 // Counting Even and Odd Numbers
 function evenOddNumber(input: number[]): { even: number; odd: number } {
-  return { even: 0, odd: 0 };
+  return input.reduce(
+    (result, i) =>
+      i % 2 === 0
+        ? { ...result, even: result.even + 1 }
+        : { ...result, odd: result.odd + 1 },
+    { even: 0, odd: 0 }
+  );
 }
 
 export {

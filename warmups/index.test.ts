@@ -58,5 +58,5 @@ Deno.test("#emojiArtGenerator", () => {
 });
 
 Deno.test("#evenOddNumbers", () => {
-  assertEquals({ even: 0, odd: 0 }, evenOddNumber([1, 2, 3, 4, 5, 6]));
+  assertEquals({ even: 3, odd: 3 }, evenOddNumber([1, 2, 3, 4, 5, 6]));
 });
