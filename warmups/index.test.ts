@@ -9,6 +9,7 @@ import {
   twoSum,
   sumOfEvens,
   emojiArtGenerator,
+  evenOddNumber,
 } from "./index.ts";
 
 Deno.test("#maxMinElements", () => {
@@ -54,4 +55,8 @@ Deno.test("#emojiArtGenerator", () => {
     "🇭🇳🇪🇬🇱🇷🇱🇷🇴🇲❓❓🇼🇸🇴🇲🇷🇺🇱🇷🇩🇪❓",
     emojiArtGenerator("Hello, World!")
   );
+});
+
+Deno.test("#evenOddNumbers", () => {
+  assertEquals({ even: 0, odd: 0 }, evenOddNumber([1, 2, 3, 4, 5, 6]));
 });

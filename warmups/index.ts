@@ -132,11 +132,29 @@ function emojiArtGenerator(input: string): string {
     .join("");
 }
 
+function _bingBong(): void {
+  for (let index = 1; index <= 100; index++) {
+    if (index % 3 === 0 && index % 5 === 0) {
+      console.log("BingBong");
+    } else if (index % 3 === 0) {
+      console.log("Bing");
+    } else if (index % 5 === 0) {
+      console.log("Bong");
+    }
+  }
+}
+
+// Counting Even and Odd Numbers
+function evenOddNumber(input: number[]): { even: number; odd: number } {
+  return { even: 0, odd: 0 };
+}
+
 export {
   arrReverse,
   checkPalindromeItr,
   checkPalindromeRec,
   emojiArtGenerator,
+  evenOddNumber,
   findMaxDiff,
   maxMinElements,
   removeDuplicates,
