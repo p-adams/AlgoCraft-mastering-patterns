@@ -36,4 +36,8 @@ Deno.test("#maxSumSubArray", () => {
 
 Deno.test("#fruitBasket", () => {
   assertEquals(4, fruitBasket([1, 2, 1, 2, 3]));
+  assertEquals(5, fruitBasket([3, 3, 3, 1, 2, 1, 1, 2, 3, 3]));
+  assertEquals(2, fruitBasket([1, 2, 3, 4, 5, 6, 7]));
+  assertEquals(8, fruitBasket([1, 1, 1, 1, 2, 2, 2, 2]));
+  assertEquals(4, fruitBasket([1, 2, 2, 3, 3, 4]));
 });

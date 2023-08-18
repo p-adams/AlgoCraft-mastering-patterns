@@ -155,10 +155,29 @@ function evenOddNumber(input: number[]): { even: number; odd: number } {
   );
 }
 
+// Problem: Count Occurrences of a Character in a String within a Given Range
+function countCharacters(
+  s: string,
+  start: number,
+  end: number,
+  char: string
+): number {
+  return s
+    .substring(start, end)
+    .split("")
+    .reduce((prev, curr) => {
+      if (curr === char) {
+        return prev + 1;
+      }
+      return prev;
+    }, 0);
+}
+
 export {
   arrReverse,
   checkPalindromeItr,
   checkPalindromeRec,
+  countCharacters,
   emojiArtGenerator,
   evenOddNumber,
   findMaxDiff,

@@ -10,6 +10,7 @@ import {
   sumOfEvens,
   emojiArtGenerator,
   evenOddNumber,
+  countCharacters,
 } from "./index.ts";
 
 Deno.test("#maxMinElements", () => {
@@ -59,4 +60,8 @@ Deno.test("#emojiArtGenerator", () => {
 
 Deno.test("#evenOddNumbers", () => {
   assertEquals({ even: 3, odd: 3 }, evenOddNumber([1, 2, 3, 4, 5, 6]));
+});
+
+Deno.test("#countCharacters", () => {
+  assertEquals(2, countCharacters("hello world", 2, 8, "l"));
 });

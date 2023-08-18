@@ -101,7 +101,25 @@ function maxSumSubArray(array: number[], k: number): number {
  * 
  */
 function fruitBasket(input: number[]): number {
-  return -1;
+  const frequencyMap = new Map<number, number>();
+  let [start, end] = [0, 0];
+  let maxLength = 0;
+
+  for (end = 0; end < input.length; end++) {
+    const fruit = input[end];
+    frequencyMap.set(fruit, (frequencyMap.get(fruit) ?? 0) + 1);
+
+    while (frequencyMap.size > 2) {
+      const currFruit = input[start];
+      frequencyMap.set(currFruit, frequencyMap.get(currFruit)! - 1);
+      if (frequencyMap.get(currFruit) === 0) {
+        frequencyMap.delete(currFruit);
+      }
+      start += 1;
+    }
+    maxLength = Math.max(maxLength, end - start + 1);
+  }
+  return maxLength;
 }
 
 export { fruitBasket, longestSubstring, maxSumSubArray, minWindowSubstring };
