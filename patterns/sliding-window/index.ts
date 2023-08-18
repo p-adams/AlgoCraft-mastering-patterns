@@ -92,5 +92,16 @@ function maxSumSubArray(array: number[], k: number): number {
   }
   return max;
 }
+/**
+ * 
+ *  You are given an array of integers, where each integer represents a fruit type. Your task is to find the length of the longest subarray that contains at most two distinct fruit types.
+    For example:
+    Input: [1, 2, 1, 2, 3], Output: 4 (The longest subarray with at most two distinct fruit types is [1, 2, 1, 2])
+    Input: [3, 3, 3, 1, 2, 1, 1, 2, 3, 3], Output: 5 (The longest subarray with at most two distinct fruit types is [2, 1, 1, 2, 3])
+ * 
+ */
+function fruitBasket(input: number[]): number {
+  return -1;
+}
 
 export { longestSubstring, maxSumSubArray, minWindowSubstring };
