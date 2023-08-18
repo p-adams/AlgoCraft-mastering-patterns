@@ -104,4 +104,4 @@ function fruitBasket(input: number[]): number {
   return -1;
 }
 
-export { longestSubstring, maxSumSubArray, minWindowSubstring };
+export { fruitBasket, longestSubstring, maxSumSubArray, minWindowSubstring };

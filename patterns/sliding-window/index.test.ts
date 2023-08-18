@@ -1,5 +1,6 @@
 import { assertEquals } from "https://deno.land/std@0.113.0/testing/asserts.ts";
 import {
+  fruitBasket,
   longestSubstring,
   maxSumSubArray,
   minWindowSubstring,
@@ -31,4 +32,8 @@ Deno.test("#maxSumSubArray", () => {
   assertEquals(9, maxSumSubArray([1, 2, 3, 4, 5], 2));
   assertEquals(5, maxSumSubArray([4, -2, 1, -3, 2, 3], 2));
   assertEquals(8, maxSumSubArray([3, -1, 4, -2, 8], 1));
+});
+
+Deno.test("#fruitBasket", () => {
+  assertEquals(4, fruitBasket([1, 2, 1, 2, 3]));
 });
