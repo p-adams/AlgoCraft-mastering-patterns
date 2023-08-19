@@ -7,4 +7,12 @@ function createCounter(initVal) {
   };
 }
 
-export const easy = { createCounter };
+function sleep(duration) {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve("done");
+    }, duration);
+  });
+}
+
+export const easy = { createCounter, sleep };
