@@ -8,7 +8,7 @@ function createCounter(initVal) {
 }
 
 function sleep(duration) {
-  return new Promise((resolve, reject) => {
+  return new Promise((resolve, _reject) => {
     setTimeout(() => {
       resolve("done");
     }, duration);
@@ -20,4 +20,15 @@ function last(array) {
   return res === null ? null : res ?? -1;
 }
 
-export const easy = { createCounter, last, sleep };
+function twoSum(input, target) {
+  const m = new Map();
+  for (const [index, iterator] of input.entries()) {
+    const complement = target - iterator;
+    if (m.has(complement)) {
+      return [m.get(complement), index];
+    }
+    m.set(iterator, index);
+  }
+}
+
+export const easy = { createCounter, last, sleep, twoSum };
