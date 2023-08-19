@@ -64,4 +64,5 @@ Deno.test("#evenOddNumbers", () => {
 
 Deno.test("#countCharacters", () => {
   assertEquals(2, countCharacters("hello world", 2, 8, "l"));
+  assertEquals(4, countCharacters("abababa", 0, 7, "a"));
 });
