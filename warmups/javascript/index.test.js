@@ -19,9 +19,3 @@ Deno.test("#last", () => {
   assertEquals(-1, easy.last([]));
   assertEquals(null, easy.last([null]));
 });
-
-Deno.test("#twoSum", () => {
-  assertEquals([0, 1], easy.twoSum([2, 7, 11, 15], 9));
-  assertEquals([1, 2], easy.twoSum([3, 2, 4], 6));
-  assertEquals([0, 1], easy.twoSum([3, 3], 6));
-});

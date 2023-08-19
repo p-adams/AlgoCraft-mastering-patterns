@@ -20,15 +20,4 @@ function last(array) {
   return res === null ? null : res ?? -1;
 }
 
-function twoSum(input, target) {
-  const m = new Map();
-  for (const [index, iterator] of input.entries()) {
-    const complement = target - iterator;
-    if (m.has(complement)) {
-      return [m.get(complement), index];
-    }
-    m.set(iterator, index);
-  }
-}
-
-export const easy = { createCounter, last, sleep, twoSum };
+export const easy = { createCounter, last, sleep };
