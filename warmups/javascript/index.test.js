@@ -12,3 +12,10 @@ Deno.test("#sleep", async () => {
   const res = await easy.sleep(100);
   assertEquals("done", res);
 });
+
+Deno.test("#last", () => {
+  const data = [1, 2, 3, 4, 5];
+  assertEquals(5, easy.last(data));
+  assertEquals(-1, easy.last([]));
+  assertEquals(null, easy.last([null]));
+});

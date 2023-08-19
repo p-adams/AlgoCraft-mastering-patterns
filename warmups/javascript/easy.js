@@ -15,4 +15,9 @@ function sleep(duration) {
   });
 }
 
-export const easy = { createCounter, sleep };
+function last(array) {
+  const [res] = array.slice(-1);
+  return res === null ? null : res ?? -1;
+}
+
+export const easy = { createCounter, last, sleep };
