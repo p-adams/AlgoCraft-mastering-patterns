@@ -20,4 +20,16 @@ function last(array) {
   return res === null ? null : res ?? -1;
 }
 
-export const easy = { createCounter, last, sleep };
+function compose(functions) {
+  const $f = functions.reverse();
+  return function (x) {
+    let result = x;
+    for (const [index, _entry] of $f.entries()) {
+      result = $f[index](result);
+    }
+
+    return result;
+  };
+}
+
+export const easy = { compose, createCounter, last, sleep };

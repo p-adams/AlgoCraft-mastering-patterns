@@ -19,3 +19,8 @@ Deno.test("#last", () => {
   assertEquals(-1, easy.last([]));
   assertEquals(null, easy.last([null]));
 });
+
+Deno.test("#functionComposition", () => {
+  const fn = easy.compose([(x) => x + 1, (x) => x * x, (x) => 2 * x]);
+  assertEquals(65, fn(4));
+});
