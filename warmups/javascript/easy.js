@@ -32,4 +32,12 @@ function compose(functions) {
   };
 }
 
+/**
+ * Filter Elements from Array
+ * ilteredArr should only contain the elements from the arr for which the expression:
+ * fn(arr[i], i) evaluates to a truthy value.
+ * A truthy value is a value where Boolean(value) returns true
+ */
+function filterElements(input, fn) {}
+
 export const easy = { compose, createCounter, last, sleep };
