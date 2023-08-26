@@ -1,4 +1,4 @@
-import { assertEquals } from "https://deno.land/std@0.113.0/testing/asserts.ts";
+import { assertEquals } from "https://deno.land/std@0.200.0/assert/mod.ts";
 import { containerWithMostWater, removeElement } from "./index.ts";
 
 Deno.test("#containerWithMostWater", () => {

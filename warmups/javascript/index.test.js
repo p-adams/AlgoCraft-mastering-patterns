@@ -1,4 +1,4 @@
-import { assertEquals } from "https://deno.land/std@0.113.0/testing/asserts.ts";
+import { assertEquals } from "https://deno.land/std@0.200.0/assert/mod.ts";
 import { easy } from "./easy.js";
 
 Deno.test("#createCounter", () => {
@@ -23,4 +23,11 @@ Deno.test("#last", () => {
 Deno.test("#functionComposition", () => {
   const fn = easy.compose([(x) => x + 1, (x) => x * x, (x) => 2 * x]);
   assertEquals(65, fn(4));
+});
+
+Deno.test("#filterElements", () => {
+  assertEquals(
+    [20, 30],
+    easy.filterElements([0, 10, 20, 30], (x) => x > 10)
+  );
 });
