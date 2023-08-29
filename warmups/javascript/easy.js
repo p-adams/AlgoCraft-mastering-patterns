@@ -55,7 +55,14 @@ function filterElements(input, fn) {
  * with a transformation applied to each element.
  * The returned array should be created such that returnedArray[i] = fn(arr[i], i).
  */
-function mapElements(input, fn) {}
+function mapElements(input, fn) {
+  const result = [];
+  for (const [index, value] of input.entries()) {
+    result[index] = fn(value, index);
+  }
+
+  return result;
+}
 
 export const easy = {
   compose,

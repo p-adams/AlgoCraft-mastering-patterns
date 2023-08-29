@@ -37,4 +37,12 @@ Deno.test("#mapElements", () => {
     [2, 3, 4],
     easy.mapElements([1, 2, 3], (x) => x + 1)
   );
+  assertEquals(
+    [1, 3, 5],
+    easy.mapElements([1, 2, 3], (n, i) => n + i)
+  );
+  assertEquals(
+    [42, 42, 42],
+    easy.mapElements([10, 20, 30], () => 42)
+  );
 });
