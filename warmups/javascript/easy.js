@@ -78,6 +78,21 @@ function groupBy(input, fn) {
   return result;
 }
 
+function reduceElements(input, fn, init) {
+  if (!input.length) {
+    return init;
+  }
+  let value = Infinity;
+  for (const [index, iterator] of input.entries()) {
+    if (index === 0) {
+      value = fn(init, iterator);
+    } else {
+      value = fn(value, iterator);
+    }
+  }
+  return value;
+}
+
 export const easy = {
   compose,
   createCounter,
@@ -85,5 +100,6 @@ export const easy = {
   groupBy,
   last,
   mapElements,
+  reduceElements,
   sleep,
 };

@@ -76,3 +76,14 @@ Deno.test("#groupBy", () => {
     )
   );
 });
+
+Deno.test("#reduceElements", () => {
+  assertEquals(
+    10,
+    easy.reduceElements([1, 2, 3, 4], (x, y) => x + y, 0)
+  );
+  assertEquals(
+    130,
+    easy.reduceElements([1, 2, 3, 4], (x, y) => x + y * y, 100)
+  );
+});
