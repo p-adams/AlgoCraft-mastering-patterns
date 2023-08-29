@@ -46,3 +46,33 @@ Deno.test("#mapElements", () => {
     easy.mapElements([10, 20, 30], () => 42)
   );
 });
+
+Deno.test("#groupBy", () => {
+  assertEquals(
+    {
+      1: [{ id: "1" }, { id: "1" }],
+      2: [{ id: "2" }],
+    },
+    easy.groupBy([{ id: "1" }, { id: "1" }, { id: "2" }], (x) => x.id)
+  );
+
+  assertEquals(
+    {
+      1: [
+        [1, 2, 3],
+        [1, 3, 5],
+        [1, 5, 9],
+      ],
+    },
+    easy.groupBy(
+      [
+        [1, 2, 3],
+        [1, 3, 5],
+        [1, 5, 9],
+      ],
+      (list) => {
+        return String(list[0]);
+      }
+    )
+  );
+});

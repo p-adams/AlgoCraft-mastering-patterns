@@ -64,10 +64,25 @@ function mapElements(input, fn) {
   return result;
 }
 
+function groupBy(input, fn) {
+  const result = {};
+
+  for (const [_, item] of input.entries()) {
+    const key = fn(item);
+    if (result[key]) {
+      result[key].push(item);
+    } else {
+      result[key] = [item];
+    }
+  }
+  return result;
+}
+
 export const easy = {
   compose,
   createCounter,
   filterElements,
+  groupBy,
   last,
   mapElements,
   sleep,
