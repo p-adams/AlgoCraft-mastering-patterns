@@ -49,5 +49,19 @@ function filterElements(input, fn) {
   }
   return elements;
 }
+/**
+ * Apply Transform Over Each Element in Array
+ * Given an integer array arr and a mapping function fn, return a new array
+ * with a transformation applied to each element.
+ * The returned array should be created such that returnedArray[i] = fn(arr[i], i).
+ */
+function mapElements(input, fn) {}
 
-export const easy = { compose, createCounter, filterElements, last, sleep };
+export const easy = {
+  compose,
+  createCounter,
+  filterElements,
+  last,
+  mapElements,
+  sleep,
+};

@@ -31,3 +31,10 @@ Deno.test("#filterElements", () => {
     easy.filterElements([0, 10, 20, 30], (x) => x > 10)
   );
 });
+
+Deno.test("#mapElements", () => {
+  assertEquals(
+    [2, 3, 4],
+    easy.mapElements([1, 2, 3], (x) => x + 1)
+  );
+});
