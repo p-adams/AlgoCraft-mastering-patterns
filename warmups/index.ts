@@ -173,7 +173,22 @@ function countCharacters(
     }, 0);
 }
 
+function arithmeticTriplets(input: number[], diff: number): number {
+  let occ = 0;
+  for (let i = 0; i < input.length; i++) {
+    for (let j = 0; j < input.length; j++) {
+      for (let k = 0; k < input.length; k++) {
+        if (input[j] - input[i] === diff && input[k] - input[j] === diff) {
+          occ++;
+        }
+      }
+    }
+  }
+  return occ;
+}
+
 export {
+  arithmeticTriplets,
   arrReverse,
   checkPalindromeItr,
   checkPalindromeRec,

@@ -11,6 +11,7 @@ import {
   emojiArtGenerator,
   evenOddNumber,
   countCharacters,
+  arithmeticTriplets,
 } from "./index.ts";
 
 Deno.test("#maxMinElements", () => {
@@ -65,4 +66,9 @@ Deno.test("#evenOddNumbers", () => {
 Deno.test("#countCharacters", () => {
   assertEquals(2, countCharacters("hello world", 2, 8, "l"));
   assertEquals(4, countCharacters("abababa", 0, 7, "a"));
+});
+
+Deno.test("#countCharacters", () => {
+  assertEquals(2, arithmeticTriplets([0, 1, 4, 6, 7, 10], 3));
+  assertEquals(2, arithmeticTriplets([4, 5, 6, 7, 8, 9], 2));
 });
