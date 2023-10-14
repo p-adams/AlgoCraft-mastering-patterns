@@ -187,6 +187,48 @@ function arithmeticTriplets(input: number[], diff: number): number {
   return occ;
 }
 
+export class TreeNode {
+  #val: number;
+  #left: TreeNode | null;
+  #right: TreeNode | null;
+  constructor(val: number, left: TreeNode | null, right: TreeNode | null) {
+    this.#val = val;
+    this.#left = left ?? null;
+    this.#right = right ?? null;
+  }
+
+  public get val(): number {
+    return this.#val;
+  }
+
+  public set val(v: number) {
+    this.#val = v;
+  }
+
+  public get left(): TreeNode | null {
+    return this.#left;
+  }
+
+  public set left(v: TreeNode | null) {
+    this.#left = v;
+  }
+
+  public get right(): TreeNode | null {
+    return this.#right;
+  }
+
+  public set right(v: TreeNode | null) {
+    this.#right = v;
+  }
+}
+
+function mergeTrees(root1: TreeNode, root2: TreeNode): TreeNode | null {
+  // TODO: traverse both trees and sum when overlapping
+  // return merge trees
+
+  return null;
+}
+
 export {
   arithmeticTriplets,
   arrReverse,
@@ -200,4 +242,5 @@ export {
   removeDuplicates,
   twoSum,
   sumOfEvens,
+  mergeTrees,
 };

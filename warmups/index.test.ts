@@ -5,6 +5,7 @@ import {
   checkPalindromeItr,
   findMaxDiff,
   maxMinElements,
+  mergeTrees,
   removeDuplicates,
   twoSum,
   sumOfEvens,
@@ -12,6 +13,7 @@ import {
   evenOddNumber,
   countCharacters,
   arithmeticTriplets,
+  TreeNode,
 } from "./index.ts";
 
 Deno.test("#maxMinElements", () => {
@@ -71,4 +73,25 @@ Deno.test("#countCharacters", () => {
 Deno.test("#countCharacters", () => {
   assertEquals(2, arithmeticTriplets([0, 1, 4, 6, 7, 10], 3));
   assertEquals(2, arithmeticTriplets([4, 5, 6, 7, 8, 9], 2));
+});
+
+Deno.test("#mergeTrees", () => {
+  // root 1
+
+  const r1leftLeft = new TreeNode(5, null, null);
+  const r1left = new TreeNode(3, r1leftLeft, null);
+  const r1right = new TreeNode(2, null, null);
+  const r1root = new TreeNode(1, r1left, r1right);
+
+  // root 2
+  const r2leftRight = new TreeNode(4, null, null);
+  const r2left = new TreeNode(1, null, r2leftRight);
+
+  const r2rightRight = new TreeNode(7, null, null);
+
+  const r2right = new TreeNode(3, null, r2rightRight);
+
+  const r2root = new TreeNode(2, r2left, r2right);
+
+  assertEquals(mergeTrees(r1root, r2root), null);
 });
