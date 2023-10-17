@@ -92,6 +92,6 @@ Deno.test("#mergeTrees", () => {
   const r2right = new TreeNode(3, null, r2rightRight);
 
   const r2root = new TreeNode(2, r2left, r2right);
-
-  assertEquals(mergeTrees(r1root, r2root), null);
+  const root = mergeTrees(r1root, r2root);
+  assertEquals(root?.val, 3);
 });

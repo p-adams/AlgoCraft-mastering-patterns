@@ -191,7 +191,7 @@ export class TreeNode {
   #val: number;
   #left: TreeNode | null;
   #right: TreeNode | null;
-  constructor(val: number, left: TreeNode | null, right: TreeNode | null) {
+  constructor(val: number, left?: TreeNode | null, right?: TreeNode | null) {
     this.#val = val;
     this.#left = left ?? null;
     this.#right = right ?? null;
@@ -199,10 +199,6 @@ export class TreeNode {
 
   public get val(): number {
     return this.#val;
-  }
-
-  public set val(v: number) {
-    this.#val = v;
   }
 
   public get left(): TreeNode | null {
@@ -222,11 +218,19 @@ export class TreeNode {
   }
 }
 
-function mergeTrees(root1: TreeNode, root2: TreeNode): TreeNode | null {
-  // TODO: traverse both trees and sum when overlapping
-  // return merge trees
+function mergeTrees(
+  root1: TreeNode | null,
+  root2: TreeNode | null
+): TreeNode | null {
+  if (root1 === null) return root2;
+  if (root2 === null) return root1;
 
-  return null;
+  const mergedNode = new TreeNode(root1.val + root2.val);
+
+  mergedNode.left = mergeTrees(root1.left, root2.left);
+  mergedNode.right = mergeTrees(root1.right, root2.right);
+
+  return mergedNode;
 }
 
 export {
