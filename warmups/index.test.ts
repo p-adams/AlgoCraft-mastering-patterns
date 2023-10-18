@@ -98,5 +98,5 @@ Deno.test("#mergeTrees", () => {
 });
 
 Deno.test("#knightProbability", () => {
-  assertEquals(knightProbability(3, 2, 0, 0), -1);
+  assertEquals(knightProbability(3, 2, 0, 0), 0.0625);
 });

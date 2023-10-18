@@ -233,14 +233,64 @@ function mergeTrees(
   return mergedNode;
 }
 
-function knightProbability(
-  n: number,
-  k: number,
-  row: number,
-  column: number
-): number {
-  return -1;
+function knightProbability(n: number, k: number, row: number, column: number) {
+  // Possible moves for the knight.
+  const moves = [
+    [-1, -2],
+    [-2, -1],
+    [-2, 1],
+    [-1, 2],
+    [1, -2],
+    [2, -1],
+    [2, 1],
+    [1, 2],
+  ];
+
+  // Initialize a 3D array to store probabilities.
+  const dp = Array(k + 1)
+    .fill(null)
+    .map(() =>
+      Array(n)
+        .fill(null)
+        .map(() => Array(n).fill(0))
+    );
+
+  // Initialize with 1, as the knight is initially on the board.
+  dp[0][row][column] = 1;
+
+  // Iterate over the number of moves.
+  for (let step = 1; step <= k; step++) {
+    for (let r = 0; r < n; r++) {
+      for (let c = 0; c < n; c++) {
+        for (const [dr, dc] of moves) {
+          const newRow = r + dr;
+          const newColumn = c + dc;
+
+          if (newRow >= 0 && newRow < n && newColumn >= 0 && newColumn < n) {
+            dp[step][newRow][newColumn] += dp[step - 1][r][c] / 8;
+          }
+        }
+      }
+    }
+  }
+
+  // Sum all probabilities after k moves.
+  let probability = 0;
+  for (let r = 0; r < n; r++) {
+    for (let c = 0; c < n; c++) {
+      probability += dp[k][r][c];
+    }
+  }
+
+  return probability;
 }
+
+// Example usage:
+const n = 3;
+const k = 2;
+const row = 0;
+const column = 0;
+console.log(knightProbability(n, k, row, column)); // Output: 0.0625
 
 export {
   arithmeticTriplets,
