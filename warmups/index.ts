@@ -233,6 +233,15 @@ function mergeTrees(
   return mergedNode;
 }
 
+function knightProbability(
+  n: number,
+  k: number,
+  row: number,
+  column: number
+): number {
+  return -1;
+}
+
 export {
   arithmeticTriplets,
   arrReverse,
@@ -242,6 +251,7 @@ export {
   emojiArtGenerator,
   evenOddNumber,
   findMaxDiff,
+  knightProbability,
   maxMinElements,
   removeDuplicates,
   twoSum,

@@ -14,6 +14,7 @@ import {
   countCharacters,
   arithmeticTriplets,
   TreeNode,
+  knightProbability,
 } from "./index.ts";
 
 Deno.test("#maxMinElements", () => {
@@ -94,4 +95,8 @@ Deno.test("#mergeTrees", () => {
   const r2root = new TreeNode(2, r2left, r2right);
   const root = mergeTrees(r1root, r2root);
   assertEquals(root?.val, 3);
+});
+
+Deno.test("#knightProbability", () => {
+  assertEquals(knightProbability(3, 2, 0, 0), -1);
 });
