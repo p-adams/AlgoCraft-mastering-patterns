@@ -285,13 +285,6 @@ function knightProbability(n: number, k: number, row: number, column: number) {
   return probability;
 }
 
-// Example usage:
-const n = 3;
-const k = 2;
-const row = 0;
-const column = 0;
-console.log(knightProbability(n, k, row, column)); // Output: 0.0625
-
 export {
   arithmeticTriplets,
   arrReverse,
