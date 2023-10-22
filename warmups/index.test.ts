@@ -16,6 +16,7 @@ import {
   TreeNode,
   knightProbability,
   isSequence,
+  isValid,
 } from "./index.ts";
 
 Deno.test("#maxMinElements", () => {
@@ -105,4 +106,9 @@ Deno.test("#knightProbability", () => {
 Deno.test("#isSequence", () => {
   assertEquals(isSequence("abc", "ahbgdc"), true);
   assertEquals(isSequence("axc", "ahbgdc"), false);
+});
+
+Deno.test("#isValid", () => {
+  assertEquals(isValid("()"), true);
+  assertEquals(isValid("(()"), false);
 });

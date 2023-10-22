@@ -295,6 +295,29 @@ function isSequence(s: string, t: string): boolean {
   return sIndex === s.length;
 }
 
+function isValid(s: string): boolean {
+  const stack: string[] = [];
+  const brackets: any = {
+    "(": ")",
+    "{": "}",
+    "[": "]",
+  };
+  for (const char of s) {
+    if (brackets[char]) {
+      stack.push(char);
+    } else {
+      if (stack.length === 0) {
+        return false; // No matching open bracket
+      }
+      const lastOpenBracket = stack.pop();
+      if (lastOpenBracket && brackets[lastOpenBracket] !== char) {
+        return false; // Mismatched brackets
+      }
+    }
+  }
+  return stack.length === 0; // Check if all open brackets are closed
+}
+
 export {
   arithmeticTriplets,
   arrReverse,
@@ -304,6 +327,7 @@ export {
   emojiArtGenerator,
   evenOddNumber,
   isSequence,
+  isValid,
   findMaxDiff,
   knightProbability,
   maxMinElements,
