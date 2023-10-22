@@ -285,6 +285,16 @@ function knightProbability(n: number, k: number, row: number, column: number) {
   return probability;
 }
 
+function isSequence(s: string, t: string): boolean {
+  let sIndex = 0;
+  for (let tIndex = 0; tIndex < t.length && sIndex < s.length; tIndex++) {
+    if (s[sIndex] === t[tIndex]) {
+      sIndex++;
+    }
+  }
+  return sIndex === s.length;
+}
+
 export {
   arithmeticTriplets,
   arrReverse,
@@ -293,6 +303,7 @@ export {
   countCharacters,
   emojiArtGenerator,
   evenOddNumber,
+  isSequence,
   findMaxDiff,
   knightProbability,
   maxMinElements,

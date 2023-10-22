@@ -15,6 +15,7 @@ import {
   arithmeticTriplets,
   TreeNode,
   knightProbability,
+  isSequence,
 } from "./index.ts";
 
 Deno.test("#maxMinElements", () => {
@@ -99,4 +100,9 @@ Deno.test("#mergeTrees", () => {
 
 Deno.test("#knightProbability", () => {
   assertEquals(knightProbability(3, 2, 0, 0), 0.0625);
+});
+
+Deno.test("#isSequence", () => {
+  assertEquals(isSequence("abc", "ahbgdc"), true);
+  assertEquals(isSequence("axc", "ahbgdc"), false);
 });
