@@ -19,6 +19,7 @@ import {
   isValid,
   largestValues,
   numberOfEmployeesWhoMetTarget,
+  interpret,
 } from "./index.ts";
 
 Deno.test("#maxMinElements", () => {
@@ -133,4 +134,8 @@ Deno.test("#largestValue", () => {
 
 Deno.test("#numberOfEmployeesWhoMetTarget", () => {
   assertEquals(numberOfEmployeesWhoMetTarget([0, 1, 2, 3, 4], 2), 3);
+});
+
+Deno.test("#interpret", () => {
+  assertEquals(interpret("G()(al)"), "Goal");
 });

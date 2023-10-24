@@ -366,6 +366,10 @@ function numberOfEmployeesWhoMetTarget(
   return hours.filter((h) => h >= target).length;
 }
 
+function interpret(command: string): string {
+  return command.replaceAll("()", "o").replaceAll("(al)", "al");
+}
+
 export {
   arithmeticTriplets,
   arrReverse,
@@ -374,6 +378,7 @@ export {
   countCharacters,
   emojiArtGenerator,
   evenOddNumber,
+  interpret,
   isSequence,
   isValid,
   findMaxDiff,
