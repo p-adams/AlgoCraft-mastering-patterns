@@ -319,7 +319,44 @@ function isValid(s: string): boolean {
 }
 
 function largestValues(root: TreeNode): number[] {
-  return [];
+  function levelOrderTraversal(root: TreeNode | null): number[][] {
+    const result: number[][] = [];
+
+    if (!root) {
+      return result;
+    }
+
+    const queue: TreeNode[] = [root];
+
+    while (queue.length > 0) {
+      const levelSize = queue.length;
+      const levelValues: number[] = [];
+
+      for (let i = 0; i < levelSize; i++) {
+        const node = queue.shift()!; // Remove and get the first node in the queue
+        levelValues.push(node.val);
+
+        if (node.left) {
+          queue.push(node.left);
+        }
+
+        if (node.right) {
+          queue.push(node.right);
+        }
+      }
+
+      result.push(levelValues);
+    }
+
+    return result;
+  }
+
+  return levelOrderTraversal(root).reduce<number[]>(
+    (acc: number[], curr: number[]) => {
+      return [...acc, Math.max(...curr)];
+    },
+    []
+  );
 }
 
 export {
