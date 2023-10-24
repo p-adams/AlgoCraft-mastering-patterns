@@ -18,6 +18,7 @@ import {
   isSequence,
   isValid,
   largestValues,
+  numberOfEmployeesWhoMetTarget,
 } from "./index.ts";
 
 Deno.test("#maxMinElements", () => {
@@ -128,4 +129,8 @@ Deno.test("#largestValue", () => {
   node3_1.right = node3_2;
   node2.right = node9;
   assertEquals(largestValues(node1), [1, 3, 9]);
+});
+
+Deno.test("#numberOfEmployeesWhoMetTarget", () => {
+  assertEquals(numberOfEmployeesWhoMetTarget([0, 1, 2, 3, 4], 2), 3);
 });
