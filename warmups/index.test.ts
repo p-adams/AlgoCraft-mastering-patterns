@@ -17,6 +17,7 @@ import {
   knightProbability,
   isSequence,
   isValid,
+  largestValues,
 } from "./index.ts";
 
 Deno.test("#maxMinElements", () => {
@@ -111,4 +112,20 @@ Deno.test("#isSequence", () => {
 Deno.test("#isValid", () => {
   assertEquals(isValid("()"), true);
   assertEquals(isValid("(()"), false);
+});
+
+Deno.test("#largestValue", () => {
+  const node1 = new TreeNode(1);
+  const node3_1 = new TreeNode(3);
+  const node2 = new TreeNode(2);
+  const node5 = new TreeNode(5);
+  const node3_2 = new TreeNode(3);
+  const node9 = new TreeNode(9);
+
+  node1.left = node3_1;
+  node1.right = node2;
+  node3_1.left = node5;
+  node3_1.right = node3_2;
+  node2.right = node9;
+  assertEquals(largestValues(node1), [1, 3, 9]);
 });
