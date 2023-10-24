@@ -371,7 +371,17 @@ function interpret(command: string): string {
 }
 
 function countPairs(nums: number[], target: number): number {
-  return -1;
+  const pairs = [];
+  for (let index = 0; index < nums.length; index++) {
+    for (let iindex = 0; iindex < nums.length; iindex++) {
+      const el = nums[index];
+      const el1 = nums[iindex];
+      if (index < iindex && el + el1 < target) {
+        pairs.push([el, el1]);
+      }
+    }
+  }
+  return pairs.length;
 }
 
 export {

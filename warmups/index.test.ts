@@ -142,5 +142,6 @@ Deno.test("#interpret", () => {
 });
 
 Deno.test("#countPairs", () => {
-  assertEquals(countPairs([-1, 1, 2, 3, 1], 2), 2);
+  assertEquals(countPairs([-1, 1, 2, 3, 1], 2), 3);
+  assertEquals(countPairs([-6, 2, 5, -2, -7, -1, 3], -2), 10);
 });
