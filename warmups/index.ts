@@ -370,12 +370,17 @@ function interpret(command: string): string {
   return command.replaceAll("()", "o").replaceAll("(al)", "al");
 }
 
+function countPairs(nums: number[], target: number): number {
+  return -1;
+}
+
 export {
   arithmeticTriplets,
   arrReverse,
   checkPalindromeItr,
   checkPalindromeRec,
   countCharacters,
+  countPairs,
   emojiArtGenerator,
   evenOddNumber,
   interpret,
