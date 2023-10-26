@@ -384,6 +384,10 @@ function countPairs(nums: number[], target: number): number {
   return pairs.length;
 }
 
+function getMinimumDifference(root: TreeNode): number {
+  return -1;
+}
+
 export {
   arithmeticTriplets,
   arrReverse,
@@ -397,6 +401,7 @@ export {
   isSequence,
   isValid,
   findMaxDiff,
+  getMinimumDifference,
   knightProbability,
   largestValues,
   maxMinElements,
