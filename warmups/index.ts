@@ -385,7 +385,45 @@ function countPairs(nums: number[], target: number): number {
 }
 
 function getMinimumDifference(root: TreeNode): number {
-  return -1;
+  function levelOrderTraversal(root: TreeNode | null): number[][] {
+    const result: number[][] = [];
+
+    if (!root) {
+      return result;
+    }
+
+    const queue: TreeNode[] = [root];
+
+    while (queue.length > 0) {
+      const levelSize = queue.length;
+      const levelValues: number[] = [];
+
+      for (let i = 0; i < levelSize; i++) {
+        const node = queue.shift()!; // Remove and get the first node in the queue
+        levelValues.push(node.val);
+
+        if (node.left) {
+          queue.push(node.left);
+        }
+
+        if (node.right) {
+          queue.push(node.right);
+        }
+      }
+
+      result.push(levelValues);
+    }
+
+    return result;
+  }
+  const list = levelOrderTraversal(root);
+  const sList = (list.flat(Infinity) as []).sort((a: number, b) => a - b);
+  let min = 100_000;
+  for (let index = 1; index < sList.length; index++) {
+    min = Math.min(min, Math.abs(sList[index] - sList[index - 1]));
+  }
+
+  return min;
 }
 
 export {
