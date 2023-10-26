@@ -22,6 +22,7 @@ import {
   interpret,
   countPairs,
   getMinimumDifference,
+  balancedStringSplit,
 } from "./index.ts";
 
 Deno.test("#maxMinElements", () => {
@@ -162,4 +163,8 @@ Deno.test("#getMinimumDifference", () => {
   root2.right.left = null;
   root2.right.right = new TreeNode(989);
   assertEquals(getMinimumDifference(root2), 45);
+});
+
+Deno.test("#countPairs", () => {
+  assertEquals(balancedStringSplit("RLRRLLRLRL"), 4);
 });

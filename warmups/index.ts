@@ -410,9 +410,26 @@ function getMinimumDifference(root: TreeNode): number {
   return minDiff;
 }
 
+function balancedStringSplit(s: string): number {
+  let c = 0;
+  let res = 0;
+  for (const itr of s.split("")) {
+    if (itr === "L") {
+      ++c;
+    } else {
+      c--;
+    }
+    if (c === 0) {
+      res++;
+    }
+  }
+  return res;
+}
+
 export {
   arithmeticTriplets,
   arrReverse,
+  balancedStringSplit,
   checkPalindromeItr,
   checkPalindromeRec,
   countCharacters,
