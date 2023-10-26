@@ -426,10 +426,15 @@ function balancedStringSplit(s: string): number {
   return res;
 }
 
+function cellsInRange(s: string): string[] {
+  return [];
+}
+
 export {
   arithmeticTriplets,
   arrReverse,
   balancedStringSplit,
+  cellsInRange,
   checkPalindromeItr,
   checkPalindromeRec,
   countCharacters,

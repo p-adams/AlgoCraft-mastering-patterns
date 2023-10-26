@@ -23,6 +23,7 @@ import {
   countPairs,
   getMinimumDifference,
   balancedStringSplit,
+  cellsInRange,
 } from "./index.ts";
 
 Deno.test("#maxMinElements", () => {
@@ -165,6 +166,10 @@ Deno.test("#getMinimumDifference", () => {
   assertEquals(getMinimumDifference(root2), 45);
 });
 
-Deno.test("#countPairs", () => {
+Deno.test("#balancedStringSplit", () => {
   assertEquals(balancedStringSplit("RLRRLLRLRL"), 4);
+});
+
+Deno.test("#cellsInRange", () => {
+  assertEquals(cellsInRange("K1:L2"), ["K1", "K2", "L1", "L2"]);
 });
