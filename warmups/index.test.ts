@@ -153,7 +153,7 @@ Deno.test("#getMinimumDifference", () => {
   root.right = new TreeNode(6);
   root.left.left = new TreeNode(1);
   root.left.right = new TreeNode(3);
-  // assertEquals(getMinimumDifference(root), 1);
+  assertEquals(getMinimumDifference(root), 1);
   const root2 = new TreeNode(678);
   root2.left = new TreeNode(67);
   root2.right = new TreeNode(853);
