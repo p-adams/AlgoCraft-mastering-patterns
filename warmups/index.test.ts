@@ -198,4 +198,6 @@ Deno.test("#longestPalindrome", () => {
 
 Deno.test("#backspaceCompare", () => {
   assertEquals(backspaceCompare("ab#c", "ad#c"), true);
+  assertEquals(backspaceCompare("ab##", "c#d#"), true);
+  assertEquals(backspaceCompare("a#c", "b"), false);
 });

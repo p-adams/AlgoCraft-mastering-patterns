@@ -475,7 +475,24 @@ function longestPalindrome(s: string): string {
 }
 
 function backspaceCompare(s: string, t: string): boolean {
-  return false;
+  function processString(str: string): string {
+    const result: string[] = [];
+
+    for (const char of str) {
+      if (char === "#") {
+        result.pop();
+      } else {
+        result.push(char);
+      }
+    }
+
+    return result.join("");
+  }
+
+  const processedS = processString(s);
+  const processedT = processString(t);
+
+  return processedS === processedT;
 }
 
 export {
