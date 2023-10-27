@@ -474,9 +474,14 @@ function longestPalindrome(s: string): string {
   return longest;
 }
 
+function backspaceCompare(s: string, t: string): boolean {
+  return false;
+}
+
 export {
   arithmeticTriplets,
   arrReverse,
+  backspaceCompare,
   balancedStringSplit,
   cellsInRange,
   checkPalindromeItr,

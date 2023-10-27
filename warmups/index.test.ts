@@ -25,6 +25,7 @@ import {
   balancedStringSplit,
   cellsInRange,
   longestPalindrome,
+  backspaceCompare,
 } from "./index.ts";
 
 Deno.test("#maxMinElements", () => {
@@ -193,4 +194,8 @@ Deno.test("#longestPalindrome", () => {
   assertEquals(longestPalindrome("babad"), "bab");
   assertEquals(longestPalindrome("cbbd"), "bb");
   assertEquals(longestPalindrome("a"), "a");
+});
+
+Deno.test("#backspaceCompare", () => {
+  assertEquals(backspaceCompare("ab#c", "ad#c"), true);
 });
