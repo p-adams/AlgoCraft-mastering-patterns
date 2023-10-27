@@ -24,6 +24,7 @@ import {
   getMinimumDifference,
   balancedStringSplit,
   cellsInRange,
+  longestPalindrome,
 } from "./index.ts";
 
 Deno.test("#maxMinElements", () => {
@@ -186,4 +187,10 @@ Deno.test("#cellsInRange", () => {
     "Y7",
     "Z7",
   ]);
+});
+
+Deno.test("#longestPalindrome", () => {
+  assertEquals(longestPalindrome("babad"), "bab");
+  assertEquals(longestPalindrome("cbbd"), "bb");
+  assertEquals(longestPalindrome("a"), "a");
 });
