@@ -172,4 +172,18 @@ Deno.test("#balancedStringSplit", () => {
 
 Deno.test("#cellsInRange", () => {
   assertEquals(cellsInRange("K1:L2"), ["K1", "K2", "L1", "L2"]);
+  assertEquals(cellsInRange("A1:F1"), ["A1", "B1", "C1", "D1", "E1", "F1"]);
+  assertEquals(cellsInRange("P7:Z7"), [
+    "P7",
+    "Q7",
+    "R7",
+    "S7",
+    "T7",
+    "U7",
+    "V7",
+    "W7",
+    "X7",
+    "Y7",
+    "Z7",
+  ]);
 });

@@ -427,8 +427,30 @@ function balancedStringSplit(s: string): number {
 }
 
 function cellsInRange(s: string): string[] {
-  return [];
+  const [x, y] = s.split(":");
+  const [c1, r1] = x;
+  const [c2, r2] = y;
+  const colStart = c1.charCodeAt(0) - "A".charCodeAt(0);
+  const colEnd = c2.charCodeAt(0) - "A".charCodeAt(0);
+  const rowStart = parseInt(r1, 10);
+  const rowEnd = parseInt(r2, 10);
+
+  const result: string[] = [];
+
+  for (let col = colStart; col <= colEnd; col++) {
+    for (let row = rowStart; row <= rowEnd; row++) {
+      const cell = String.fromCharCode("A".charCodeAt(0) + col) + row;
+      result.push(cell);
+    }
+  }
+
+  return result;
 }
+
+// Example usage:
+const range = "P7:Z7";
+const cells = cellsInRange(range);
+console.log(cells); // Output: ["P7","Q7","R7","S7","T7","U7","V7","W7","X7","Y7","Z7"]
 
 export {
   arithmeticTriplets,
