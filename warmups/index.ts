@@ -474,11 +474,6 @@ function longestPalindrome(s: string): string {
   return longest;
 }
 
-// Example usage:
-const input = "ac";
-const result = longestPalindrome(input);
-console.log(result); // Output: "a"
-
 export {
   arithmeticTriplets,
   arrReverse,
