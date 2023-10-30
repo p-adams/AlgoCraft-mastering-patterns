@@ -495,6 +495,28 @@ function backspaceCompare(s: string, t: string): boolean {
   return processedS === processedT;
 }
 
+function sortByBits(arr: number[]): number[] {
+  function countOnesInBinary(number: number) {
+    let count = 0;
+    while (number > 0) {
+      count += number & 1;
+      number >>= 1;
+    }
+    return count;
+  }
+
+  return arr.sort((a, b) => {
+    const countA = countOnesInBinary(a);
+    const countB = countOnesInBinary(b);
+
+    if (countA === countB) {
+      return a - b;
+    } else {
+      return countA - countB;
+    }
+  });
+}
+
 export {
   arithmeticTriplets,
   arrReverse,
@@ -520,5 +542,6 @@ export {
   removeDuplicates,
   twoSum,
   sumOfEvens,
+  sortByBits,
   mergeTrees,
 };
