@@ -521,6 +521,18 @@ function checkIfPangram(sentence: string): boolean {
   return new Set(sentence).size === 26;
 }
 
+function sortSentence(s: string): string {
+  return s
+    .split(" ")
+    .map((ch) => {
+      const [word, index] = ch.split(/(\d+)/);
+      return { index: Number(index), word };
+    })
+    .sort((a, b) => a.index - b.index)
+    .map((obj) => obj.word)
+    .join(" ");
+}
+
 export {
   arithmeticTriplets,
   arrReverse,
@@ -548,5 +560,6 @@ export {
   twoSum,
   sumOfEvens,
   sortByBits,
+  sortSentence,
   mergeTrees,
 };

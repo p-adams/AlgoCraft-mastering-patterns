@@ -28,6 +28,7 @@ import {
   backspaceCompare,
   sortByBits,
   checkIfPangram,
+  sortSentence,
 } from "./index.ts";
 
 Deno.test("#maxMinElements", () => {
@@ -218,4 +219,9 @@ Deno.test("#sortByBits", () => {
 Deno.test("#checkIfPangram", () => {
   assertEquals(checkIfPangram("thequickbrownfoxjumpsoverthelazydog"), true);
   assertEquals(checkIfPangram("leetcode"), false);
+});
+
+Deno.test("#sortSentence", () => {
+  assertEquals(sortSentence("is2 sentence4 This1 a3"), "This is a sentence");
+  assertEquals(sortSentence("Myself2 Me1 I4 and3"), "Me Myself and I");
 });
