@@ -517,12 +517,17 @@ function sortByBits(arr: number[]): number[] {
   });
 }
 
+function checkIfPangram(sentence: string): boolean {
+  return new Set(sentence).size === 26;
+}
+
 export {
   arithmeticTriplets,
   arrReverse,
   backspaceCompare,
   balancedStringSplit,
   cellsInRange,
+  checkIfPangram,
   checkPalindromeItr,
   checkPalindromeRec,
   countCharacters,
