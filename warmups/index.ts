@@ -538,7 +538,15 @@ function isAcronym(words: string[], s: string): boolean {
 }
 
 function finalString(s: string): string {
-  return "";
+  let str = "";
+  for (let i = 0; i < s.length; ++i) {
+    if (s[i] === "i") {
+      str = str.split("").reverse().join("");
+    } else {
+      str += s[i];
+    }
+  }
+  return str;
 }
 
 export {
