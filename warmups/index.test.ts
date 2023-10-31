@@ -29,6 +29,8 @@ import {
   sortByBits,
   checkIfPangram,
   sortSentence,
+  isAcronym,
+  finalString,
 } from "./index.ts";
 
 Deno.test("#maxMinElements", () => {
@@ -224,4 +226,13 @@ Deno.test("#checkIfPangram", () => {
 Deno.test("#sortSentence", () => {
   assertEquals(sortSentence("is2 sentence4 This1 a3"), "This is a sentence");
   assertEquals(sortSentence("Myself2 Me1 I4 and3"), "Me Myself and I");
+});
+
+Deno.test("#isAcronym", () => {
+  assertEquals(isAcronym(["alice", "bob", "charlie"], "abc"), true);
+  assertEquals(isAcronym(["an", "apple"], "a"), false);
+});
+
+Deno.test("#finalString", () => {
+  assertEquals(finalString("string"), "rtsng");
 });

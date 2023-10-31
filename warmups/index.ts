@@ -533,6 +533,14 @@ function sortSentence(s: string): string {
     .join(" ");
 }
 
+function isAcronym(words: string[], s: string): boolean {
+  return words.map((ch) => ch[0]).join("") === s;
+}
+
+function finalString(s: string): string {
+  return "";
+}
+
 export {
   arithmeticTriplets,
   arrReverse,
@@ -547,9 +555,11 @@ export {
   emojiArtGenerator,
   evenOddNumber,
   interpret,
+  isAcronym,
   isSequence,
   isValid,
   findMaxDiff,
+  finalString,
   getMinimumDifference,
   knightProbability,
   largestValues,
