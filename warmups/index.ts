@@ -549,8 +549,35 @@ function finalString(s: string): string {
   return str;
 }
 
-function findMode(root: TreeNode | null): number[] {
-  return [];
+function findMode(root: TreeNode) {
+  const modeMap: { [key: number]: number } = {};
+  let maxCount = 0;
+  const modes: number[] = [];
+
+  function inOrder(node: TreeNode | null) {
+    if (node) {
+      inOrder(node.left);
+
+      if (modeMap[node.val] === undefined) {
+        modeMap[node.val] = 1;
+      } else {
+        modeMap[node.val]++;
+      }
+
+      if (modeMap[node.val] > maxCount) {
+        maxCount = modeMap[node.val];
+        modes.length = 0;
+        modes.push(node.val);
+      } else if (modeMap[node.val] === maxCount && !modes.includes(node.val)) {
+        modes.push(node.val);
+      }
+
+      inOrder(node.right);
+    }
+  }
+
+  inOrder(root);
+  return modes;
 }
 
 export {
