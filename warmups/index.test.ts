@@ -32,6 +32,7 @@ import {
   isAcronym,
   finalString,
   findMode,
+  removeOuterParentheses,
 } from "./index.ts";
 
 Deno.test("#maxMinElements", () => {
@@ -243,4 +244,9 @@ Deno.test("#findMode", () => {
   root.right = new TreeNode(2);
   root.right.left = new TreeNode(2);
   assertEquals(findMode(root), [2]);
+});
+
+Deno.test("#removeOuterParentheses", () => {
+  assertEquals(removeOuterParentheses("(()())(())"), "()()()");
+  assertEquals(removeOuterParentheses("(()())(())(()(()))"), "()()()()(())");
 });

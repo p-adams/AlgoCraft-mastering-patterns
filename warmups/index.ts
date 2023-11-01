@@ -580,6 +580,27 @@ function findMode(root: TreeNode) {
   return modes;
 }
 
+function removeOuterParentheses(s: string): string {
+  let result = "";
+  let depth = 0;
+
+  for (const char of s) {
+    if (char === "(") {
+      if (depth > 0) {
+        result += char;
+      }
+      depth++;
+    } else if (char === ")") {
+      depth--;
+      if (depth > 0) {
+        result += char;
+      }
+    }
+  }
+
+  return result;
+}
+
 export {
   arithmeticTriplets,
   arrReverse,
@@ -607,6 +628,7 @@ export {
   maxMinElements,
   numberOfEmployeesWhoMetTarget,
   removeDuplicates,
+  removeOuterParentheses,
   twoSum,
   sumOfEvens,
   sortByBits,
