@@ -549,6 +549,10 @@ function finalString(s: string): string {
   return str;
 }
 
+function findMode(root: TreeNode | null): number[] {
+  return [];
+}
+
 export {
   arithmeticTriplets,
   arrReverse,
@@ -567,6 +571,7 @@ export {
   isSequence,
   isValid,
   findMaxDiff,
+  findMode,
   finalString,
   getMinimumDifference,
   knightProbability,

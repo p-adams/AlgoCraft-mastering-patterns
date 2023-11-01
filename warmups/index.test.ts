@@ -31,6 +31,7 @@ import {
   sortSentence,
   isAcronym,
   finalString,
+  findMode,
 } from "./index.ts";
 
 Deno.test("#maxMinElements", () => {
@@ -235,4 +236,8 @@ Deno.test("#isAcronym", () => {
 
 Deno.test("#finalString", () => {
   assertEquals(finalString("string"), "rtsng");
+});
+
+Deno.test("#findMode", () => {
+  assertEquals(findMode(null), []);
 });
