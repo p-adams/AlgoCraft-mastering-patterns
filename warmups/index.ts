@@ -601,6 +601,21 @@ function removeOuterParentheses(s: string): string {
   return result;
 }
 
+function countAsterisks(s: string): number {
+  let lonelyStars = 0;
+  let insidePair = false;
+
+  for (let i = 0; i < s.length; i++) {
+    if (s[i] === "|") {
+      insidePair = !insidePair;
+    } else if (s[i] === "*" && !insidePair) {
+      lonelyStars++;
+    }
+  }
+
+  return lonelyStars;
+}
+
 export {
   arithmeticTriplets,
   arrReverse,
@@ -610,6 +625,7 @@ export {
   checkIfPangram,
   checkPalindromeItr,
   checkPalindromeRec,
+  countAsterisks,
   countCharacters,
   countPairs,
   emojiArtGenerator,

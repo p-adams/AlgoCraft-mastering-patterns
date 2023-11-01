@@ -33,6 +33,7 @@ import {
   finalString,
   findMode,
   removeOuterParentheses,
+  countAsterisks,
 } from "./index.ts";
 
 Deno.test("#maxMinElements", () => {
@@ -249,4 +250,8 @@ Deno.test("#findMode", () => {
 Deno.test("#removeOuterParentheses", () => {
   assertEquals(removeOuterParentheses("(()())(())"), "()()()");
   assertEquals(removeOuterParentheses("(()())(())(()(()))"), "()()()()(())");
+});
+
+Deno.test("#countAsterisks", () => {
+  assertEquals(countAsterisks("l|*e*et|c**o|*de|"), 2);
 });
