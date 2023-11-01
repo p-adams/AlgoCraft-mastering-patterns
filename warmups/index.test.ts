@@ -239,5 +239,8 @@ Deno.test("#finalString", () => {
 });
 
 Deno.test("#findMode", () => {
-  assertEquals(findMode(null), []);
+  const root = new TreeNode(1);
+  root.right = new TreeNode(2);
+  root.right.left = new TreeNode(2);
+  assertEquals(findMode(root), [2]);
 });
