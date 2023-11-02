@@ -616,6 +616,10 @@ function countAsterisks(s: string): number {
   return lonelyStars;
 }
 
+function leftRightDifference(nums: number[]): number[] {
+  return [];
+}
+
 export {
   arithmeticTriplets,
   arrReverse,
@@ -640,6 +644,7 @@ export {
   getMinimumDifference,
   knightProbability,
   largestValues,
+  leftRightDifference,
   longestPalindrome,
   maxMinElements,
   numberOfEmployeesWhoMetTarget,

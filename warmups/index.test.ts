@@ -34,6 +34,7 @@ import {
   findMode,
   removeOuterParentheses,
   countAsterisks,
+  leftRightDifference,
 } from "./index.ts";
 
 Deno.test("#maxMinElements", () => {
@@ -254,4 +255,8 @@ Deno.test("#removeOuterParentheses", () => {
 
 Deno.test("#countAsterisks", () => {
   assertEquals(countAsterisks("l|*e*et|c**o|*de|"), 2);
+});
+
+Deno.test("#leftRightDifference", () => {
+  assertEquals(leftRightDifference([10, 4, 8, 3]), [15, 1, 11, 22]);
 });
