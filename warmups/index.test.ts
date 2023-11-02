@@ -35,6 +35,7 @@ import {
   removeOuterParentheses,
   countAsterisks,
   leftRightDifference,
+  sumCounts,
 } from "./index.ts";
 
 Deno.test("#maxMinElements", () => {
@@ -259,4 +260,8 @@ Deno.test("#countAsterisks", () => {
 
 Deno.test("#leftRightDifference", () => {
   assertEquals(leftRightDifference([10, 4, 8, 3]), [15, 1, 11, 22]);
+});
+
+Deno.test("#sumCounts", () => {
+  assertEquals(sumCounts([1, 2, 1]), 15);
 });

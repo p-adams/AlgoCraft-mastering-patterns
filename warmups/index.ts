@@ -646,6 +646,22 @@ function leftRightDifference(nums: number[]): number[] {
   return answer;
 }
 
+function sumCounts(nums: number[]): number {
+  let result = 0;
+  const list = [];
+  for (let i = 0; i < nums.length; i++) {
+    for (let j = i; j < nums.length; j++) {
+      list.push(nums.slice(i, j + 1));
+    }
+  }
+  for (let index = 0; index < list.length; index++) {
+    const element = list[index];
+    result += new Set(element).size ** 2;
+  }
+
+  return result;
+}
+
 export {
   arithmeticTriplets,
   arrReverse,
@@ -678,6 +694,7 @@ export {
   removeOuterParentheses,
   twoSum,
   sumOfEvens,
+  sumCounts,
   sortByBits,
   sortSentence,
   mergeTrees,
