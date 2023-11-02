@@ -617,7 +617,33 @@ function countAsterisks(s: string): number {
 }
 
 function leftRightDifference(nums: number[]): number[] {
-  return [];
+  const n = nums.length;
+
+  // Calculate the prefix sums for both left and right sides
+  const leftSum = new Array(n).fill(0);
+  const rightSum = new Array(n).fill(0);
+
+  // Calculate the leftSum array
+  let sum = 0;
+  for (let i = 0; i < n; i++) {
+    leftSum[i] = sum;
+    sum += nums[i];
+  }
+
+  // Calculate the rightSum array
+  sum = 0;
+  for (let i = n - 1; i >= 0; i--) {
+    rightSum[i] = sum;
+    sum += nums[i];
+  }
+
+  // Calculate the answer array
+  const answer = new Array(n);
+  for (let i = 0; i < n; i++) {
+    answer[i] = Math.abs(leftSum[i] - rightSum[i]);
+  }
+
+  return answer;
 }
 
 export {
