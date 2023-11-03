@@ -662,11 +662,16 @@ function sumCounts(nums: number[]): number {
   return result;
 }
 
+function buildArray(target: number[], n: number): string[] {
+  return [];
+}
+
 export {
   arithmeticTriplets,
   arrReverse,
   backspaceCompare,
   balancedStringSplit,
+  buildArray,
   cellsInRange,
   checkIfPangram,
   checkPalindromeItr,

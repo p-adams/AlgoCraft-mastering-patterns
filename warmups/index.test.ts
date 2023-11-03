@@ -36,6 +36,7 @@ import {
   countAsterisks,
   leftRightDifference,
   sumCounts,
+  buildArray,
 } from "./index.ts";
 
 Deno.test("#maxMinElements", () => {
@@ -264,4 +265,8 @@ Deno.test("#leftRightDifference", () => {
 
 Deno.test("#sumCounts", () => {
   assertEquals(sumCounts([1, 2, 1]), 15);
+});
+
+Deno.test("#buildArray", () => {
+  assertEquals(buildArray, null);
 });
