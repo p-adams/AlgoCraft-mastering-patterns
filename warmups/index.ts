@@ -701,7 +701,15 @@ function sumIndicesWithKSetBits(nums: number[], k: number): number {
 }
 
 function maximizeSum(nums: number[], k: number): number {
-  return -1;
+  let score = 0;
+  while (k > 0) {
+    const max = Math.max(...nums);
+    score += max;
+    nums = nums.filter((n) => n !== max);
+    nums.push(max + 1);
+    --k;
+  }
+  return score;
 }
 
 export {
