@@ -700,6 +700,10 @@ function sumIndicesWithKSetBits(nums: number[], k: number): number {
   return sum;
 }
 
+function maximizeSum(nums: number[], k: number): number {
+  return -1;
+}
+
 export {
   arithmeticTriplets,
   arrReverse,
@@ -728,6 +732,7 @@ export {
   leftRightDifference,
   longestPalindrome,
   maxMinElements,
+  maximizeSum,
   numberOfEmployeesWhoMetTarget,
   removeDuplicates,
   removeOuterParentheses,

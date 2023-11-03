@@ -38,6 +38,7 @@ import {
   sumCounts,
   buildArray,
   sumIndicesWithKSetBits,
+  maximizeSum,
 } from "./index.ts";
 
 Deno.test("#maxMinElements", () => {
@@ -275,4 +276,8 @@ Deno.test("#buildArray", () => {
 Deno.test("#sumIndicesWithKSetBits", () => {
   assertEquals(sumIndicesWithKSetBits([5, 10, 1, 5, 2], 1), 13);
   assertEquals(sumIndicesWithKSetBits([4, 3, 2, 1], 2), 1);
+});
+
+Deno.test("#maximizeSum", () => {
+  assertEquals(maximizeSum([1, 2, 3, 4, 5], 3), 18);
 });
