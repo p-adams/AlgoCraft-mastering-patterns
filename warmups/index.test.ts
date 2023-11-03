@@ -268,5 +268,5 @@ Deno.test("#sumCounts", () => {
 });
 
 Deno.test("#buildArray", () => {
-  assertEquals(buildArray, null);
+  assertEquals(buildArray([1, 3], 3), ["Push", "Push", "Pop", "Push"]);
 });

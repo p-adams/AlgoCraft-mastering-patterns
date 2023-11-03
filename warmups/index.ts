@@ -663,7 +663,22 @@ function sumCounts(nums: number[]): number {
 }
 
 function buildArray(target: number[], n: number): string[] {
-  return [];
+  const stk = [];
+  const operations = [];
+
+  for (let i = 1, targetIndex = 0; i <= n && targetIndex < target.length; i++) {
+    stk.push(i);
+    operations.push("Push");
+
+    if (stk[stk.length - 1] === target[targetIndex]) {
+      targetIndex++;
+    } else {
+      stk.pop();
+      operations.push("Pop");
+    }
+  }
+
+  return operations;
 }
 
 export {
