@@ -681,6 +681,25 @@ function buildArray(target: number[], n: number): string[] {
   return operations;
 }
 
+function sumIndicesWithKSetBits(nums: number[], k: number): number {
+  let sum = 0;
+  function countOnesInBinary(number: number) {
+    let count = 0;
+    while (number > 0) {
+      count += number & 1;
+      number >>= 1;
+    }
+    return count;
+  }
+  for (let index = 0; index < nums.length; index++) {
+    const count = countOnesInBinary(index);
+    if (count === k) {
+      sum += nums[index];
+    }
+  }
+  return sum;
+}
+
 export {
   arithmeticTriplets,
   arrReverse,
@@ -715,6 +734,7 @@ export {
   twoSum,
   sumOfEvens,
   sumCounts,
+  sumIndicesWithKSetBits,
   sortByBits,
   sortSentence,
   mergeTrees,

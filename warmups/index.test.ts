@@ -37,6 +37,7 @@ import {
   leftRightDifference,
   sumCounts,
   buildArray,
+  sumIndicesWithKSetBits,
 } from "./index.ts";
 
 Deno.test("#maxMinElements", () => {
@@ -269,4 +270,9 @@ Deno.test("#sumCounts", () => {
 
 Deno.test("#buildArray", () => {
   assertEquals(buildArray([1, 3], 3), ["Push", "Push", "Pop", "Push"]);
+});
+
+Deno.test("#sumIndicesWithKSetBits", () => {
+  assertEquals(sumIndicesWithKSetBits([5, 10, 1, 5, 2], 1), 13);
+  assertEquals(sumIndicesWithKSetBits([4, 3, 2, 1], 2), 1);
 });
