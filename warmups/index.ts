@@ -735,6 +735,15 @@ function romanToInt(s: string): number {
   return result;
 }
 
+function findDifference(nums1: number[], nums2: number[]): number[][] {
+  const uniq1 = Array.from(new Set(nums1));
+  const uniq2 = Array.from(new Set(nums2));
+  return [
+    uniq1.filter((u) => !uniq2.includes(u)),
+    uniq2.filter((u) => !uniq1.includes(u)),
+  ];
+}
+
 export {
   arithmeticTriplets,
   arrReverse,
@@ -754,6 +763,7 @@ export {
   isAcronym,
   isSequence,
   isValid,
+  findDifference,
   findMaxDiff,
   findMode,
   finalString,

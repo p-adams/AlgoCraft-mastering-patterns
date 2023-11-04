@@ -40,6 +40,7 @@ import {
   sumIndicesWithKSetBits,
   maximizeSum,
   romanToInt,
+  findDifference,
 } from "./index.ts";
 
 Deno.test("#maxMinElements", () => {
@@ -287,4 +288,12 @@ Deno.test("#romanToInt", () => {
   assertEquals(romanToInt("III"), 3);
   assertEquals(romanToInt("LVIII"), 58);
   assertEquals(romanToInt("MCMXCIV"), 1994);
+});
+
+Deno.test("#findDifference", () => {
+  assertEquals(findDifference([1, 2, 3], [2, 4, 6]), [
+    [1, 3],
+    [4, 6],
+  ]);
+  assertEquals(findDifference([1, 2, 3, 3], [1, 1, 2, 2]), [[3], []]);
 });
