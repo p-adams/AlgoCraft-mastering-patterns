@@ -712,6 +712,29 @@ function maximizeSum(nums: number[], k: number): number {
   return score;
 }
 
+function romanToInt(s: string): number {
+  const rn: { [key: string]: number } = {
+    I: 1,
+    V: 5,
+    X: 10,
+    L: 50,
+    C: 100,
+    D: 500,
+    M: 1000,
+  };
+  let result = 0;
+  for (let index = 0; index < s.length; index++) {
+    const current = rn[s[index]];
+    const next = rn[s[index + 1]];
+    if (next && current < next) {
+      result -= current;
+    } else {
+      result += current;
+    }
+  }
+  return result;
+}
+
 export {
   arithmeticTriplets,
   arrReverse,
@@ -744,6 +767,7 @@ export {
   numberOfEmployeesWhoMetTarget,
   removeDuplicates,
   removeOuterParentheses,
+  romanToInt,
   twoSum,
   sumOfEvens,
   sumCounts,

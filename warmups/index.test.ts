@@ -39,6 +39,7 @@ import {
   buildArray,
   sumIndicesWithKSetBits,
   maximizeSum,
+  romanToInt,
 } from "./index.ts";
 
 Deno.test("#maxMinElements", () => {
@@ -280,4 +281,10 @@ Deno.test("#sumIndicesWithKSetBits", () => {
 
 Deno.test("#maximizeSum", () => {
   assertEquals(maximizeSum([1, 2, 3, 4, 5], 3), 18);
+});
+
+Deno.test("#romanToInt", () => {
+  assertEquals(romanToInt("III"), 3);
+  assertEquals(romanToInt("LVIII"), 58);
+  assertEquals(romanToInt("MCMXCIV"), 1994);
 });
