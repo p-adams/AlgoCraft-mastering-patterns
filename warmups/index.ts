@@ -736,12 +736,13 @@ function romanToInt(s: string): number {
 }
 
 function findDifference(nums1: number[], nums2: number[]): number[][] {
-  const uniq1 = Array.from(new Set(nums1));
-  const uniq2 = Array.from(new Set(nums2));
-  return [
-    uniq1.filter((u) => !uniq2.includes(u)),
-    uniq2.filter((u) => !uniq1.includes(u)),
-  ];
+  const set1 = new Set(nums1);
+  const set2 = new Set(nums2);
+
+  const difference1 = [...set1].filter((num) => !set2.has(num));
+  const difference2 = [...set2].filter((num) => !set1.has(num));
+
+  return [difference1, difference2];
 }
 
 export {
