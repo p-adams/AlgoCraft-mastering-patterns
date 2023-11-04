@@ -41,6 +41,7 @@ import {
   maximizeSum,
   romanToInt,
   findDifference,
+  maximumNumberOfStringPairs,
 } from "./index.ts";
 
 Deno.test("#maxMinElements", () => {
@@ -296,4 +297,9 @@ Deno.test("#findDifference", () => {
     [4, 6],
   ]);
   assertEquals(findDifference([1, 2, 3, 3], [1, 1, 2, 2]), [[3], []]);
+});
+
+Deno.test("#maximumNumberOfStringPairs", () => {
+  assertEquals(maximumNumberOfStringPairs(["cd", "ac", "dc", "ca", "zz"]), 2);
+  assertEquals(maximumNumberOfStringPairs(["ab", "ba", "cc"]), 1);
 });

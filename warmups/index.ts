@@ -745,6 +745,23 @@ function findDifference(nums1: number[], nums2: number[]): number[][] {
   return [difference1, difference2];
 }
 
+function maximumNumberOfStringPairs(words: string[]): number {
+  const reversedWords = new Set();
+  let pairs = 0;
+
+  for (const word of words) {
+    const reversed = word.split("").reverse().join("");
+    if (reversedWords.has(reversed)) {
+      pairs++;
+      reversedWords.delete(reversed);
+    } else {
+      reversedWords.add(word);
+    }
+  }
+
+  return pairs;
+}
+
 export {
   arithmeticTriplets,
   arrReverse,
@@ -775,6 +792,7 @@ export {
   longestPalindrome,
   maxMinElements,
   maximizeSum,
+  maximumNumberOfStringPairs,
   numberOfEmployeesWhoMetTarget,
   removeDuplicates,
   removeOuterParentheses,
