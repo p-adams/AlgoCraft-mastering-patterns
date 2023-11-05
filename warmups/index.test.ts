@@ -42,6 +42,7 @@ import {
   romanToInt,
   findDifference,
   maximumNumberOfStringPairs,
+  sortPeople,
 } from "./index.ts";
 
 Deno.test("#maxMinElements", () => {
@@ -302,4 +303,12 @@ Deno.test("#findDifference", () => {
 Deno.test("#maximumNumberOfStringPairs", () => {
   assertEquals(maximumNumberOfStringPairs(["cd", "ac", "dc", "ca", "zz"]), 2);
   assertEquals(maximumNumberOfStringPairs(["ab", "ba", "cc"]), 1);
+});
+
+Deno.test("#sortPeople", () => {
+  assertEquals(sortPeople(["Mary", "John", "Emma"], [180, 165, 170]), [
+    "Mary",
+    "Emma",
+    "John",
+  ]);
 });

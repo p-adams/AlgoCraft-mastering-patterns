@@ -762,6 +762,13 @@ function maximumNumberOfStringPairs(words: string[]): number {
   return pairs;
 }
 
+function sortPeople(names: string[], heights: number[]): string[] {
+  return names
+    .map((v, i) => ({ name: v, height: heights[i] }))
+    .sort((a, b) => b.height - a.height)
+    .map((v) => v.name);
+}
+
 export {
   arithmeticTriplets,
   arrReverse,
@@ -802,6 +809,7 @@ export {
   sumCounts,
   sumIndicesWithKSetBits,
   sortByBits,
+  sortPeople,
   sortSentence,
   mergeTrees,
 };
