@@ -881,6 +881,26 @@ function deleteGreatestValue(grid: number[][]): number {
   return answer;
 }
 
+function distinctDifferenceArray(nums: number[]): number[] {
+  const cnt = new Array(51).fill(0);
+  let dist = 0;
+  const res: number[] = [];
+
+  for (const n of nums) {
+    res.push(
+      (res.length === 0 ? 0 : res[res.length - 1]) + (cnt[n]++ === 0 ? 1 : 0)
+    );
+  }
+
+  for (let i = nums.length - 1; i >= 1; i--) {
+    dist += cnt[nums[i]] > 0 ? 1 : 0;
+    cnt[nums[i]] = 0;
+    res[i - 1] -= dist;
+  }
+
+  return res;
+}
+
 export {
   arithmeticTriplets,
   arrReverse,
@@ -895,6 +915,7 @@ export {
   countCharacters,
   countPairs,
   deleteGreatestValue,
+  distinctDifferenceArray,
   emojiArtGenerator,
   evenOddNumber,
   interpret,
