@@ -1,4 +1,7 @@
-import { assertEquals } from "https://deno.land/std@0.113.0/testing/asserts.ts";
+import {
+  assert,
+  assertEquals,
+} from "https://deno.land/std@0.113.0/testing/asserts.ts";
 import {
   arrReverse,
   checkPalindromeRec,
@@ -43,7 +46,9 @@ import {
   findDifference,
   maximumNumberOfStringPairs,
   sortPeople,
+  SeatManager,
 } from "./index.ts";
+import { assertInstanceOf } from "https://deno.land/std@0.200.0/assert/assert_instance_of.ts";
 
 Deno.test("#maxMinElements", () => {
   assertEquals([5, 1], maxMinElements([1, 2, 3, 4, 5]));
@@ -311,4 +316,10 @@ Deno.test("#sortPeople", () => {
     "Emma",
     "John",
   ]);
+});
+
+Deno.test("#SeatManager", () => {
+  const sm = new SeatManager(5);
+
+  assertInstanceOf(sm, SeatManager);
 });

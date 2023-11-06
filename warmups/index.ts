@@ -769,6 +769,83 @@ function sortPeople(names: string[], heights: number[]): string[] {
     .map((v) => v.name);
 }
 
+class SeatManager {
+  seats: MinHeap;
+  constructor(n: number) {
+    this.seats = new MinHeap();
+    for (let i = 1; i <= n; i++) {
+      this.seats.insert(i);
+    }
+  }
+
+  reserve(): number {
+    return this.seats.extractMin();
+  }
+
+  unreserve(seatNumber: number): void {
+    this.seats.insert(seatNumber);
+  }
+}
+
+class MinHeap {
+  heap: number[] = [];
+
+  insert(val: number): void {
+    this.heap.push(val);
+    this.heapifyUp(this.heap.length - 1);
+  }
+
+  extractMin(): number {
+    if (this.heap.length === 0) {
+      throw new Error("No available seats.");
+    }
+    const min = this.heap[0];
+    this.heap[0] = this.heap[this.heap.length - 1];
+    this.heap.pop();
+    this.heapifyDown(0);
+    return min;
+  }
+
+  private heapifyUp(index: number): void {
+    const parentIndex = Math.floor((index - 1) / 2);
+    if (parentIndex >= 0 && this.heap[parentIndex] > this.heap[index]) {
+      [this.heap[parentIndex], this.heap[index]] = [
+        this.heap[index],
+        this.heap[parentIndex],
+      ];
+      this.heapifyUp(parentIndex);
+    }
+  }
+
+  private heapifyDown(index: number): void {
+    const leftIndex = 2 * index + 1;
+    const rightIndex = 2 * index + 2;
+    let smallestIndex = index;
+
+    if (
+      leftIndex < this.heap.length &&
+      this.heap[leftIndex] < this.heap[smallestIndex]
+    ) {
+      smallestIndex = leftIndex;
+    }
+
+    if (
+      rightIndex < this.heap.length &&
+      this.heap[rightIndex] < this.heap[smallestIndex]
+    ) {
+      smallestIndex = rightIndex;
+    }
+
+    if (smallestIndex !== index) {
+      [this.heap[index], this.heap[smallestIndex]] = [
+        this.heap[smallestIndex],
+        this.heap[index],
+      ];
+      this.heapifyDown(smallestIndex);
+    }
+  }
+}
+
 export {
   arithmeticTriplets,
   arrReverse,
@@ -805,6 +882,7 @@ export {
   removeOuterParentheses,
   romanToInt,
   twoSum,
+  SeatManager,
   sumOfEvens,
   sumCounts,
   sumIndicesWithKSetBits,
