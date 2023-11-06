@@ -858,6 +858,29 @@ function separateDigits(nums: number[]): number[] {
   return result.flat(2);
 }
 
+function deleteGreatestValue(grid: number[][]): number {
+  let answer = 0;
+  const numRows = grid.length;
+  let numCols = grid[0].length;
+
+  while (numCols > 0) {
+    let maxDeletedValue = -1;
+
+    for (let row = 0; row < numRows; row++) {
+      const max = Math.max(...grid[row]);
+      maxDeletedValue = Math.max(maxDeletedValue, max);
+
+      const maxIndex = grid[row].indexOf(max);
+      grid[row].splice(maxIndex, 1);
+    }
+
+    answer += maxDeletedValue;
+    numCols--;
+  }
+
+  return answer;
+}
+
 export {
   arithmeticTriplets,
   arrReverse,
@@ -871,6 +894,7 @@ export {
   countAsterisks,
   countCharacters,
   countPairs,
+  deleteGreatestValue,
   emojiArtGenerator,
   evenOddNumber,
   interpret,
