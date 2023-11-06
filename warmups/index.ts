@@ -846,6 +846,18 @@ class MinHeap {
   }
 }
 
+function separateDigits(nums: number[]): number[] {
+  const result = nums.map((n) => {
+    const str = n
+      .toString()
+      .split("")
+      .map((el) => Number(el));
+    return str;
+  });
+
+  return result.flat(2);
+}
+
 export {
   arithmeticTriplets,
   arrReverse,
@@ -883,6 +895,7 @@ export {
   romanToInt,
   twoSum,
   SeatManager,
+  separateDigits,
   sumOfEvens,
   sumCounts,
   sumIndicesWithKSetBits,
