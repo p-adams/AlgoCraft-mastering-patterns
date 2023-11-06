@@ -50,6 +50,7 @@ import {
   separateDigits,
   deleteGreatestValue,
   distinctDifferenceArray,
+  findNonMinOrMax,
 } from "./index.ts";
 import { assertInstanceOf } from "https://deno.land/std@0.200.0/assert/assert_instance_of.ts";
 
@@ -344,4 +345,9 @@ Deno.test("#deleteGreatestValue", () => {
 
 Deno.test("#distinctDifferenceArray", () => {
   assertEquals(distinctDifferenceArray([1, 2, 3, 4, 5]), [-3, -1, 1, 3, 5]);
+});
+
+Deno.test("#indNonMinOrMax", () => {
+  assertEquals(findNonMinOrMax([3, 2, 1, 4]), 3);
+  assertEquals(findNonMinOrMax([1, 2]), -1);
 });

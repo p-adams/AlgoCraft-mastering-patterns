@@ -901,6 +901,12 @@ function distinctDifferenceArray(nums: number[]): number[] {
   return res;
 }
 
+function findNonMinOrMax(nums: number[]): number {
+  const min = Math.min(...nums);
+  const max = Math.max(...nums);
+  return nums.find((n) => n !== min && n !== max) ?? -1;
+}
+
 export {
   arithmeticTriplets,
   arrReverse,
@@ -926,6 +932,7 @@ export {
   findMaxDiff,
   findMode,
   finalString,
+  findNonMinOrMax,
   getMinimumDifference,
   knightProbability,
   largestValues,
