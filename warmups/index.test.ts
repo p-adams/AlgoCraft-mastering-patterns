@@ -53,6 +53,7 @@ import {
   findNonMinOrMax,
   sumOfSquares,
   countSeniors,
+  eliminateMaximum,
 } from "./index.ts";
 import { assertInstanceOf } from "https://deno.land/std@0.200.0/assert/assert_instance_of.ts";
 
@@ -365,4 +366,10 @@ Deno.test("#countSeniors", () => {
     2
   );
   assertEquals(countSeniors(["1313579440F2036", "2921522980M5644"]), 0);
+});
+
+Deno.test("#eliminateMaximum", () => {
+  assertEquals(eliminateMaximum([1, 3, 4], [1, 1, 1]), 3);
+  assertEquals(eliminateMaximum([3, 2, 4], [5, 3, 2]), 1);
+  assertEquals(eliminateMaximum([1, 1, 2, 3], [1, 1, 1, 1]), 1);
 });
