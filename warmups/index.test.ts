@@ -52,6 +52,7 @@ import {
   distinctDifferenceArray,
   findNonMinOrMax,
   sumOfSquares,
+  countSeniors,
 } from "./index.ts";
 import { assertInstanceOf } from "https://deno.land/std@0.200.0/assert/assert_instance_of.ts";
 
@@ -356,4 +357,12 @@ Deno.test("#indNonMinOrMax", () => {
 Deno.test("#sumOfSquares", () => {
   assertEquals(sumOfSquares([1, 2, 3, 4]), 21);
   assertEquals(sumOfSquares([2, 7, 1, 19, 18, 3]), 63);
+});
+
+Deno.test("#countSeniors", () => {
+  assertEquals(
+    countSeniors(["7868190130M7522", "5303914400F9211", "9273338290F4010"]),
+    2
+  );
+  assertEquals(countSeniors(["1313579440F2036", "2921522980M5644"]), 0);
 });

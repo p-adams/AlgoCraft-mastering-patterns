@@ -914,6 +914,15 @@ function sumOfSquares(nums: number[]): number {
     .reduce((p, c) => (p += c ** 2), 0);
 }
 
+function countSeniors(details: string[]): number {
+  return details
+    .map((d) => {
+      const [a, b, _] = d.substring(11, 15);
+      return Number(a + b);
+    })
+    .filter((v) => v > 60).length;
+}
+
 export {
   arithmeticTriplets,
   arrReverse,
@@ -927,6 +936,7 @@ export {
   countAsterisks,
   countCharacters,
   countPairs,
+  countSeniors,
   deleteGreatestValue,
   distinctDifferenceArray,
   emojiArtGenerator,
