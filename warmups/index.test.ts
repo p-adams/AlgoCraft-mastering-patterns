@@ -51,6 +51,7 @@ import {
   deleteGreatestValue,
   distinctDifferenceArray,
   findNonMinOrMax,
+  sumOfSquares,
 } from "./index.ts";
 import { assertInstanceOf } from "https://deno.land/std@0.200.0/assert/assert_instance_of.ts";
 
@@ -350,4 +351,9 @@ Deno.test("#distinctDifferenceArray", () => {
 Deno.test("#indNonMinOrMax", () => {
   assertEquals(findNonMinOrMax([3, 2, 1, 4]), 3);
   assertEquals(findNonMinOrMax([1, 2]), -1);
+});
+
+Deno.test("#sumOfSquares", () => {
+  assertEquals(sumOfSquares([1, 2, 3, 4]), 21);
+  assertEquals(sumOfSquares([2, 7, 1, 19, 18, 3]), 63);
 });

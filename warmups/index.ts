@@ -907,6 +907,13 @@ function findNonMinOrMax(nums: number[]): number {
   return nums.find((n) => n !== min && n !== max) ?? -1;
 }
 
+function sumOfSquares(nums: number[]): number {
+  const n = nums.length;
+  return nums
+    .filter((v, i) => n % (i + 1) === 0 && v)
+    .reduce((p, c) => (p += c ** 2), 0);
+}
+
 export {
   arithmeticTriplets,
   arrReverse,
@@ -949,6 +956,7 @@ export {
   SeatManager,
   separateDigits,
   sumOfEvens,
+  sumOfSquares,
   sumCounts,
   sumIndicesWithKSetBits,
   sortByBits,
