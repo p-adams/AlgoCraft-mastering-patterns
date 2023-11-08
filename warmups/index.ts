@@ -983,7 +983,28 @@ function numberOfPairs(nums: number[]): number[] {
 }
 
 function mergeSimilarItems(items1: number[][], items2: number[][]): number[][] {
-  return [[]];
+  const mergedItems = new Map();
+
+  for (const [value, weight] of items1) {
+    if (mergedItems.has(value)) {
+      mergedItems.set(value, mergedItems.get(value) + weight);
+    } else {
+      mergedItems.set(value, weight);
+    }
+  }
+
+  for (const [value, weight] of items2) {
+    if (mergedItems.has(value)) {
+      mergedItems.set(value, mergedItems.get(value) + weight);
+    } else {
+      mergedItems.set(value, weight);
+    }
+  }
+
+  const ret = Array.from(mergedItems).map(([value, weight]) => [value, weight]);
+  ret.sort((a, b) => a[0] - b[0]);
+
+  return ret;
 }
 
 export {
