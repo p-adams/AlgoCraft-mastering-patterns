@@ -939,7 +939,24 @@ function eliminateMaximum(dist: number[], speed: number[]): number {
 }
 
 function rowAndMaximumOnes(mat: number[][]): number[] {
-  return [];
+  const m = new Map<number, number>();
+  for (let row = 0; row < mat.length; row++) {
+    const $row = mat[row];
+    if ($row.includes(1)) {
+      m.set(row, $row.filter((r) => r === 1).length);
+    }
+  }
+
+  let maxValue = 0;
+  let maxKey = 0;
+
+  m.forEach((value, key) => {
+    if (value > maxValue) {
+      maxValue = value;
+      maxKey = key;
+    }
+  });
+  return [maxKey, maxValue];
 }
 
 export {

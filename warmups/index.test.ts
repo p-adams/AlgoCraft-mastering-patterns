@@ -383,4 +383,11 @@ Deno.test("#rowAndMaximumOnes", () => {
     ]),
     [0, 1]
   );
+  assertEquals(
+    rowAndMaximumOnes([
+      [0, 0, 0],
+      [0, 1, 1],
+    ]),
+    [1, 2]
+  );
 });
