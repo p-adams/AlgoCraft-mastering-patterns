@@ -959,6 +959,10 @@ function rowAndMaximumOnes(mat: number[][]): number[] {
   return [maxKey, maxValue];
 }
 
+function numberOfPairs(nums: number[]): number[] {
+  return [];
+}
+
 export {
   arithmeticTriplets,
   arrReverse,
@@ -996,6 +1000,7 @@ export {
   maximizeSum,
   maximumNumberOfStringPairs,
   numberOfEmployeesWhoMetTarget,
+  numberOfPairs,
   removeDuplicates,
   removeOuterParentheses,
   romanToInt,

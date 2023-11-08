@@ -55,6 +55,7 @@ import {
   countSeniors,
   eliminateMaximum,
   rowAndMaximumOnes,
+  numberOfPairs,
 } from "./index.ts";
 import { assertInstanceOf } from "https://deno.land/std@0.200.0/assert/assert_instance_of.ts";
 
@@ -390,4 +391,8 @@ Deno.test("#rowAndMaximumOnes", () => {
     ]),
     [1, 2]
   );
+});
+
+Deno.test("#numberOfPairs", () => {
+  assertEquals(numberOfPairs([1, 3, 2, 1, 3, 2, 2]), [3, 1]);
 });
