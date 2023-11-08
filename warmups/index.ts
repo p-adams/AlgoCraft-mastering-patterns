@@ -1007,6 +1007,25 @@ function mergeSimilarItems(items1: number[][], items2: number[][]): number[][] {
   return ret;
 }
 
+function partitionString(s: string): number {
+  const seen = new Set();
+  let partitions = 0;
+
+  for (let i = 0; i < s.length; i++) {
+    const char = s[i];
+
+    if (!seen.has(char)) {
+      seen.add(char);
+    } else {
+      seen.clear();
+      seen.add(char);
+      partitions++;
+    }
+  }
+
+  return partitions + 1;
+}
+
 export {
   arithmeticTriplets,
   arrReverse,
@@ -1046,6 +1065,7 @@ export {
   mergeSimilarItems,
   numberOfEmployeesWhoMetTarget,
   numberOfPairs,
+  partitionString,
   removeDuplicates,
   removeOuterParentheses,
   romanToInt,

@@ -57,6 +57,7 @@ import {
   rowAndMaximumOnes,
   numberOfPairs,
   mergeSimilarItems,
+  partitionString,
 } from "./index.ts";
 import { assertInstanceOf } from "https://deno.land/std@0.200.0/assert/assert_instance_of.ts";
 
@@ -419,4 +420,8 @@ Deno.test("#mergeSimilarItems", () => {
       [4, 5],
     ]
   );
+});
+
+Deno.test("#partitionString", () => {
+  assertEquals(partitionString("abacaba"), 4);
 });
