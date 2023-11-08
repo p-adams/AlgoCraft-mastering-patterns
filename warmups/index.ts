@@ -960,7 +960,26 @@ function rowAndMaximumOnes(mat: number[][]): number[] {
 }
 
 function numberOfPairs(nums: number[]): number[] {
-  return [];
+  const m = new Map<number, number>();
+  for (const n of nums) {
+    if (m.has(n)) {
+      m.set(n, m.get(n)! + 1);
+    } else {
+      m.set(n, 1);
+    }
+  }
+  let pairs = 0;
+  let rem = 0;
+  m.forEach((v) => {
+    if (v % 2 === 0) {
+      pairs += v / 2;
+    } else {
+      pairs += Math.floor(v / 2);
+      rem += v % 2;
+    }
+  });
+
+  return [pairs, rem];
 }
 
 export {

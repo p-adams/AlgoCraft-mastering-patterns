@@ -395,4 +395,6 @@ Deno.test("#rowAndMaximumOnes", () => {
 
 Deno.test("#numberOfPairs", () => {
   assertEquals(numberOfPairs([1, 3, 2, 1, 3, 2, 2]), [3, 1]);
+  assertEquals(numberOfPairs([1, 1]), [1, 0]);
+  assertEquals(numberOfPairs([0]), [0, 1]);
 });
