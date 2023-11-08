@@ -938,6 +938,10 @@ function eliminateMaximum(dist: number[], speed: number[]): number {
   return n;
 }
 
+function rowAndMaximumOnes(mat: number[][]): number[] {
+  return [];
+}
+
 export {
   arithmeticTriplets,
   arrReverse,
@@ -978,6 +982,7 @@ export {
   removeDuplicates,
   removeOuterParentheses,
   romanToInt,
+  rowAndMaximumOnes,
   twoSum,
   SeatManager,
   separateDigits,

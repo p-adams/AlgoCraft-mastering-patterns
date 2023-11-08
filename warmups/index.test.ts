@@ -54,6 +54,7 @@ import {
   sumOfSquares,
   countSeniors,
   eliminateMaximum,
+  rowAndMaximumOnes,
 } from "./index.ts";
 import { assertInstanceOf } from "https://deno.land/std@0.200.0/assert/assert_instance_of.ts";
 
@@ -372,4 +373,14 @@ Deno.test("#eliminateMaximum", () => {
   assertEquals(eliminateMaximum([1, 3, 4], [1, 1, 1]), 3);
   assertEquals(eliminateMaximum([3, 2, 4], [5, 3, 2]), 1);
   assertEquals(eliminateMaximum([1, 1, 2, 3], [1, 1, 1, 1]), 1);
+});
+
+Deno.test("#rowAndMaximumOnes", () => {
+  assertEquals(
+    rowAndMaximumOnes([
+      [0, 1],
+      [1, 0],
+    ]),
+    [0, 1]
+  );
 });
