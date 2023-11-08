@@ -56,6 +56,7 @@ import {
   eliminateMaximum,
   rowAndMaximumOnes,
   numberOfPairs,
+  mergeSimilarItems,
 } from "./index.ts";
 import { assertInstanceOf } from "https://deno.land/std@0.200.0/assert/assert_instance_of.ts";
 
@@ -397,4 +398,25 @@ Deno.test("#numberOfPairs", () => {
   assertEquals(numberOfPairs([1, 3, 2, 1, 3, 2, 2]), [3, 1]);
   assertEquals(numberOfPairs([1, 1]), [1, 0]);
   assertEquals(numberOfPairs([0]), [0, 1]);
+});
+
+Deno.test("#mergeSimilarItems", () => {
+  assertEquals(
+    mergeSimilarItems(
+      [
+        [1, 1],
+        [4, 5],
+        [3, 8],
+      ],
+      [
+        [3, 1],
+        [1, 5],
+      ]
+    ),
+    [
+      [1, 6],
+      [3, 9],
+      [4, 5],
+    ]
+  );
 });

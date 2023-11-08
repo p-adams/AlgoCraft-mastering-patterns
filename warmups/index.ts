@@ -982,6 +982,10 @@ function numberOfPairs(nums: number[]): number[] {
   return [pairs, rem];
 }
 
+function mergeSimilarItems(items1: number[][], items2: number[][]): number[][] {
+  return [[]];
+}
+
 export {
   arithmeticTriplets,
   arrReverse,
@@ -1018,6 +1022,7 @@ export {
   maxMinElements,
   maximizeSum,
   maximumNumberOfStringPairs,
+  mergeSimilarItems,
   numberOfEmployeesWhoMetTarget,
   numberOfPairs,
   removeDuplicates,
