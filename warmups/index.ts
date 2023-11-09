@@ -1046,7 +1046,19 @@ function countHomogenous(s: string): number {
 }
 
 function vowelStrings(words: string[], left: number, right: number): number {
-  return -1;
+  const isVowel = (ch: string) => ["a", "e", "i", "o", "u"].includes(ch);
+  const portion = words.slice(left, right + 1);
+  let c = 0;
+  for (const word of portion) {
+    const fst = word.charAt(0);
+    const lst = word.charAt(word.length - 1);
+
+    if (isVowel(fst) && isVowel(lst)) {
+      ++c;
+    }
+  }
+
+  return c;
 }
 
 export {

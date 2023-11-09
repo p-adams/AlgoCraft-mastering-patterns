@@ -434,4 +434,5 @@ Deno.test("#countHomogenous", () => {
 
 Deno.test("#vowelStrings", () => {
   assertEquals(vowelStrings(["are", "amy", "u"], 0, 2), 2);
+  assertEquals(vowelStrings(["hey", "aeo", "mu", "ooo", "artro"], 1, 4), 3);
 });
