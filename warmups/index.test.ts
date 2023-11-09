@@ -58,6 +58,8 @@ import {
   numberOfPairs,
   mergeSimilarItems,
   partitionString,
+  countHomogenous,
+  vowelStrings,
 } from "./index.ts";
 import { assertInstanceOf } from "https://deno.land/std@0.200.0/assert/assert_instance_of.ts";
 
@@ -424,4 +426,12 @@ Deno.test("#mergeSimilarItems", () => {
 
 Deno.test("#partitionString", () => {
   assertEquals(partitionString("abacaba"), 4);
+});
+
+Deno.test("#countHomogenous", () => {
+  assertEquals(countHomogenous("abbcccaa"), 13);
+});
+
+Deno.test("#vowelStrings", () => {
+  assertEquals(vowelStrings(["are", "amy", "u"], 0, 2), 2);
 });

@@ -1026,6 +1026,29 @@ function partitionString(s: string): number {
   return partitions + 1;
 }
 
+function countHomogenous(s: string): number {
+  const MOD = 1e9 + 7;
+  let count = 0;
+  let length = 1;
+
+  for (let i = 1; i <= s.length; i++) {
+    if (i < s.length && s[i] === s[i - 1]) {
+      length++;
+    } else {
+      count += (length * (length + 1)) / 2;
+      length = 1;
+    }
+
+    count %= MOD;
+  }
+
+  return count;
+}
+
+function vowelStrings(words: string[], left: number, right: number): number {
+  return -1;
+}
+
 export {
   arithmeticTriplets,
   arrReverse,
@@ -1038,6 +1061,7 @@ export {
   checkPalindromeRec,
   countAsterisks,
   countCharacters,
+  countHomogenous,
   countPairs,
   countSeniors,
   deleteGreatestValue,
@@ -1081,4 +1105,5 @@ export {
   sortPeople,
   sortSentence,
   mergeTrees,
+  vowelStrings,
 };
