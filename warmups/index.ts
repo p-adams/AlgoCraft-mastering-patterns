@@ -1104,6 +1104,10 @@ function calculate(s: string): number {
   return result;
 }
 
+function mergeArrays(nums1: number[][], nums2: number[][]): number[][] {
+  return [];
+}
+
 export {
   arithmeticTriplets,
   arrReverse,
@@ -1143,6 +1147,7 @@ export {
   maximizeSum,
   maximumNumberOfStringPairs,
   mergeSimilarItems,
+  mergeArrays,
   numberOfEmployeesWhoMetTarget,
   numberOfPairs,
   partitionString,

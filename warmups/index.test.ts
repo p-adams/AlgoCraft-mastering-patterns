@@ -61,6 +61,7 @@ import {
   countHomogenous,
   vowelStrings,
   calculate,
+  mergeArrays,
 } from "./index.ts";
 import { assertInstanceOf } from "https://deno.land/std@0.200.0/assert/assert_instance_of.ts";
 
@@ -440,4 +441,27 @@ Deno.test("#vowelStrings", () => {
 
 Deno.test("#calculate", () => {
   assertEquals(calculate("3+2*2"), 7);
+});
+
+Deno.test("#mergeArrays", () => {
+  assertEquals(
+    mergeArrays(
+      [
+        [1, 2],
+        [2, 3],
+        [4, 5],
+      ],
+      [
+        [1, 4],
+        [3, 2],
+        [4, 1],
+      ]
+    ),
+    [
+      [1, 6],
+      [2, 3],
+      [3, 2],
+      [4, 6],
+    ]
+  );
 });
