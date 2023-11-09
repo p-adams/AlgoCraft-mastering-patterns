@@ -1061,12 +1061,56 @@ function vowelStrings(words: string[], left: number, right: number): number {
   return c;
 }
 
+function calculate(s: string): number {
+  const stack = [];
+  let num = 0;
+  let sign = 1;
+  let result = 0;
+
+  for (let i = 0; i < s.length; i++) {
+    const char = s[i];
+
+    if (char >= "0" && char <= "9") {
+      num = num * 10 + parseInt(char);
+    } else if (char === "+") {
+      result += sign * num;
+      sign = 1;
+      num = 0;
+    } else if (char === "-") {
+      result += sign * num;
+      sign = -1;
+      num = 0;
+    } else if (char === "*" || char === "/") {
+      let j = i + 1;
+      while (j < s.length && s[j] === " ") {
+        j++; // Skip any whitespace
+      }
+      let nextNum = 0;
+      while (j < s.length && s[j] >= "0" && s[j] <= "9") {
+        nextNum = nextNum * 10 + parseInt(s[j]);
+        j++;
+      }
+      if (char === "*") {
+        num *= nextNum;
+      } else {
+        num = Math.trunc(num / nextNum);
+      }
+      i = j - 1;
+    }
+  }
+
+  result += sign * num;
+
+  return result;
+}
+
 export {
   arithmeticTriplets,
   arrReverse,
   backspaceCompare,
   balancedStringSplit,
   buildArray,
+  calculate,
   cellsInRange,
   checkIfPangram,
   checkPalindromeItr,

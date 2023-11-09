@@ -60,6 +60,7 @@ import {
   partitionString,
   countHomogenous,
   vowelStrings,
+  calculate,
 } from "./index.ts";
 import { assertInstanceOf } from "https://deno.land/std@0.200.0/assert/assert_instance_of.ts";
 
@@ -435,4 +436,8 @@ Deno.test("#countHomogenous", () => {
 Deno.test("#vowelStrings", () => {
   assertEquals(vowelStrings(["are", "amy", "u"], 0, 2), 2);
   assertEquals(vowelStrings(["hey", "aeo", "mu", "ooo", "artro"], 1, 4), 3);
+});
+
+Deno.test("#calculate", () => {
+  assertEquals(calculate("3+2*2"), 7);
 });
