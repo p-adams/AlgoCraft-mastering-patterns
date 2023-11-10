@@ -1167,6 +1167,29 @@ function restoreArray(adjacentPairs: number[][]): number[] {
   return result;
 }
 
+function minimumOperations(nums: number[]): number {
+  let operations = 0;
+
+  while (true) {
+    let minNonZero = Infinity;
+    for (const num of nums) {
+      if (num > 0 && num < minNonZero) {
+        minNonZero = num;
+      }
+    }
+    if (minNonZero === Infinity) {
+      break;
+    }
+    for (let i = 0; i < nums.length; i++) {
+      if (nums[i] > 0) {
+        nums[i] -= minNonZero;
+      }
+    }
+    operations++;
+  }
+  return operations;
+}
+
 export {
   arithmeticTriplets,
   arrReverse,
@@ -1207,6 +1230,7 @@ export {
   maximumNumberOfStringPairs,
   mergeSimilarItems,
   mergeArrays,
+  minimumOperations,
   numberOfEmployeesWhoMetTarget,
   numberOfPairs,
   partitionString,
