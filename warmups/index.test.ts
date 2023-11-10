@@ -64,6 +64,7 @@ import {
   mergeArrays,
   restoreArray,
   minimumOperations,
+  intersection,
 } from "./index.ts";
 import { assertInstanceOf } from "https://deno.land/std@0.200.0/assert/assert_instance_of.ts";
 
@@ -489,4 +490,10 @@ Deno.test("#restoreArray", () => {
 
 Deno.test("#minimumOperations", () => {
   assertEquals(minimumOperations([1, 5, 0, 3, 5]), 3);
+});
+
+Deno.test("#intersection", () => {
+  assertEquals(intersection([1, 2, 2, 1], [2, 2]), [2]);
+  assertEquals(intersection([4, 9, 5], [9, 4, 9, 8, 4]), [4, 9]);
+  assertEquals(intersection([8, 0, 3], [0, 0]), [0]);
 });

@@ -1190,6 +1190,10 @@ function minimumOperations(nums: number[]): number {
   return operations;
 }
 
+function intersection(nums1: number[], nums2: number[]): number[] {
+  return Array.from(new Set(nums1.filter((n) => nums2.includes(n))));
+}
+
 export {
   arithmeticTriplets,
   arrReverse,
@@ -1215,6 +1219,7 @@ export {
   isAcronym,
   isSequence,
   isValid,
+  intersection,
   findDifference,
   findMaxDiff,
   findMode,
