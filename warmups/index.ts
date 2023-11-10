@@ -1216,6 +1216,25 @@ function answerQueries(nums: number[], queries: number[]): number[] {
   return result;
 }
 
+function maximumValue(strs: string[]): number {
+  let max = 0;
+  for (const it of strs) {
+    const hasChar = it.match(/[a-zA-Z]+/g);
+    if (hasChar) {
+      max = Math.max(max, it.length);
+    } else {
+      const matches = it.match(/\d+/g);
+      const digitSum = matches?.reduce(
+        (prev, curr) => Number(prev) + Number(curr),
+        0
+      );
+      max = Math.max(max, digitSum!);
+    }
+  }
+
+  return max;
+}
+
 export {
   answerQueries,
   arithmeticTriplets,
@@ -1256,6 +1275,7 @@ export {
   maxMinElements,
   maximizeSum,
   maximumNumberOfStringPairs,
+  maximumValue,
   mergeSimilarItems,
   mergeArrays,
   minimumOperations,

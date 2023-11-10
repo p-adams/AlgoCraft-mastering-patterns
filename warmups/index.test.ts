@@ -66,6 +66,7 @@ import {
   minimumOperations,
   intersection,
   answerQueries,
+  maximumValue,
 } from "./index.ts";
 import { assertInstanceOf } from "https://deno.land/std@0.200.0/assert/assert_instance_of.ts";
 
@@ -501,4 +502,9 @@ Deno.test("#intersection", () => {
 
 Deno.test("#answerQueries", () => {
   assertEquals(answerQueries([4, 5, 2, 1], [3, 10, 21]), [2, 3, 4]);
+});
+
+Deno.test("#maximumValue", () => {
+  assertEquals(maximumValue(["alic3", "bob", "3", "4", "00000"]), 5);
+  assertEquals(maximumValue(["1", "01", "001", "0001"]), 1);
 });
