@@ -62,6 +62,7 @@ import {
   vowelStrings,
   calculate,
   mergeArrays,
+  restoreArray,
 } from "./index.ts";
 import { assertInstanceOf } from "https://deno.land/std@0.200.0/assert/assert_instance_of.ts";
 
@@ -463,5 +464,24 @@ Deno.test("#mergeArrays", () => {
       [3, 2],
       [4, 6],
     ]
+  );
+});
+
+Deno.test("#restoreArray", () => {
+  assertEquals(
+    restoreArray([
+      [2, 1],
+      [3, 4],
+      [3, 2],
+    ]),
+    [1, 2, 3, 4]
+  );
+  assertEquals(
+    restoreArray([
+      [4, -2],
+      [1, 4],
+      [-3, 1],
+    ]),
+    [-2, 4, 1, -3]
   );
 });

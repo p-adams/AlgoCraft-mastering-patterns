@@ -1124,6 +1124,49 @@ function mergeArrays(nums1: number[][], nums2: number[][]): number[][] {
     .sort((a, b) => a[0] - b[0]);
 }
 
+function restoreArray(adjacentPairs: number[][]): number[] {
+  const adjacencyMap = new Map();
+
+  // Build an adjacency map
+  for (const pair of adjacentPairs) {
+    if (!adjacencyMap.has(pair[0])) {
+      adjacencyMap.set(pair[0], []);
+    }
+    if (!adjacencyMap.has(pair[1])) {
+      adjacencyMap.set(pair[1], []);
+    }
+    adjacencyMap.get(pair[0]).push(pair[1]);
+    adjacencyMap.get(pair[1]).push(pair[0]);
+  }
+
+  // Find the start point (a point with only one connection)
+  let start = 0;
+  for (const [key, value] of adjacencyMap.entries()) {
+    if (value.length === 1) {
+      start = key;
+      break;
+    }
+  }
+
+  // Reconstruct the array
+  const result: number[] = [];
+  const visited = new Set();
+
+  function dfs(node: number) {
+    visited.add(node);
+    result.push(node);
+
+    for (const neighbor of adjacencyMap.get(node)) {
+      if (!visited.has(neighbor)) {
+        dfs(neighbor);
+      }
+    }
+  }
+
+  dfs(start);
+  return result;
+}
+
 export {
   arithmeticTriplets,
   arrReverse,
@@ -1169,6 +1212,7 @@ export {
   partitionString,
   removeDuplicates,
   removeOuterParentheses,
+  restoreArray,
   romanToInt,
   rowAndMaximumOnes,
   twoSum,
