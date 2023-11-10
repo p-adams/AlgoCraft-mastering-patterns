@@ -1105,7 +1105,23 @@ function calculate(s: string): number {
 }
 
 function mergeArrays(nums1: number[][], nums2: number[][]): number[][] {
-  return [];
+  const mergedItems = new Map();
+  function mergeItem(items: number[][]) {
+    for (const [id, value] of items) {
+      if (mergedItems.has(id)) {
+        mergedItems.set(id, mergedItems.get(id) + value);
+      } else {
+        mergedItems.set(id, value);
+      }
+    }
+  }
+
+  mergeItem(nums1);
+  mergeItem(nums2);
+
+  return Array.from(mergedItems)
+    .map(([id, value]) => [id, value])
+    .sort((a, b) => a[0] - b[0]);
 }
 
 export {
