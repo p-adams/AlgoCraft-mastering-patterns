@@ -1235,6 +1235,12 @@ function maximumValue(strs: string[]): number {
   return max;
 }
 
+function maximumCount(nums: number[]): number {
+  const neg = nums.filter((n) => n < 0);
+  const pos = nums.filter((n) => n > 0);
+  return Math.max(neg.length, pos.length);
+}
+
 export {
   answerQueries,
   arithmeticTriplets,
@@ -1276,6 +1282,7 @@ export {
   maximizeSum,
   maximumNumberOfStringPairs,
   maximumValue,
+  maximumCount,
   mergeSimilarItems,
   mergeArrays,
   minimumOperations,

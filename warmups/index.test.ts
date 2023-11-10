@@ -67,6 +67,7 @@ import {
   intersection,
   answerQueries,
   maximumValue,
+  maximumCount,
 } from "./index.ts";
 import { assertInstanceOf } from "https://deno.land/std@0.200.0/assert/assert_instance_of.ts";
 
@@ -507,4 +508,10 @@ Deno.test("#answerQueries", () => {
 Deno.test("#maximumValue", () => {
   assertEquals(maximumValue(["alic3", "bob", "3", "4", "00000"]), 5);
   assertEquals(maximumValue(["1", "01", "001", "0001"]), 1);
+});
+
+Deno.test("#maximumCount(", () => {
+  assertEquals(maximumCount([-2, -1, -1, 1, 2, 3]), 3);
+  assertEquals(maximumCount([-3, -2, -1, 0, 0, 1, 2]), 3);
+  assertEquals(maximumCount([5, 20, 66, 1314]), 4);
 });
