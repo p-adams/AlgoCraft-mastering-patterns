@@ -1194,7 +1194,30 @@ function intersection(nums1: number[], nums2: number[]): number[] {
   return Array.from(new Set(nums1.filter((n) => nums2.includes(n))));
 }
 
+function answerQueries(nums: number[], queries: number[]): number[] {
+  nums.sort((a, b) => a - b);
+  const result = [];
+
+  for (const query of queries) {
+    let count = 0;
+    let sum = 0;
+
+    for (const num of nums) {
+      sum += num;
+
+      if (sum <= query) {
+        count++;
+      }
+    }
+
+    result.push(count);
+  }
+
+  return result;
+}
+
 export {
+  answerQueries,
   arithmeticTriplets,
   arrReverse,
   backspaceCompare,
