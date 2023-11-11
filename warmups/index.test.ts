@@ -68,6 +68,7 @@ import {
   answerQueries,
   maximumValue,
   maximumCount,
+  unequalTriplets,
 } from "./index.ts";
 import { assertInstanceOf } from "https://deno.land/std@0.200.0/assert/assert_instance_of.ts";
 
@@ -514,4 +515,8 @@ Deno.test("#maximumCount(", () => {
   assertEquals(maximumCount([-2, -1, -1, 1, 2, 3]), 3);
   assertEquals(maximumCount([-3, -2, -1, 0, 0, 1, 2]), 3);
   assertEquals(maximumCount([5, 20, 66, 1314]), 4);
+});
+
+Deno.test("#unequalTriplets(", () => {
+  assertEquals(unequalTriplets([4, 4, 2, 4, 3]), 3);
 });

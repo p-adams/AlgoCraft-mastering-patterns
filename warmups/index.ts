@@ -1241,6 +1241,25 @@ function maximumCount(nums: number[]): number {
   return Math.max(neg.length, pos.length);
 }
 
+function unequalTriplets(nums: number[]): number {
+  let count = 0;
+  const hasDuplicates = (arr: number[]) =>
+    arr.some((item, index) => arr.indexOf(item) !== index);
+  for (const [ii, i] of nums.entries()) {
+    for (const [jj, j] of nums.entries()) {
+      for (const [kk, k] of nums.entries()) {
+        if (ii < jj && jj < kk) {
+          const res = [i, j, k];
+          if (!hasDuplicates(res)) {
+            count++;
+          }
+        }
+      }
+    }
+  }
+  return count;
+}
+
 export {
   answerQueries,
   arithmeticTriplets,
@@ -1295,6 +1314,7 @@ export {
   romanToInt,
   rowAndMaximumOnes,
   twoSum,
+  unequalTriplets,
   SeatManager,
   separateDigits,
   sumOfEvens,
