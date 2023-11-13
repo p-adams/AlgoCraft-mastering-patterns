@@ -1260,6 +1260,10 @@ function unequalTriplets(nums: number[]): number {
   return count;
 }
 
+function sortVowels(s: string): string {
+  return "";
+}
+
 export {
   answerQueries,
   arithmeticTriplets,
@@ -1324,6 +1328,7 @@ export {
   sortByBits,
   sortPeople,
   sortSentence,
+  sortVowels,
   mergeTrees,
   vowelStrings,
 };

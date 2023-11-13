@@ -69,6 +69,7 @@ import {
   maximumValue,
   maximumCount,
   unequalTriplets,
+  sortVowels,
 } from "./index.ts";
 import { assertInstanceOf } from "https://deno.land/std@0.200.0/assert/assert_instance_of.ts";
 
@@ -517,6 +518,10 @@ Deno.test("#maximumCount(", () => {
   assertEquals(maximumCount([5, 20, 66, 1314]), 4);
 });
 
-Deno.test("#unequalTriplets(", () => {
+Deno.test("#unequalTriplets", () => {
   assertEquals(unequalTriplets([4, 4, 2, 4, 3]), 3);
+});
+
+Deno.test("#sortVowels", () => {
+  assertEquals(sortVowels("lEetcOde"), "lEOtcede");
 });
