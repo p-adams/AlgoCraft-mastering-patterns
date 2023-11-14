@@ -1271,14 +1271,14 @@ function sortVowels(s: string): string {
     const ch = str[i];
     if (isVowel(ch)) {
       vowels.push(ch);
-      str[i] = null; // Replace the vowel with null
+      str[i] = "*";
     }
   }
 
   vowels.sort((a, b) => a.charCodeAt(0) - b.charCodeAt(0));
 
   for (let i = 0, v = 0; i < str.length; i++) {
-    if (str[i] === null) {
+    if (str[i] === "*") {
       str[i] = vowels[v];
       v++;
     }
