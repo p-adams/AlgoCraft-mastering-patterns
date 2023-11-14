@@ -1261,7 +1261,30 @@ function unequalTriplets(nums: number[]): number {
 }
 
 function sortVowels(s: string): string {
-  return "";
+  const isVowel = (ch: string) =>
+    ["a", "e", "i", "o", "u", "A", "E", "I", "O", "U"].includes(ch);
+
+  const vowels = [];
+  const str: string[] = s.split("");
+
+  for (let i = 0; i < str.length; i++) {
+    const ch = str[i];
+    if (isVowel(ch)) {
+      vowels.push(ch);
+      str[i] = null; // Replace the vowel with null
+    }
+  }
+
+  vowels.sort((a, b) => a.charCodeAt(0) - b.charCodeAt(0));
+
+  for (let i = 0, v = 0; i < str.length; i++) {
+    if (str[i] === null) {
+      str[i] = vowels[v];
+      v++;
+    }
+  }
+
+  return str.join("");
 }
 
 export {
