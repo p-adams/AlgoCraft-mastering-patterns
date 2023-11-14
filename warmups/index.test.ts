@@ -71,6 +71,7 @@ import {
   unequalTriplets,
   sortVowels,
   countPalindromicSubsequence,
+  maximumStrongPairXor,
 } from "./index.ts";
 import { assertInstanceOf } from "https://deno.land/std@0.200.0/assert/assert_instance_of.ts";
 
@@ -530,4 +531,10 @@ Deno.test("#sortVowels", () => {
 Deno.test("#countPalindromicSubsequence", () => {
   assertEquals(countPalindromicSubsequence("aabca"), 3);
   assertEquals(countPalindromicSubsequence("bbcbaba"), 4);
+});
+
+Deno.test("#maximumStrongPairXor", () => {
+  assertEquals(maximumStrongPairXor([1, 2, 3, 4, 5]), 7);
+  assertEquals(maximumStrongPairXor([10, 100]), 0);
+  assertEquals(maximumStrongPairXor([5, 6, 25, 30]), 7);
 });

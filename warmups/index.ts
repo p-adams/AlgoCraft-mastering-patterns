@@ -1286,7 +1286,7 @@ function sortVowels(s: string): string {
 
   return str.join("");
 }
-// "aabca"
+
 function countPalindromicSubsequence(s: string): number {
   const letterSet = new Set();
   let res = 0;
@@ -1303,6 +1303,19 @@ function countPalindromicSubsequence(s: string): number {
     }
   }
   return res;
+}
+
+function maximumStrongPairXor(nums: number[]): number {
+  let max = -Infinity;
+  for (const x of nums) {
+    for (const y of nums) {
+      if (Math.abs(x - y) <= Math.min(x, y)) {
+        const xOr = x ^ y;
+        max = Math.max(max, xOr);
+      }
+    }
+  }
+  return max;
 }
 
 export {
@@ -1348,6 +1361,7 @@ export {
   maximumNumberOfStringPairs,
   maximumValue,
   maximumCount,
+  maximumStrongPairXor,
   mergeSimilarItems,
   mergeArrays,
   minimumOperations,
