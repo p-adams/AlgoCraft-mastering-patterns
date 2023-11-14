@@ -1288,24 +1288,21 @@ function sortVowels(s: string): string {
 }
 // "aabca"
 function countPalindromicSubsequence(s: string): number {
-  const seen = new Set();
-  const isPalindrome = (ss: string) => {
-    return ss === ss.split("").reverse().join("");
-  };
-
+  const letterSet = new Set();
+  let res = 0;
   for (let i = 0; i < s.length; i++) {
-    for (let j = i + 1; j < s.length; j++) {
-      for (let k = j + 1; k < s.length; k++) {
-        const str = `${s[i]}${s[j]}${s[k]}`;
-        if (isPalindrome(str)) {
-          if (!seen.has(str)) {
-            seen.add(str);
-          }
-        }
+    if (letterSet.has(s[i])) continue;
+    const tempSet = new Set();
+    letterSet.add(s[i]);
+    const lastIndex = s.lastIndexOf(s[i]);
+    if (lastIndex !== i) {
+      for (let j = i + 1; j < lastIndex; j++) {
+        tempSet.add(s[j]);
       }
+      res += tempSet.size;
     }
   }
-  return seen.size;
+  return res;
 }
 
 export {
