@@ -72,6 +72,7 @@ import {
   sortVowels,
   countPalindromicSubsequence,
   maximumStrongPairXor,
+  findChampion,
 } from "./index.ts";
 import { assertInstanceOf } from "https://deno.land/std@0.200.0/assert/assert_instance_of.ts";
 
@@ -537,4 +538,14 @@ Deno.test("#maximumStrongPairXor", () => {
   assertEquals(maximumStrongPairXor([1, 2, 3, 4, 5]), 7);
   assertEquals(maximumStrongPairXor([10, 100]), 0);
   assertEquals(maximumStrongPairXor([5, 6, 25, 30]), 7);
+});
+
+Deno.test("#findChampion", () => {
+  assertEquals(
+    findChampion([
+      [0, 1],
+      [0, 0],
+    ]),
+    0
+  );
 });

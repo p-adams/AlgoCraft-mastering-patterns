@@ -1318,6 +1318,10 @@ function maximumStrongPairXor(nums: number[]): number {
   return max;
 }
 
+function findChampion(grid: number[][]): number {
+  return -1;
+}
+
 export {
   answerQueries,
   arithmeticTriplets,
@@ -1351,6 +1355,7 @@ export {
   findMode,
   finalString,
   findNonMinOrMax,
+  findChampion,
   getMinimumDifference,
   knightProbability,
   largestValues,
