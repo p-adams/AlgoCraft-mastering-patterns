@@ -70,6 +70,7 @@ import {
   maximumCount,
   unequalTriplets,
   sortVowels,
+  countPalindromicSubsequence,
 } from "./index.ts";
 import { assertInstanceOf } from "https://deno.land/std@0.200.0/assert/assert_instance_of.ts";
 
@@ -524,4 +525,9 @@ Deno.test("#unequalTriplets", () => {
 
 Deno.test("#sortVowels", () => {
   assertEquals(sortVowels("lEetcOde"), "lEOtcede");
+});
+
+Deno.test("#countPalindromicSubsequence", () => {
+  assertEquals(countPalindromicSubsequence("aabca"), 3);
+  assertEquals(countPalindromicSubsequence("bbcbaba"), 4);
 });
