@@ -1319,6 +1319,26 @@ function maximumStrongPairXor(nums: number[]): number {
 }
 
 function findChampion(grid: number[][]): number {
+  const n = grid.length;
+
+  for (let teamA = 0; teamA < n; teamA++) {
+    let isChampion = true;
+
+    for (let teamB = 0; teamB < n; teamB++) {
+      if (teamA !== teamB && grid[teamB][teamA] === 1) {
+        // If there is a team stronger than teamA, teamA is not the champion
+        isChampion = false;
+        break;
+      }
+    }
+
+    if (isChampion) {
+      // If no team is stronger than teamA, teamA is the champion
+      return teamA;
+    }
+  }
+
+  // If no champion is found, return -1 or any other appropriate value
   return -1;
 }
 
