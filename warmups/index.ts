@@ -1360,7 +1360,29 @@ function maximumElementAfterDecrementingAndRearranging(arr: number[]): number {
 }
 
 function frequencySort(nums: number[]): number[] {
-  return [];
+  const m = new Map<number, number>();
+  for (const n of nums) {
+    if (m.has(n)) {
+      m.set(n, m.get(n)! + 1);
+    } else {
+      m.set(n, 1);
+    }
+  }
+  const freq = Array.from(m).sort((a, b) => {
+    if (a[1] === b[1]) {
+      return b[0] - a[0];
+    } else {
+      return a[1] - b[1];
+    }
+  });
+
+  const modifiedArray: number[] = [];
+  for (const num of freq) {
+    const [n, c] = num;
+    modifiedArray.push(...Array(c).fill(n));
+  }
+
+  return modifiedArray;
 }
 
 export {
