@@ -73,6 +73,8 @@ import {
   countPalindromicSubsequence,
   maximumStrongPairXor,
   findChampion,
+  maximumElementAfterDecrementingAndRearranging,
+  frequencySort,
 } from "./index.ts";
 import { assertInstanceOf } from "https://deno.land/std@0.200.0/assert/assert_instance_of.ts";
 
@@ -548,4 +550,15 @@ Deno.test("#findChampion", () => {
     ]),
     0
   );
+});
+
+Deno.test("#maximumElementAfterDecrementingAndRearranging", () => {
+  assertEquals(
+    maximumElementAfterDecrementingAndRearranging([2, 2, 1, 2, 1]),
+    2
+  );
+});
+
+Deno.test("#frequencySort", () => {
+  assertEquals(frequencySort([1, 1, 2, 2, 2, 3]), [3, 1, 1, 2, 2, 2]);
 });

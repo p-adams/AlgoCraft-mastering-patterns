@@ -1342,6 +1342,27 @@ function findChampion(grid: number[][]): number {
   return -1;
 }
 
+function maximumElementAfterDecrementingAndRearranging(arr: number[]): number {
+  arr.sort((a, b) => a - b); // Sort the array in ascending order
+
+  // Ensure the first element is 1
+  arr[0] = 1;
+
+  // Iterate through the array to satisfy the second condition
+  for (let i = 1; i < arr.length; i++) {
+    if (arr[i] - arr[i - 1] > 1) {
+      arr[i] = arr[i - 1] + 1;
+    }
+  }
+
+  // The maximum element in the modified array is the answer
+  return Math.max(...arr);
+}
+
+function frequencySort(nums: number[]): number[] {
+  return [];
+}
+
 export {
   answerQueries,
   arithmeticTriplets,
@@ -1376,12 +1397,14 @@ export {
   finalString,
   findNonMinOrMax,
   findChampion,
+  frequencySort,
   getMinimumDifference,
   knightProbability,
   largestValues,
   leftRightDifference,
   longestPalindrome,
   maxMinElements,
+  maximumElementAfterDecrementingAndRearranging,
   maximizeSum,
   maximumNumberOfStringPairs,
   maximumValue,
