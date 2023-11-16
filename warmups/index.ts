@@ -1385,6 +1385,22 @@ function frequencySort(nums: number[]): number[] {
   return modifiedArray;
 }
 
+function findDifferentBinaryString(nums: string[]): string {
+  const n = nums[0].length;
+  const allBinaryStrings: string[] = [];
+  let res = "";
+  for (let index = 0; index < 2 ** n; index++) {
+    const binaryString = index.toString(2).padStart(n, "0");
+    allBinaryStrings.push(binaryString);
+  }
+  for (const binaryString of allBinaryStrings) {
+    if (!nums.includes(binaryString)) {
+      res = binaryString;
+    }
+  }
+  return res;
+}
+
 export {
   answerQueries,
   arithmeticTriplets,
@@ -1413,6 +1429,7 @@ export {
   isSequence,
   isValid,
   intersection,
+  findDifferentBinaryString,
   findDifference,
   findMaxDiff,
   findMode,
