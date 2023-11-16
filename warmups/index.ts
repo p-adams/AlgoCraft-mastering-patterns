@@ -1440,6 +1440,10 @@ function islandPerimeter(grid: number[][]): number {
   return perimeter;
 }
 
+function checkDistances(s: string, distance: number[]): boolean {
+  return false;
+}
+
 export {
   answerQueries,
   arithmeticTriplets,
@@ -1448,6 +1452,7 @@ export {
   balancedStringSplit,
   buildArray,
   calculate,
+  checkDistances,
   cellsInRange,
   checkIfPangram,
   checkPalindromeItr,

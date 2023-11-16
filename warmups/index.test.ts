@@ -78,6 +78,7 @@ import {
   findDifferentBinaryString,
   countStudents,
   islandPerimeter,
+  checkDistances,
 } from "./index.ts";
 import { assertInstanceOf } from "https://deno.land/std@0.200.0/assert/assert_instance_of.ts";
 
@@ -584,5 +585,18 @@ Deno.test("#islandPerimeter", () => {
       [1, 1, 0, 0],
     ]),
     16
+  );
+});
+
+Deno.test("#checkDistances", () => {
+  assertEquals(
+    checkDistances(
+      "abaccb",
+      [
+        1, 3, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0,
+      ]
+    ),
+    true
   );
 });
