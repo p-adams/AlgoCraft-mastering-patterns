@@ -77,6 +77,7 @@ import {
   frequencySort,
   findDifferentBinaryString,
   countStudents,
+  islandPerimeter,
 } from "./index.ts";
 import { assertInstanceOf } from "https://deno.land/std@0.200.0/assert/assert_instance_of.ts";
 
@@ -572,4 +573,16 @@ Deno.test("#findDifferentBinaryString", () => {
 
 Deno.test("#countStudents", () => {
   assertEquals(countStudents([1, 1, 0, 0], [0, 1, 0, 1]), 0);
+});
+
+Deno.test("#islandPerimeter", () => {
+  assertEquals(
+    islandPerimeter([
+      [0, 1, 0, 0],
+      [1, 1, 1, 0],
+      [0, 1, 0, 0],
+      [1, 1, 0, 0],
+    ]),
+    16
+  );
 });

@@ -1420,6 +1420,10 @@ function countStudents(students: number[], sandwiches: number[]): number {
   return students.length;
 }
 
+function islandPerimeter(grid: number[][]): number {
+  return -1;
+}
+
 export {
   answerQueries,
   arithmeticTriplets,
@@ -1448,6 +1452,7 @@ export {
   isAcronym,
   isSequence,
   isValid,
+  islandPerimeter,
   intersection,
   findDifferentBinaryString,
   findDifference,
