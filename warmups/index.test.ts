@@ -76,6 +76,7 @@ import {
   maximumElementAfterDecrementingAndRearranging,
   frequencySort,
   findDifferentBinaryString,
+  countStudents,
 } from "./index.ts";
 import { assertInstanceOf } from "https://deno.land/std@0.200.0/assert/assert_instance_of.ts";
 
@@ -567,4 +568,8 @@ Deno.test("#frequencySort", () => {
 
 Deno.test("#findDifferentBinaryString", () => {
   assertEquals(findDifferentBinaryString(["01", "10"]), "11");
+});
+
+Deno.test("#countStudents", () => {
+  assertEquals(countStudents([1, 1, 0, 0], [0, 1, 0, 1]), 0);
 });

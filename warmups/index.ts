@@ -1401,6 +1401,25 @@ function findDifferentBinaryString(nums: string[]): string {
   return res;
 }
 
+function countStudents(students: number[], sandwiches: number[]): number {
+  let movementToEnd = 0;
+
+  while (sandwiches.length > 0) {
+    if (students[0] === sandwiches[0]) {
+      students.shift();
+      sandwiches.shift();
+      movementToEnd = 0;
+    } else {
+      students.push(students.shift()!);
+      movementToEnd++;
+      if (movementToEnd === students.length) {
+        break;
+      }
+    }
+  }
+  return students.length;
+}
+
 export {
   answerQueries,
   arithmeticTriplets,
@@ -1419,6 +1438,7 @@ export {
   countPalindromicSubsequence,
   countPairs,
   countSeniors,
+  countStudents,
   deleteGreatestValue,
   distinctDifferenceArray,
   eliminateMaximum,
