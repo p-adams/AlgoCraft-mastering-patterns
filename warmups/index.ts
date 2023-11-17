@@ -1440,9 +1440,21 @@ function islandPerimeter(grid: number[][]): number {
   return perimeter;
 }
 
-// TODO: implement me
 function checkDistances(s: string, distance: number[]): boolean {
-  return false;
+  const map = new Map<string, number>(); // character, index
+  for (let i = 0; i < s.length; i++) {
+    const c = s[i];
+    const gotIndex = map.get(c);
+    if (gotIndex === undefined) {
+      map.set(c, i);
+      continue;
+    }
+
+    const charIndex = c.charCodeAt(0) - "a".charCodeAt(0);
+    const actualDistance = i - gotIndex - 1;
+    if (distance[charIndex] !== actualDistance) return false;
+  }
+  return true;
 }
 
 function minPairSum(nums: number[]): number {
