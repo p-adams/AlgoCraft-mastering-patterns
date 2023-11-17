@@ -1440,8 +1440,28 @@ function islandPerimeter(grid: number[][]): number {
   return perimeter;
 }
 
+// TODO: implement me
 function checkDistances(s: string, distance: number[]): boolean {
   return false;
+}
+
+function minPairSum(nums: number[]): number {
+  const sNums = nums.sort((a, b) => a - b);
+  const pairs = [];
+  let i = 0;
+  let j = sNums.length - 1;
+
+  while (i < j) {
+    pairs.push([sNums[i], sNums[j]]);
+    i++;
+    j--;
+  }
+  const res = [];
+  for (const pair of pairs) {
+    const [a, b] = pair;
+    res.push(a + b);
+  }
+  return Math.max(...res);
 }
 
 export {
@@ -1498,6 +1518,7 @@ export {
   mergeSimilarItems,
   mergeArrays,
   minimumOperations,
+  minPairSum,
   numberOfEmployeesWhoMetTarget,
   numberOfPairs,
   partitionString,
