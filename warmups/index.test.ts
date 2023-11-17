@@ -81,6 +81,7 @@ import {
   checkDistances,
   minPairSum,
   canMakeArithmeticProgression,
+  similarPairs,
 } from "./index.ts";
 import { assertInstanceOf } from "https://deno.land/std@0.200.0/assert/assert_instance_of.ts";
 
@@ -609,4 +610,8 @@ Deno.test("#minPairSum", () => {
 
 Deno.test("#canMakeArithmeticProgression", () => {
   assertEquals(canMakeArithmeticProgression([3, 5, 1]), true);
+});
+
+Deno.test("#similarPairs", () => {
+  assertEquals(similarPairs(["aba", "aabb", "abcd", "bac", "aabc"]), 2);
 });

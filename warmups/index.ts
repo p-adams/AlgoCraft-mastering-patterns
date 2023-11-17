@@ -1503,6 +1503,22 @@ function canMakeArithmeticProgression(arr: number[]): boolean {
   return areAllValuesSame(diffs);
 }
 
+function similarPairs(words: string[]): number {
+  const eqSet = (xs: Set<string>, ys: Set<string>) =>
+    xs.size === ys.size && [...xs].every((x) => ys.has(x));
+  let count = 0;
+  for (let i = 0; i < words.length; i++) {
+    for (let j = i + 1; j < words.length; j++) {
+      const a = new Set(words[i]);
+      const b = new Set(words[j]);
+      if (eqSet(a, b)) {
+        count++;
+      }
+    }
+  }
+  return count;
+}
+
 export {
   answerQueries,
   arithmeticTriplets,
@@ -1571,6 +1587,7 @@ export {
   unequalTriplets,
   SeatManager,
   separateDigits,
+  similarPairs,
   sumOfEvens,
   sumOfSquares,
   sumCounts,
