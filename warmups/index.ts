@@ -1536,6 +1536,43 @@ function findTheArrayConcVal(nums: number[]): number {
   return count;
 }
 
+function commonChars(words: string[]): string[] {
+  const result: string[] = [];
+  const charCount: { [key: string]: number } = {};
+
+  // Initialize charCount with the frequency of characters in the first word
+  for (const char of words[0]) {
+    charCount[char] = (charCount[char] || 0) + 1;
+  }
+
+  // Iterate through the remaining words
+  for (let i = 1; i < words.length; i++) {
+    const currentCharCount: { [key: string]: number } = {};
+
+    // Count the frequency of characters in the current word
+    for (const char of words[i]) {
+      currentCharCount[char] = (currentCharCount[char] || 0) + 1;
+    }
+
+    // Update charCount to keep only the minimum frequency of characters
+    for (const key in charCount) {
+      if (currentCharCount[key] === undefined) {
+        charCount[key] = 0;
+      }
+      charCount[key] = Math.min(charCount[key], currentCharCount[key] || 0);
+    }
+  }
+
+  // Build the result array based on the final frequency in charCount
+  for (const key in charCount) {
+    for (let j = 0; j < charCount[key]; j++) {
+      result.push(key);
+    }
+  }
+
+  return result;
+}
+
 export {
   answerQueries,
   arithmeticTriplets,
@@ -1550,6 +1587,7 @@ export {
   checkIfPangram,
   checkPalindromeItr,
   checkPalindromeRec,
+  commonChars,
   countAsterisks,
   countCharacters,
   countHomogenous,
