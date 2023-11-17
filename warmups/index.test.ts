@@ -82,6 +82,7 @@ import {
   minPairSum,
   canMakeArithmeticProgression,
   similarPairs,
+  findTheArrayConcVal,
 } from "./index.ts";
 import { assertInstanceOf } from "https://deno.land/std@0.200.0/assert/assert_instance_of.ts";
 
@@ -614,4 +615,9 @@ Deno.test("#canMakeArithmeticProgression", () => {
 
 Deno.test("#similarPairs", () => {
   assertEquals(similarPairs(["aba", "aabb", "abcd", "bac", "aabc"]), 2);
+});
+
+Deno.test("#findTheArrayConcVal", () => {
+  assertEquals(findTheArrayConcVal([7, 52, 2, 4]), 596);
+  assertEquals(findTheArrayConcVal([5, 14, 13, 8, 12]), 673);
 });

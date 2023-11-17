@@ -1519,6 +1519,23 @@ function similarPairs(words: string[]): number {
   return count;
 }
 
+function findTheArrayConcVal(nums: number[]): number {
+  let count = 0;
+
+  while (nums.length > 0) {
+    if (nums.length > 1) {
+      const lEl = nums.shift()!.toString();
+      const rEl = nums.pop()!.toString();
+      count += Number(lEl + rEl);
+    } else {
+      // Only one element left
+      count += nums.pop()!;
+    }
+  }
+
+  return count;
+}
+
 export {
   answerQueries,
   arithmeticTriplets,
@@ -1551,6 +1568,7 @@ export {
   isValid,
   islandPerimeter,
   intersection,
+  findTheArrayConcVal,
   findDifferentBinaryString,
   findDifference,
   findMaxDiff,
