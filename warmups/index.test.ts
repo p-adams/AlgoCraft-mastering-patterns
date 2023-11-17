@@ -80,6 +80,7 @@ import {
   islandPerimeter,
   checkDistances,
   minPairSum,
+  canMakeArithmeticProgression,
 } from "./index.ts";
 import { assertInstanceOf } from "https://deno.land/std@0.200.0/assert/assert_instance_of.ts";
 
@@ -604,4 +605,8 @@ Deno.test("#checkDistances", () => {
 
 Deno.test("#minPairSum", () => {
   assertEquals(minPairSum([3, 5, 2, 3]), 7);
+});
+
+Deno.test("#canMakeArithmeticProgression", () => {
+  assertEquals(canMakeArithmeticProgression([3, 5, 1]), true);
 });

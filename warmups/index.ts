@@ -1476,6 +1476,33 @@ function minPairSum(nums: number[]): number {
   return Math.max(...res);
 }
 
+function canMakeArithmeticProgression(arr: number[]): boolean {
+  function areAllValuesSame(arr: number[]): boolean {
+    if (arr.length === 0) {
+      // Empty array, all values are technically the same
+      return true;
+    }
+
+    const firstValue = arr[0];
+
+    // Check if every value is the same as the first value
+    for (let i = 1; i < arr.length; i++) {
+      if (arr[i] !== firstValue) {
+        return false;
+      }
+    }
+
+    return true;
+  }
+  const sArr = arr.sort((a, b) => a - b);
+  const diffs = [];
+  for (let index = 1; index < sArr.length; index++) {
+    const diff = Math.abs(sArr[index] - sArr[index - 1]);
+    diffs.push(diff);
+  }
+  return areAllValuesSame(diffs);
+}
+
 export {
   answerQueries,
   arithmeticTriplets,
@@ -1483,6 +1510,7 @@ export {
   backspaceCompare,
   balancedStringSplit,
   buildArray,
+  canMakeArithmeticProgression,
   calculate,
   checkDistances,
   cellsInRange,
