@@ -1573,6 +1573,24 @@ function commonChars(words: string[]): string[] {
   return result;
 }
 
+function maxFrequency(nums: number[], k: number): number {
+  const $nums = nums.sort((a, b) => a - b);
+  const n = $nums.length;
+  let maxFreq = 1;
+  let left = 0;
+  let currentSum = 0;
+  for (let right = 0; right < n; right++) {
+    currentSum += $nums[right];
+    while ($nums[right] * (right - left + 1) - currentSum > k) {
+      currentSum -= $nums[left];
+      left += 1;
+    }
+    maxFreq = Math.max(maxFreq, right - left + 1);
+  }
+
+  return maxFreq;
+}
+
 export {
   answerQueries,
   arithmeticTriplets,
@@ -1624,6 +1642,7 @@ export {
   maximumElementAfterDecrementingAndRearranging,
   maximizeSum,
   maximumNumberOfStringPairs,
+  maxFrequency,
   maximumValue,
   maximumCount,
   maximumStrongPairXor,

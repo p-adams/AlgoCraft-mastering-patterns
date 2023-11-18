@@ -84,6 +84,7 @@ import {
   similarPairs,
   findTheArrayConcVal,
   commonChars,
+  maxFrequency,
 } from "./index.ts";
 import { assertInstanceOf } from "https://deno.land/std@0.200.0/assert/assert_instance_of.ts";
 
@@ -625,4 +626,10 @@ Deno.test("#findTheArrayConcVal", () => {
 
 Deno.test("#commonChars", () => {
   assertEquals(commonChars(["bella", "label", "roller"]), ["e", "l", "l"]);
+});
+
+Deno.test("#maxFrequency", () => {
+  assertEquals(maxFrequency([1, 2, 4], 5), 3);
+  assertEquals(maxFrequency([1, 4, 8, 13], 5), 2);
+  assertEquals(maxFrequency([3, 9, 6], 2), 1);
 });
