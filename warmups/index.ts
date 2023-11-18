@@ -1592,7 +1592,34 @@ function maxFrequency(nums: number[], k: number): number {
 }
 
 function relativeSortArray(arr1: number[], arr2: number[]): number[] {
-  return [];
+  const m = new Map();
+  for (const [i, v] of arr2.entries()) {
+    m.set(v, i);
+  }
+  const compare = (x: number, y: number): number => {
+    const indexX = m.get(x) !== undefined ? m.get(x) : Number.POSITIVE_INFINITY;
+    const indexY = m.get(y) !== undefined ? m.get(y) : Number.POSITIVE_INFINITY;
+
+    // If both elements are in arr2, compare them based on their indices
+    if (
+      indexX !== Number.POSITIVE_INFINITY &&
+      indexY !== Number.POSITIVE_INFINITY
+    ) {
+      return indexX - indexY;
+    }
+    // If only one element is in arr2, prioritize the one that is in arr2
+    else if (indexX !== Number.POSITIVE_INFINITY) {
+      return -1;
+    } else if (indexY !== Number.POSITIVE_INFINITY) {
+      return 1;
+    }
+    // If neither element is in arr2, compare them in ascending order
+    else {
+      return x - y;
+    }
+  };
+  const res = arr1.sort(compare);
+  return res;
 }
 
 export {
