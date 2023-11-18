@@ -1591,6 +1591,10 @@ function maxFrequency(nums: number[], k: number): number {
   return maxFreq;
 }
 
+function relativeSortArray(arr1: number[], arr2: number[]): number[] {
+  return [];
+}
+
 export {
   answerQueries,
   arithmeticTriplets,
@@ -1655,6 +1659,7 @@ export {
   partitionString,
   removeDuplicates,
   removeOuterParentheses,
+  relativeSortArray,
   restoreArray,
   romanToInt,
   rowAndMaximumOnes,
