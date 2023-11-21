@@ -1622,6 +1622,10 @@ function relativeSortArray(arr1: number[], arr2: number[]): number[] {
   return res;
 }
 
+function isToeplitzMatrix(matrix: number[][]): boolean {
+  return false;
+}
+
 export {
   answerQueries,
   arithmeticTriplets,
@@ -1654,6 +1658,7 @@ export {
   isSequence,
   isValid,
   islandPerimeter,
+  isToeplitzMatrix,
   intersection,
   findTheArrayConcVal,
   findDifferentBinaryString,

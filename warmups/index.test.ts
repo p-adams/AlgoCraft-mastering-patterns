@@ -86,6 +86,7 @@ import {
   commonChars,
   maxFrequency,
   relativeSortArray,
+  isToeplitzMatrix,
 } from "./index.ts";
 import { assertInstanceOf } from "https://deno.land/std@0.200.0/assert/assert_instance_of.ts";
 
@@ -639,5 +640,16 @@ Deno.test("#relativeSortArray", () => {
   assertEquals(
     relativeSortArray([2, 3, 1, 3, 2, 4, 6, 7, 9, 2, 19], [2, 1, 4, 3, 9, 6]),
     [2, 2, 2, 1, 4, 3, 3, 9, 6, 7, 19]
+  );
+});
+
+Deno.test("#isToeplitzMatrix", () => {
+  assertEquals(
+    isToeplitzMatrix([
+      [1, 2, 3, 4],
+      [5, 1, 2, 3],
+      [9, 5, 1, 2],
+    ]),
+    true
   );
 });
