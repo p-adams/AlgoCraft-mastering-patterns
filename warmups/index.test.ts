@@ -652,4 +652,11 @@ Deno.test("#isToeplitzMatrix", () => {
     ]),
     true
   );
+  assertEquals(
+    isToeplitzMatrix([
+      [1, 2],
+      [2, 2],
+    ]),
+    false
+  );
 });

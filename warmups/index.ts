@@ -1623,7 +1623,19 @@ function relativeSortArray(arr1: number[], arr2: number[]): number[] {
 }
 
 function isToeplitzMatrix(matrix: number[][]): boolean {
-  return false;
+  const m = matrix.length; // Number of rows
+  const n = matrix[0].length; // Number of columns
+
+  for (let i = 1; i < m; i++) {
+    for (let j = 1; j < n; j++) {
+      // Check if the current element is equal to its top-left neighbor
+      if (matrix[i][j] !== matrix[i - 1][j - 1]) {
+        return false; // If not equal, it's not a Toeplitz matrix
+      }
+    }
+  }
+
+  return true; // All elements have been checked and are equal
 }
 
 export {
