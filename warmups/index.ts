@@ -1638,7 +1638,45 @@ function isToeplitzMatrix(matrix: number[][]): boolean {
   return true; // All elements have been checked and are equal
 }
 
+function findDiagonalOrder(nums: number[][]): number[] {
+  if (!nums || nums.length === 0 || nums[0].length === 0) {
+    return [];
+  }
+
+  const numRows = nums.length;
+  const numCols = Math.max(...nums.map((row) => row.length));
+  const result: number[] = [];
+
+  for (let sum = 0; sum < numRows + numCols - 1; sum++) {
+    if (sum % 2 === 0) {
+      // Going up
+      for (
+        let row = Math.min(sum, numRows - 1);
+        row >= 0 && sum - row < numCols;
+        row--
+      ) {
+        if (nums[row] && nums[row][sum - row] !== undefined) {
+          result.push(nums[row][sum - row]);
+        }
+      }
+    } else {
+      // Going down
+      for (
+        let row = Math.min(sum, numRows - 1);
+        row >= 0 && sum - row < numCols;
+        row--
+      ) {
+        if (nums[row] && nums[row][sum - row] !== undefined) {
+          result.push(nums[row][sum - row]);
+        }
+      }
+    }
+  }
+
+  return result;
+}
 export {
+  findDiagonalOrder,
   answerQueries,
   arithmeticTriplets,
   arrReverse,
