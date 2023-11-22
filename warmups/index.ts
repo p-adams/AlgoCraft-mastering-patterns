@@ -1677,7 +1677,23 @@ function findDiagonalOrder(nums: number[][]): number[] {
 }
 
 function nearestValidPoint(x: number, y: number, points: number[][]): number {
-  return -1;
+  let minDist = Infinity;
+  let minIndex = -1;
+
+  for (let index = 0; index < points.length; index++) {
+    const point = points[index];
+
+    if (point[0] === x || point[1] === y) {
+      const dist = Math.abs(x - point[0]) + Math.abs(y - point[1]);
+
+      if (dist < minDist) {
+        minDist = dist;
+        minIndex = index;
+      }
+    }
+  }
+
+  return minIndex;
 }
 export {
   nearestValidPoint,

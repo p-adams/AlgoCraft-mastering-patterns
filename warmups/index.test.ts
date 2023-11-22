@@ -685,4 +685,5 @@ Deno.test("#nearestValidPoint", () => {
     ]),
     2
   );
+  assertEquals(nearestValidPoint(3, 4, [[3, 4]]), 0);
 });
