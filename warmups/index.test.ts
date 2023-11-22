@@ -88,6 +88,7 @@ import {
   relativeSortArray,
   isToeplitzMatrix,
   findDiagonalOrder,
+  nearestValidPoint,
 } from "./index.ts";
 import { assertInstanceOf } from "https://deno.land/std@0.200.0/assert/assert_instance_of.ts";
 
@@ -670,5 +671,18 @@ Deno.test("#findDiagonalOrder", () => {
       [7, 8, 9],
     ]),
     [1, 4, 2, 7, 5, 3, 8, 6, 9]
+  );
+});
+
+Deno.test("#nearestValidPoint", () => {
+  assertEquals(
+    nearestValidPoint(3, 4, [
+      [1, 2],
+      [3, 1],
+      [2, 4],
+      [2, 3],
+      [4, 4],
+    ]),
+    2
   );
 });

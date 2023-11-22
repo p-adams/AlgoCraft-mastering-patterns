@@ -1675,7 +1675,12 @@ function findDiagonalOrder(nums: number[][]): number[] {
 
   return result;
 }
+
+function nearestValidPoint(x: number, y: number, points: number[][]): number {
+  return -1;
+}
 export {
+  nearestValidPoint,
   findDiagonalOrder,
   answerQueries,
   arithmeticTriplets,
