@@ -1736,7 +1736,24 @@ function findMaxK(nums: number[]): number {
 
   return maxK;
 }
+
+function numberOfLines(widths: number[], s: string): number[] {
+  let lines = 1; // Initialize the number of lines to 1
+  let currentWidth = 0; // Initialize the width of the current line to 0
+
+  for (const char of s) {
+    const charWidth: number = widths[char.charCodeAt(0) - "a".charCodeAt(0)]; // Get the width of the current character
+    if (currentWidth + charWidth > 100) {
+      lines += 1; // Start a new line
+      currentWidth = 0; // Reset the width for the new line
+    }
+    currentWidth += charWidth; // Add the width of the current character to the current line
+  }
+
+  return [lines, currentWidth];
+}
 export {
+  numberOfLines,
   findMaxK,
   checkArithmeticSubarrays,
   nearestValidPoint,

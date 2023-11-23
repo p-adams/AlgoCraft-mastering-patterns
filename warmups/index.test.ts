@@ -91,6 +91,7 @@ import {
   nearestValidPoint,
   checkArithmeticSubarrays,
   findMaxK,
+  numberOfLines,
 } from "./index.ts";
 import { assertInstanceOf } from "https://deno.land/std@0.200.0/assert/assert_instance_of.ts";
 
@@ -701,4 +702,17 @@ Deno.test("#findMaxK", () => {
   assertEquals(findMaxK([-1, 2, -3, 3]), 3);
   assertEquals(findMaxK([-1, 10, 6, 7, -7, 1]), 7);
   assertEquals(findMaxK([-10, 8, 6, 7, -2, -3]), -1);
+});
+
+Deno.test("#numberOfLines", () => {
+  assertEquals(
+    numberOfLines(
+      [
+        10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10,
+        10, 10, 10, 10, 10, 10, 10, 10,
+      ],
+      "abcdefghijklmnopqrstuvwxyz"
+    ),
+    [3, 60]
+  );
 });
