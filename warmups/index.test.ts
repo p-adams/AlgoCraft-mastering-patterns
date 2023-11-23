@@ -92,6 +92,7 @@ import {
   checkArithmeticSubarrays,
   findMaxK,
   numberOfLines,
+  getRow,
 } from "./index.ts";
 import { assertInstanceOf } from "https://deno.land/std@0.200.0/assert/assert_instance_of.ts";
 
@@ -715,4 +716,8 @@ Deno.test("#numberOfLines", () => {
     ),
     [3, 60]
   );
+});
+
+Deno.test("#getRow", () => {
+  assertEquals(getRow(3), [1, 3, 3, 1]);
 });

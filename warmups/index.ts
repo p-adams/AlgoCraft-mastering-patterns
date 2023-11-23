@@ -1752,7 +1752,32 @@ function numberOfLines(widths: number[], s: string): number[] {
 
   return [lines, currentWidth];
 }
+
+function getRow(rowIndex: number): number[] {
+  function generatePascalsTriangle(numRows: number): number[][] {
+    const triangle: number[][] = [];
+
+    for (let i = 0; i <= numRows; i++) {
+      const row: number[] = [];
+      for (let j = 0; j <= i; j++) {
+        if (j === 0 || j === i) {
+          row[j] = 1; // The first and last element in each row is 1
+        } else {
+          // Calculate the middle elements based on the sum of the two elements above them
+          row[j] = triangle[i - 1][j - 1] + triangle[i - 1][j];
+        }
+      }
+      triangle.push(row);
+    }
+
+    return triangle;
+  }
+  const triangle = generatePascalsTriangle(rowIndex);
+  return triangle[rowIndex];
+}
+
 export {
+  getRow,
   numberOfLines,
   findMaxK,
   checkArithmeticSubarrays,
