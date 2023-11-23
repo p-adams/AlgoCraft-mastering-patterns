@@ -1695,7 +1695,35 @@ function nearestValidPoint(x: number, y: number, points: number[][]): number {
 
   return minIndex;
 }
+
+function checkArithmeticSubarrays(
+  nums: number[],
+  l: number[],
+  r: number[]
+): boolean[] {
+  const result: boolean[] = [];
+
+  for (let i = 0; i < l.length; i++) {
+    const subarray = nums.slice(l[i], r[i] + 1);
+    subarray.sort((a, b) => a - b); // Sort the subarray in ascending order
+
+    const commonDifference = subarray[1] - subarray[0];
+    let isArithmetic = true;
+
+    for (let j = 1; j < subarray.length; j++) {
+      if (subarray[j] - subarray[j - 1] !== commonDifference) {
+        isArithmetic = false;
+        break;
+      }
+    }
+
+    result.push(isArithmetic);
+  }
+
+  return result;
+}
 export {
+  checkArithmeticSubarrays,
   nearestValidPoint,
   findDiagonalOrder,
   answerQueries,

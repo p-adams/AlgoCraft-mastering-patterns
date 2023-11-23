@@ -89,6 +89,7 @@ import {
   isToeplitzMatrix,
   findDiagonalOrder,
   nearestValidPoint,
+  checkArithmeticSubarrays,
 } from "./index.ts";
 import { assertInstanceOf } from "https://deno.land/std@0.200.0/assert/assert_instance_of.ts";
 
@@ -686,4 +687,11 @@ Deno.test("#nearestValidPoint", () => {
     2
   );
   assertEquals(nearestValidPoint(3, 4, [[3, 4]]), 0);
+});
+
+Deno.test("#checkArithmeticSubarrays", () => {
+  assertEquals(
+    checkArithmeticSubarrays([4, 6, 5, 9, 3, 7], [0, 0, 2], [2, 3, 5]),
+    [true, false, true]
+  );
 });
