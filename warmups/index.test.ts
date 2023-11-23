@@ -93,6 +93,7 @@ import {
   findMaxK,
   numberOfLines,
   getRow,
+  findTheDistanceValue,
 } from "./index.ts";
 import { assertInstanceOf } from "https://deno.land/std@0.200.0/assert/assert_instance_of.ts";
 
@@ -720,4 +721,8 @@ Deno.test("#numberOfLines", () => {
 
 Deno.test("#getRow", () => {
   assertEquals(getRow(3), [1, 3, 3, 1]);
+});
+
+Deno.test("#findTheDistanceValue", () => {
+  assertEquals(findTheDistanceValue([4, 5, 8], [10, 9, 1, 8], 2), 2);
 });

@@ -1776,7 +1776,33 @@ function getRow(rowIndex: number): number[] {
   return triangle[rowIndex];
 }
 
+function findTheDistanceValue(
+  arr1: number[],
+  arr2: number[],
+  d: number
+): number {
+  function isDistanceValid(element: number): boolean {
+    for (const num of arr2) {
+      if (Math.abs(element - num) <= d) {
+        return false; // Distance condition not satisfied
+      }
+    }
+    return true; // Distance condition satisfied
+  }
+
+  let result = 0;
+
+  for (const element of arr1) {
+    if (isDistanceValid(element)) {
+      result += 1;
+    }
+  }
+
+  return result;
+}
+
 export {
+  findTheDistanceValue,
   getRow,
   numberOfLines,
   findMaxK,
