@@ -1722,7 +1722,22 @@ function checkArithmeticSubarrays(
 
   return result;
 }
+
+function findMaxK(nums: number[]): number {
+  const numSet = new Set(nums);
+
+  let maxK = -1;
+
+  for (const n of nums) {
+    if (n > 0 && numSet.has(-n)) {
+      maxK = Math.max(maxK, n);
+    }
+  }
+
+  return maxK;
+}
 export {
+  findMaxK,
   checkArithmeticSubarrays,
   nearestValidPoint,
   findDiagonalOrder,

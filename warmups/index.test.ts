@@ -90,6 +90,7 @@ import {
   findDiagonalOrder,
   nearestValidPoint,
   checkArithmeticSubarrays,
+  findMaxK,
 } from "./index.ts";
 import { assertInstanceOf } from "https://deno.land/std@0.200.0/assert/assert_instance_of.ts";
 
@@ -694,4 +695,10 @@ Deno.test("#checkArithmeticSubarrays", () => {
     checkArithmeticSubarrays([4, 6, 5, 9, 3, 7], [0, 0, 2], [2, 3, 5]),
     [true, false, true]
   );
+});
+
+Deno.test("#findMaxK", () => {
+  assertEquals(findMaxK([-1, 2, -3, 3]), 3);
+  assertEquals(findMaxK([-1, 10, 6, 7, -7, 1]), 7);
+  assertEquals(findMaxK([-10, 8, 6, 7, -2, -3]), -1);
 });
