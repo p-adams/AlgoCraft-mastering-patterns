@@ -95,6 +95,7 @@ import {
   getRow,
   findTheDistanceValue,
   shiftGrid,
+  findMiddleIndex,
 } from "./index.ts";
 import { assertInstanceOf } from "https://deno.land/std@0.200.0/assert/assert_instance_of.ts";
 
@@ -744,4 +745,8 @@ Deno.test("#shiftGrid", () => {
       [6, 7, 8],
     ]
   );
+});
+
+Deno.test("#findMiddleIndex", () => {
+  assertEquals(findMiddleIndex([2, 3, -1, 8, 4]), 3);
 });
