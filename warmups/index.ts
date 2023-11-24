@@ -1852,7 +1852,23 @@ function findMiddleIndex(nums: number[]): number {
   return -1; // Return -1 if no such index is found
 }
 
+function trimMean(arr: number[]): number {
+  const $arr = arr.sort((a, b) => a - b);
+  const len = $arr.length;
+  let trim = Math.round((5 / 100) * len);
+  while (trim > 0) {
+    $arr.shift();
+    $arr.pop();
+    --trim;
+  }
+
+  const sum = $arr.reduce((acc, val) => acc + val, 0);
+  const mean = sum / $arr.length;
+  return mean;
+}
+
 export {
+  trimMean,
   findMiddleIndex,
   shiftGrid,
   findTheDistanceValue,
