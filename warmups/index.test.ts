@@ -94,6 +94,7 @@ import {
   numberOfLines,
   getRow,
   findTheDistanceValue,
+  shiftGrid,
 } from "./index.ts";
 import { assertInstanceOf } from "https://deno.land/std@0.200.0/assert/assert_instance_of.ts";
 
@@ -725,4 +726,22 @@ Deno.test("#getRow", () => {
 
 Deno.test("#findTheDistanceValue", () => {
   assertEquals(findTheDistanceValue([4, 5, 8], [10, 9, 1, 8], 2), 2);
+});
+
+Deno.test("#shiftGrid", () => {
+  assertEquals(
+    shiftGrid(
+      [
+        [1, 2, 3],
+        [4, 5, 6],
+        [7, 8, 9],
+      ],
+      1
+    ),
+    [
+      [9, 1, 2],
+      [3, 4, 5],
+      [6, 7, 8],
+    ]
+  );
 });

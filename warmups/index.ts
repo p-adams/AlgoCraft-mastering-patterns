@@ -1801,7 +1801,28 @@ function findTheDistanceValue(
   return result;
 }
 
+function shiftGrid(grid: number[][], k: number): number[][] {
+  const m = grid.length;
+  const n = grid[0].length;
+  while (k > 0) {
+    const newGrid = Array.from({ length: m }, () => Array(n).fill(0));
+    for (let i = 0; i < m; ++i) {
+      for (let j = 0; j < n; ++j) {
+        const newI = (i + Math.floor((j + 1) / n)) % m;
+        const newJ = (j + 1) % n;
+
+        // Update the new grid with the shifted values
+        newGrid[newI][newJ] = grid[i][j];
+      }
+    }
+    grid = newGrid;
+    k--;
+  }
+  return grid;
+}
+
 export {
+  shiftGrid,
   findTheDistanceValue,
   getRow,
   numberOfLines,
