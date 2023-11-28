@@ -758,4 +758,6 @@ Deno.test("#findMiddleIndex", () => {
 
 Deno.test("#findWordsContaining", () => {
   assertEquals(findWordsContaining(["leet", "code"], "e"), [0, 1]);
+  assertEquals(findWordsContaining(["abc", "bcd", "aaaa", "cbc"], "a"), [0, 2]);
+  assertEquals(findWordsContaining(["abc", "bcd", "aaaa", "cbc"], "z"), []);
 });

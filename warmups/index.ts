@@ -1868,7 +1868,10 @@ function trimMean(arr: number[]): number {
 }
 
 function findWordsContaining(words: string[], x: string): number[] {
-  return [];
+  const res = words
+    .map((word, index) => (word.includes(x) ? index : null))
+    .filter((v) => v !== null) as number[];
+  return res;
 }
 
 export {
