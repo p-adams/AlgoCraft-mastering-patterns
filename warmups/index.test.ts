@@ -97,6 +97,7 @@ import {
   shiftGrid,
   findMiddleIndex,
   trimMean,
+  findWordsContaining,
 } from "./index.ts";
 import { assertInstanceOf } from "https://deno.land/std@0.200.0/assert/assert_instance_of.ts";
 
@@ -753,4 +754,8 @@ Deno.test("#findMiddleIndex", () => {
     trimMean([1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 3]),
     2.0
   );
+});
+
+Deno.test("#findWordsContaining", () => {
+  assertEquals(findWordsContaining(["leet", "code"], "e"), [0, 1]);
 });

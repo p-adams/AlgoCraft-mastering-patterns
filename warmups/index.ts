@@ -1867,7 +1867,12 @@ function trimMean(arr: number[]): number {
   return mean;
 }
 
+function findWordsContaining(words: string[], x: string): number[] {
+  return [];
+}
+
 export {
+  findWordsContaining,
   trimMean,
   findMiddleIndex,
   shiftGrid,
