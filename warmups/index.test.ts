@@ -98,6 +98,7 @@ import {
   findMiddleIndex,
   trimMean,
   findWordsContaining,
+  applyOperations,
 } from "./index.ts";
 import { assertInstanceOf } from "https://deno.land/std@0.200.0/assert/assert_instance_of.ts";
 
@@ -760,4 +761,9 @@ Deno.test("#findWordsContaining", () => {
   assertEquals(findWordsContaining(["leet", "code"], "e"), [0, 1]);
   assertEquals(findWordsContaining(["abc", "bcd", "aaaa", "cbc"], "a"), [0, 2]);
   assertEquals(findWordsContaining(["abc", "bcd", "aaaa", "cbc"], "z"), []);
+});
+
+Deno.test("#applyOperations", () => {
+  assertEquals(applyOperations([1, 2, 2, 1, 1, 0]), [1, 4, 2, 0, 0, 0]);
+  assertEquals(applyOperations([0, 1]), [1, 0]);
 });

@@ -1874,7 +1874,22 @@ function findWordsContaining(words: string[], x: string): number[] {
   return res;
 }
 
+function applyOperations(nums: number[]): number[] {
+  for (let index = 0; index < nums.length - 1; index++) {
+    const ith = nums[index];
+    const nxt = nums[index + 1];
+    if (ith === nxt) {
+      nums[index] = ith * 2;
+      nums[index + 1] = 0;
+    } else {
+      nums[index] = ith;
+    }
+  }
+  return [...nums.filter((n) => n !== 0), ...nums.filter((n) => n === 0)];
+}
+
 export {
+  applyOperations,
   findWordsContaining,
   trimMean,
   findMiddleIndex,
