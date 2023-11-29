@@ -1899,7 +1899,25 @@ function hammingWeight(n: number) {
   return count;
 }
 
+class MyHashSet {
+  #hash: { [key: number]: boolean } = {};
+  constructor() {}
+
+  add(key: number): void {
+    this.#hash[key] = true;
+  }
+
+  remove(key: number): void {
+    delete this.#hash[key];
+  }
+
+  contains(key: number): boolean {
+    return this.#hash[key] === true;
+  }
+}
+
 export {
+  MyHashSet,
   hammingWeight,
   applyOperations,
   findWordsContaining,

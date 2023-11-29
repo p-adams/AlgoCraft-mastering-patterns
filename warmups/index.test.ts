@@ -100,6 +100,7 @@ import {
   findWordsContaining,
   applyOperations,
   hammingWeight,
+  MyHashSet,
 } from "./index.ts";
 import { assertInstanceOf } from "https://deno.land/std@0.200.0/assert/assert_instance_of.ts";
 
@@ -772,4 +773,14 @@ Deno.test("#applyOperations", () => {
 Deno.test("#hammingWeight", () => {
   assertEquals(hammingWeight(0o0000000000000000000000000001011), 3);
   assertEquals(hammingWeight(0o0000000000000000000000010000000), 1);
+});
+
+Deno.test("#MyHashSet", () => {
+  const hs = new MyHashSet();
+  hs.add(1);
+  hs.add(2);
+  hs.add(1);
+  hs.remove(2);
+  assertEquals(hs.contains(1), true);
+  assertEquals(hs.contains(2), false);
 });
