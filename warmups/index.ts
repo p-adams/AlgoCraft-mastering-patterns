@@ -1888,7 +1888,19 @@ function applyOperations(nums: number[]): number[] {
   return [...nums.filter((n) => n !== 0), ...nums.filter((n) => n === 0)];
 }
 
+function hammingWeight(n: number) {
+  let count = 0;
+
+  while (n !== 0) {
+    count += n & 1;
+    n >>>= 1; // Use unsigned right shift to handle signed integers
+  }
+
+  return count;
+}
+
 export {
+  hammingWeight,
   applyOperations,
   findWordsContaining,
   trimMean,

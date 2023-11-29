@@ -99,6 +99,7 @@ import {
   trimMean,
   findWordsContaining,
   applyOperations,
+  hammingWeight,
 } from "./index.ts";
 import { assertInstanceOf } from "https://deno.land/std@0.200.0/assert/assert_instance_of.ts";
 
@@ -766,4 +767,9 @@ Deno.test("#findWordsContaining", () => {
 Deno.test("#applyOperations", () => {
   assertEquals(applyOperations([1, 2, 2, 1, 1, 0]), [1, 4, 2, 0, 0, 0]);
   assertEquals(applyOperations([0, 1]), [1, 0]);
+});
+
+Deno.test("#hammingWeight", () => {
+  assertEquals(hammingWeight(0o0000000000000000000000000001011), 3);
+  assertEquals(hammingWeight(0o0000000000000000000000010000000), 1);
 });
