@@ -101,6 +101,7 @@ import {
   applyOperations,
   hammingWeight,
   MyHashSet,
+  countCharacters2,
 } from "./index.ts";
 import { assertInstanceOf } from "https://deno.land/std@0.200.0/assert/assert_instance_of.ts";
 
@@ -783,4 +784,8 @@ Deno.test("#MyHashSet", () => {
   hs.remove(2);
   assertEquals(hs.contains(1), true);
   assertEquals(hs.contains(2), false);
+});
+
+Deno.test("#countCharacters2", () => {
+  assertEquals(countCharacters2(["cat", "bt", "hat", "tree"], "atach"), 6);
 });

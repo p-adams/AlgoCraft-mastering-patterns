@@ -1916,7 +1916,46 @@ class MyHashSet {
   }
 }
 
+function countCharacters2(words: string[], chars: string): number {
+  const freq = new Map<string, number>();
+  let result = 0;
+
+  // Count frequencies of characters in chars
+  for (let i = 0; i < chars.length; i++) {
+    const ch = chars[i];
+    freq.set(ch, (freq.get(ch) || 0) + 1);
+  }
+
+  // Check each word
+  for (const word of words) {
+    const wordFreq = new Map<string, number>();
+
+    // Count frequencies of characters in the word
+    for (let i = 0; i < word.length; i++) {
+      const ch = word[i];
+      wordFreq.set(ch, (wordFreq.get(ch) || 0) + 1);
+    }
+
+    // Check if the word can be formed
+    let canFormWord = true;
+    for (const [ch, count] of wordFreq) {
+      if (!freq.has(ch) || freq.get(ch)! < count) {
+        canFormWord = false;
+        break;
+      }
+    }
+
+    // If the word can be formed, add its length to the result
+    if (canFormWord) {
+      result += word.length;
+    }
+  }
+
+  return result;
+}
+
 export {
+  countCharacters2,
   MyHashSet,
   hammingWeight,
   applyOperations,
