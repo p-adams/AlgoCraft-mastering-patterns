@@ -102,6 +102,7 @@ import {
   hammingWeight,
   MyHashSet,
   countCharacters2,
+  maxHouseDistance,
 } from "./index.ts";
 import { assertInstanceOf } from "https://deno.land/std@0.200.0/assert/assert_instance_of.ts";
 
@@ -788,4 +789,8 @@ Deno.test("#MyHashSet", () => {
 
 Deno.test("#countCharacters2", () => {
   assertEquals(countCharacters2(["cat", "bt", "hat", "tree"], "atach"), 6);
+});
+
+Deno.test("#maxHouseDistance", () => {
+  assertEquals(maxHouseDistance([1, 1, 1, 6, 1, 1, 1]), 3);
 });

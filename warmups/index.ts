@@ -1954,7 +1954,12 @@ function countCharacters2(words: string[], chars: string): number {
   return result;
 }
 
+function maxHouseDistance(colors: number[]): number {
+  return -1;
+}
+
 export {
+  maxHouseDistance,
   countCharacters2,
   MyHashSet,
   hammingWeight,
