@@ -793,4 +793,6 @@ Deno.test("#countCharacters2", () => {
 
 Deno.test("#maxHouseDistance", () => {
   assertEquals(maxHouseDistance([1, 1, 1, 6, 1, 1, 1]), 3);
+  assertEquals(maxHouseDistance([1, 8, 3, 8, 3]), 4);
+  assertEquals(maxHouseDistance([0, 1]), 1);
 });

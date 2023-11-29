@@ -1955,7 +1955,16 @@ function countCharacters2(words: string[], chars: string): number {
 }
 
 function maxHouseDistance(colors: number[]): number {
-  return -1;
+  let max = 0;
+  for (let i = 0; i < colors.length; i++) {
+    for (let j = i + 1; j < colors.length; j++) {
+      if (colors[i] !== colors[j]) {
+        const distance = Math.abs(i - j);
+        max = Math.max(max, distance);
+      }
+    }
+  }
+  return max;
 }
 
 export {
