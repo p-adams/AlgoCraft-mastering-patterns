@@ -103,6 +103,7 @@ import {
   MyHashSet,
   countCharacters2,
   maxHouseDistance,
+  minStartValue,
 } from "./index.ts";
 import { assertInstanceOf } from "https://deno.land/std@0.200.0/assert/assert_instance_of.ts";
 
@@ -795,4 +796,8 @@ Deno.test("#maxHouseDistance", () => {
   assertEquals(maxHouseDistance([1, 1, 1, 6, 1, 1, 1]), 3);
   assertEquals(maxHouseDistance([1, 8, 3, 8, 3]), 4);
   assertEquals(maxHouseDistance([0, 1]), 1);
+});
+
+Deno.test("#minStartValue", () => {
+  assertEquals(minStartValue([-3, 2, -3, 4, 2]), 5);
 });

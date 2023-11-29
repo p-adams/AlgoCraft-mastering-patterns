@@ -1967,7 +1967,26 @@ function maxHouseDistance(colors: number[]): number {
   return max;
 }
 
+function minStartValue(nums: number[]): number {
+  let startValue = 1; // initial positive value
+  let sum = startValue; // current sum
+
+  for (let index = 0; index < nums.length; index++) {
+    const element = nums[index];
+    sum += element;
+
+    if (sum < 1) {
+      startValue += 1; // update startValue
+      sum = startValue; // reset sum to the new startValue
+      index = -1; // restart the loop from the beginning
+    }
+  }
+
+  return startValue; // return the minimum positive value
+}
+
 export {
+  minStartValue,
   maxHouseDistance,
   countCharacters2,
   MyHashSet,
