@@ -2000,7 +2000,30 @@ function transpose(matrix: number[][]): number[][] {
   return transposedMatrix;
 }
 
+function findColumnWidth(grid: number[][]): number[] {
+  const numRows = grid.length;
+  const numCols = grid[0].length;
+  const columns = [];
+  for (let col = 0; col < numCols; col++) {
+    const column = [];
+    for (let row = 0; row < numRows; row++) {
+      column.push(grid[row][col].toString());
+    }
+    columns.push(column);
+  }
+  return columns.reduce((prev: number[], curr) => {
+    let max = curr[0].length;
+    for (const c of curr) {
+      if (c.length > max) {
+        max = c.length;
+      }
+    }
+    return prev.concat(max);
+  }, []);
+}
+
 export {
+  findColumnWidth,
   transpose,
   minStartValue,
   maxHouseDistance,

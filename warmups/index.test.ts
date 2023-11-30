@@ -105,6 +105,7 @@ import {
   maxHouseDistance,
   minStartValue,
   transpose,
+  findColumnWidth,
 } from "./index.ts";
 import { assertInstanceOf } from "https://deno.land/std@0.200.0/assert/assert_instance_of.ts";
 
@@ -826,5 +827,17 @@ Deno.test("#transpose", () => {
       [2, 5],
       [3, 6],
     ]
+  );
+});
+
+Deno.test("#findColumnWidth", () => {
+  assertEquals(findColumnWidth([[1], [22], [333]]), [3]);
+  assertEquals(
+    findColumnWidth([
+      [-15, 1, 3],
+      [15, 7, 12],
+      [5, 6, -2],
+    ]),
+    [3, 1, 2]
   );
 });
