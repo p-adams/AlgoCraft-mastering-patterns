@@ -1985,7 +1985,23 @@ function minStartValue(nums: number[]): number {
   return startValue; // return the minimum positive value
 }
 
+function transpose(matrix: number[][]): number[][] {
+  const r = matrix.length;
+  const c = matrix[0].length;
+  const transposedMatrix: number[][] = [];
+  for (let j = 0; j < c; j++) {
+    transposedMatrix[j] = new Array(r);
+  }
+  for (let i = 0; i < r; i++) {
+    for (let j = 0; j < c; j++) {
+      transposedMatrix[j][i] = matrix[i][j];
+    }
+  }
+  return transposedMatrix;
+}
+
 export {
+  transpose,
   minStartValue,
   maxHouseDistance,
   countCharacters2,

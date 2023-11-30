@@ -104,6 +104,7 @@ import {
   countCharacters2,
   maxHouseDistance,
   minStartValue,
+  transpose,
 } from "./index.ts";
 import { assertInstanceOf } from "https://deno.land/std@0.200.0/assert/assert_instance_of.ts";
 
@@ -800,4 +801,30 @@ Deno.test("#maxHouseDistance", () => {
 
 Deno.test("#minStartValue", () => {
   assertEquals(minStartValue([-3, 2, -3, 4, 2]), 5);
+});
+
+Deno.test("#transpose", () => {
+  assertEquals(
+    transpose([
+      [1, 2, 3],
+      [4, 5, 6],
+      [7, 8, 9],
+    ]),
+    [
+      [1, 4, 7],
+      [2, 5, 8],
+      [3, 6, 9],
+    ]
+  );
+  assertEquals(
+    transpose([
+      [1, 2, 3],
+      [4, 5, 6],
+    ]),
+    [
+      [1, 4],
+      [2, 5],
+      [3, 6],
+    ]
+  );
 });
