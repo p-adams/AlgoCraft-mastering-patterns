@@ -2023,7 +2023,20 @@ function findColumnWidth(grid: number[][]): number[] {
 }
 
 function pickGifts(gifts: number[], k: number): number {
-  return -1;
+  const floor = (n: number) => Math.floor(Math.sqrt(n));
+  for (let count = 0; count < k; count++) {
+    let maxIndex = 0;
+    // Find the index of the pile with the maximum number of gifts
+    for (let index = 1; index < gifts.length; index++) {
+      if (gifts[index] > gifts[maxIndex]) {
+        maxIndex = index;
+      }
+    }
+    // Leave behind the floor of the square root of the gifts in the chosen pile
+    gifts[maxIndex] = floor(gifts[maxIndex]);
+  }
+  // Calculate the total remaining gifts after k seconds
+  return gifts.reduce((a, b) => a + b, 0);
 }
 
 export {
