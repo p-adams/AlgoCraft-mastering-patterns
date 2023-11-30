@@ -106,6 +106,7 @@ import {
   minStartValue,
   transpose,
   findColumnWidth,
+  pickGifts,
 } from "./index.ts";
 import { assertInstanceOf } from "https://deno.land/std@0.200.0/assert/assert_instance_of.ts";
 
@@ -840,4 +841,8 @@ Deno.test("#findColumnWidth", () => {
     ]),
     [3, 1, 2]
   );
+});
+
+Deno.test("#pickGifts", () => {
+  assertEquals(pickGifts([25, 64, 9, 4, 100], 4), 29);
 });

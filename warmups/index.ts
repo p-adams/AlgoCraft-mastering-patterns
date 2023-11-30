@@ -2022,7 +2022,12 @@ function findColumnWidth(grid: number[][]): number[] {
   }, []);
 }
 
+function pickGifts(gifts: number[], k: number): number {
+  return -1;
+}
+
 export {
+  pickGifts,
   findColumnWidth,
   transpose,
   minStartValue,
