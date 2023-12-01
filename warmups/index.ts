@@ -2062,7 +2062,26 @@ class MyHashMap {
   }
 }
 
+function findLucky(arr: number[]): number {
+  const freq = new Map<number, number>();
+  for (const iterator of arr) {
+    if (freq.has(iterator)) {
+      freq.set(iterator, freq.get(iterator)! + 1);
+    } else {
+      freq.set(iterator, 1);
+    }
+  }
+  const luckyNumbers = [];
+  for (const [k, v] of freq.entries()) {
+    if (k === v) {
+      luckyNumbers.push(k);
+    }
+  }
+  return luckyNumbers.length ? Math.max(...luckyNumbers) : -1;
+}
+
 export {
+  findLucky,
   MyHashMap,
   arrayStringsAreEqual,
   pickGifts,

@@ -109,6 +109,7 @@ import {
   pickGifts,
   arrayStringsAreEqual,
   MyHashMap,
+  findLucky,
 } from "./index.ts";
 import { assertInstanceOf } from "https://deno.land/std@0.200.0/assert/assert_instance_of.ts";
 
@@ -861,4 +862,10 @@ Deno.test("#MyHashMap", () => {
   const val = myhm.get(1);
 
   assertEquals(val, 11);
+});
+
+Deno.test("#findLucky", () => {
+  assertEquals(findLucky([2, 2, 3, 4]), 2);
+  assertEquals(findLucky([1, 2, 2, 3, 3, 3]), 3);
+  assertEquals(findLucky([2, 2, 2, 3, 3]), -1);
 });
