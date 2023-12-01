@@ -108,6 +108,7 @@ import {
   findColumnWidth,
   pickGifts,
   arrayStringsAreEqual,
+  MyHashMap,
 } from "./index.ts";
 import { assertInstanceOf } from "https://deno.land/std@0.200.0/assert/assert_instance_of.ts";
 
@@ -850,4 +851,14 @@ Deno.test("#pickGifts", () => {
 
 Deno.test("#arrayStringsAreEqual", () => {
   assertEquals(arrayStringsAreEqual(["ab", "c"], ["a", "bc"]), true);
+});
+
+Deno.test("#MyHashMap", () => {
+  const myhm = new MyHashMap();
+
+  myhm.put(0, 12);
+  myhm.put(1, 11);
+  const val = myhm.get(1);
+
+  assertEquals(val, 11);
 });

@@ -2045,7 +2045,25 @@ function arrayStringsAreEqual(word1: string[], word2: string[]): boolean {
   return str1 === str2;
 }
 
+class MyHashMap {
+  #hm: { [key: number]: number } = {};
+  constructor() {}
+
+  put(key: number, value: number): void {
+    this.#hm[key] = value;
+  }
+
+  get(key: number): number {
+    return this.#hm[key] ?? -1;
+  }
+
+  remove(key: number): void {
+    delete this.#hm[key];
+  }
+}
+
 export {
+  MyHashMap,
   arrayStringsAreEqual,
   pickGifts,
   findColumnWidth,
