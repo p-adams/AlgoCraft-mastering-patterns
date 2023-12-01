@@ -2080,7 +2080,26 @@ function findLucky(arr: number[]): number {
   return luckyNumbers.length ? Math.max(...luckyNumbers) : -1;
 }
 
+function checkXMatrix(grid: number[][]): boolean {
+  for (let i = 0; i < grid.length; i++) {
+    for (let j = 0; j < grid[0].length; j++) {
+      const curr = grid[i][j];
+      if (i === j || i === grid.length - 1 - j) {
+        if (curr === 0) {
+          return false;
+        }
+      } else {
+        if (curr !== 0) {
+          return false;
+        }
+      }
+    }
+  }
+  return true;
+}
+
 export {
+  checkXMatrix,
   findLucky,
   MyHashMap,
   arrayStringsAreEqual,

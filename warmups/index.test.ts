@@ -110,6 +110,7 @@ import {
   arrayStringsAreEqual,
   MyHashMap,
   findLucky,
+  checkXMatrix,
 } from "./index.ts";
 import { assertInstanceOf } from "https://deno.land/std@0.200.0/assert/assert_instance_of.ts";
 
@@ -868,4 +869,24 @@ Deno.test("#findLucky", () => {
   assertEquals(findLucky([2, 2, 3, 4]), 2);
   assertEquals(findLucky([1, 2, 2, 3, 3, 3]), 3);
   assertEquals(findLucky([2, 2, 2, 3, 3]), -1);
+});
+
+Deno.test("#checkXMatrix", () => {
+  assertEquals(
+    checkXMatrix([
+      [2, 0, 0, 1],
+      [0, 3, 1, 0],
+      [0, 5, 2, 0],
+      [4, 0, 0, 2],
+    ]),
+    true
+  );
+  assertEquals(
+    checkXMatrix([
+      [5, 7, 0],
+      [0, 3, 1],
+      [0, 5, 0],
+    ]),
+    false
+  );
 });
