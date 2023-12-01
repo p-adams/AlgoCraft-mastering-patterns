@@ -107,6 +107,7 @@ import {
   transpose,
   findColumnWidth,
   pickGifts,
+  arrayStringsAreEqual,
 } from "./index.ts";
 import { assertInstanceOf } from "https://deno.land/std@0.200.0/assert/assert_instance_of.ts";
 
@@ -845,4 +846,8 @@ Deno.test("#findColumnWidth", () => {
 
 Deno.test("#pickGifts", () => {
   assertEquals(pickGifts([25, 64, 9, 4, 100], 4), 29);
+});
+
+Deno.test("#arrayStringsAreEqual", () => {
+  assertEquals(arrayStringsAreEqual(["ab", "c"], ["a", "bc"]), true);
 });
