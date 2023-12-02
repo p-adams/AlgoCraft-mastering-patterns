@@ -2098,7 +2098,21 @@ function checkXMatrix(grid: number[][]): boolean {
   return true;
 }
 
+function arraySign(nums: number[]): number {
+  function signFunc(x: number) {
+    if (x > 0) {
+      return 1;
+    } else if (x < 0) {
+      return -1;
+    } else {
+      return 0;
+    }
+  }
+  return signFunc(nums.reduce((a, b) => a * b, 1));
+}
+
 export {
+  arraySign,
   checkXMatrix,
   findLucky,
   MyHashMap,

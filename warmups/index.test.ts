@@ -111,6 +111,7 @@ import {
   MyHashMap,
   findLucky,
   checkXMatrix,
+  arraySign,
 } from "./index.ts";
 import { assertInstanceOf } from "https://deno.land/std@0.200.0/assert/assert_instance_of.ts";
 
@@ -889,4 +890,10 @@ Deno.test("#checkXMatrix", () => {
     ]),
     false
   );
+});
+
+Deno.test("#arraySign", () => {
+  assertEquals(arraySign([-1, -2, -3, -4, 3, 2, 1]), 1);
+  assertEquals(arraySign([1, 5, 0, 2, -3]), 0);
+  assertEquals(arraySign([-1, 1, -1, 1, -1]), -1);
 });
