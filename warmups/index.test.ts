@@ -112,6 +112,7 @@ import {
   findLucky,
   checkXMatrix,
   arraySign,
+  minCostClimbingStairs,
 } from "./index.ts";
 import { assertInstanceOf } from "https://deno.land/std@0.200.0/assert/assert_instance_of.ts";
 
@@ -896,4 +897,9 @@ Deno.test("#arraySign", () => {
   assertEquals(arraySign([-1, -2, -3, -4, 3, 2, 1]), 1);
   assertEquals(arraySign([1, 5, 0, 2, -3]), 0);
   assertEquals(arraySign([-1, 1, -1, 1, -1]), -1);
+});
+
+Deno.test("#minCostClimbingStairs", () => {
+  assertEquals(minCostClimbingStairs([10, 15, 20]), 15);
+  assertEquals(minCostClimbingStairs([1, 100, 1, 1, 1, 100, 1, 1, 100, 1]), 6);
 });

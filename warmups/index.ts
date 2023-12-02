@@ -2111,7 +2111,19 @@ function arraySign(nums: number[]): number {
   return signFunc(nums.reduce((a, b) => a * b, 1));
 }
 
+function minCostClimbingStairs(cost: number[]): number {
+  const dp = new Array(cost.length);
+  dp[0] = cost[0];
+  dp[1] = cost[1];
+  for (let index = 2; index < cost.length; index++) {
+    dp[index] = cost[index] + Math.min(dp[index - 1], dp[index - 2]);
+  }
+  const [a, b] = dp.slice(-2);
+  return Math.min(a, b);
+}
+
 export {
+  minCostClimbingStairs,
   arraySign,
   checkXMatrix,
   findLucky,
