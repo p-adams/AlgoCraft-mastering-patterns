@@ -2123,7 +2123,8 @@ function minCostClimbingStairs(cost: number[]): number {
 }
 
 function largestGoodInteger(num: string): string {
-  const goodIntegers = [
+  let max = -Infinity;
+  for (const v of [
     "999",
     "888",
     "777",
@@ -2134,14 +2135,10 @@ function largestGoodInteger(num: string): string {
     "222",
     "111",
     "000",
-  ];
-  let max = -Infinity;
-  for (const [key, v] of goodIntegers.entries()) {
-    const match = num.match(goodIntegers[key])?.[0];
-    if (match !== undefined) {
-      if (Number(match) > max) {
-        max = Number(match);
-      }
+  ]) {
+    const match = num.match(v)?.[0];
+    if (match) {
+      max = Math.max(max, Number(match));
     }
   }
   return max === 0 ? "000" : max !== -Infinity ? String(max) : "";
