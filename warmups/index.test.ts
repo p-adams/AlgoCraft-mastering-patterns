@@ -113,6 +113,7 @@ import {
   checkXMatrix,
   arraySign,
   minCostClimbingStairs,
+  largestGoodInteger,
 } from "./index.ts";
 import { assertInstanceOf } from "https://deno.land/std@0.200.0/assert/assert_instance_of.ts";
 
@@ -902,4 +903,10 @@ Deno.test("#arraySign", () => {
 Deno.test("#minCostClimbingStairs", () => {
   assertEquals(minCostClimbingStairs([10, 15, 20]), 15);
   assertEquals(minCostClimbingStairs([1, 100, 1, 1, 1, 100, 1, 1, 100, 1]), 6);
+});
+
+Deno.test("#largestGoodInteger", () => {
+  assertEquals(largestGoodInteger("6777133339"), "777");
+  assertEquals(largestGoodInteger("2300019"), "000");
+  assertEquals(largestGoodInteger("42352338"), "");
 });

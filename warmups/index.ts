@@ -2122,7 +2122,33 @@ function minCostClimbingStairs(cost: number[]): number {
   return Math.min(a, b);
 }
 
+function largestGoodInteger(num: string): string {
+  const goodIntegers = [
+    "999",
+    "888",
+    "777",
+    "666",
+    "555",
+    "444",
+    "333",
+    "222",
+    "111",
+    "000",
+  ];
+  let max = -Infinity;
+  for (const [key, v] of goodIntegers.entries()) {
+    const match = num.match(goodIntegers[key])?.[0];
+    if (match !== undefined) {
+      if (Number(match) > max) {
+        max = Number(match);
+      }
+    }
+  }
+  return max === 0 ? "000" : max !== -Infinity ? String(max) : "";
+}
+
 export {
+  largestGoodInteger,
   minCostClimbingStairs,
   arraySign,
   checkXMatrix,
