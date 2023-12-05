@@ -114,6 +114,7 @@ import {
   arraySign,
   minCostClimbingStairs,
   largestGoodInteger,
+  numberOfMatches,
 } from "./index.ts";
 import { assertInstanceOf } from "https://deno.land/std@0.200.0/assert/assert_instance_of.ts";
 
@@ -909,4 +910,9 @@ Deno.test("#largestGoodInteger", () => {
   assertEquals(largestGoodInteger("6777133339"), "777");
   assertEquals(largestGoodInteger("2300019"), "000");
   assertEquals(largestGoodInteger("42352338"), "");
+});
+
+Deno.test("#numberOfMatches", () => {
+  assertEquals(numberOfMatches(7), 6);
+  assertEquals(numberOfMatches(14), 13);
 });

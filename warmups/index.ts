@@ -2144,7 +2144,24 @@ function largestGoodInteger(num: string): string {
   return max === 0 ? "000" : max !== -Infinity ? String(max) : "";
 }
 
+function numberOfMatches(n: number): number {
+  let matches = 0;
+  let teams = n;
+  while (teams > 1) {
+    if (teams % 2 === 0) {
+      matches += teams / 2;
+      teams = teams / 2;
+    } else {
+      matches += (teams - 1) / 2;
+      teams = (teams - 1) / 2 + 1;
+    }
+  }
+
+  return matches;
+}
+
 export {
+  numberOfMatches,
   largestGoodInteger,
   minCostClimbingStairs,
   arraySign,
