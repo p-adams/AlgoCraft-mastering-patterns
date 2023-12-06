@@ -2160,7 +2160,19 @@ function numberOfMatches(n: number): number {
   return matches;
 }
 
+function totalMoney(n: number): number {
+  let res = 0;
+
+  for (let i = 0; i < n; i++) {
+    // Calculate the amount for each day based on its position in the sequence
+    res += (i % 7) + Math.floor(i / 7) + 1;
+  }
+
+  return res;
+}
+
 export {
+  totalMoney,
   numberOfMatches,
   largestGoodInteger,
   minCostClimbingStairs,

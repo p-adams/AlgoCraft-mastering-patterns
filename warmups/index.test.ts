@@ -115,6 +115,7 @@ import {
   minCostClimbingStairs,
   largestGoodInteger,
   numberOfMatches,
+  totalMoney,
 } from "./index.ts";
 import { assertInstanceOf } from "https://deno.land/std@0.200.0/assert/assert_instance_of.ts";
 
@@ -915,4 +916,9 @@ Deno.test("#largestGoodInteger", () => {
 Deno.test("#numberOfMatches", () => {
   assertEquals(numberOfMatches(7), 6);
   assertEquals(numberOfMatches(14), 13);
+});
+
+Deno.test("#totalMoney", () => {
+  assertEquals(totalMoney(4), 10);
+  assertEquals(totalMoney(10), 37);
 });
