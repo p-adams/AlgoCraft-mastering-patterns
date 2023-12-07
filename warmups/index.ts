@@ -2183,7 +2183,21 @@ function largestOddNumber(num: string): string {
   return "";
 }
 
+function findPeaks(mountain: number[]): number[] {
+  const peaks = [];
+  for (let index = 1; index < mountain.length - 1; index++) {
+    const curr = mountain[index];
+    const prev = mountain[index - 1];
+    const next = mountain[index + 1];
+    if (curr > prev && curr > next) {
+      peaks.push(index);
+    }
+  }
+  return peaks;
+}
+
 export {
+  findPeaks,
   largestOddNumber,
   totalMoney,
   numberOfMatches,

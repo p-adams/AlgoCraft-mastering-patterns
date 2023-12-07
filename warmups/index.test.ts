@@ -117,6 +117,7 @@ import {
   numberOfMatches,
   totalMoney,
   largestOddNumber,
+  findPeaks,
 } from "./index.ts";
 import { assertInstanceOf } from "https://deno.land/std@0.200.0/assert/assert_instance_of.ts";
 
@@ -928,4 +929,9 @@ Deno.test("#largestOddNumber", () => {
   assertEquals(largestOddNumber("52"), "5");
   assertEquals(largestOddNumber("4206"), "");
   assertEquals(largestOddNumber("35427"), "35427");
+});
+
+Deno.test("#findPeaks", () => {
+  assertEquals(findPeaks([2, 4, 4]), []);
+  assertEquals(findPeaks([1, 4, 3, 8, 5]), [1, 3]);
 });
