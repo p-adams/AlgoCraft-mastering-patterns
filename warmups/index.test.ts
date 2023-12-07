@@ -116,6 +116,7 @@ import {
   largestGoodInteger,
   numberOfMatches,
   totalMoney,
+  largestOddNumber,
 } from "./index.ts";
 import { assertInstanceOf } from "https://deno.land/std@0.200.0/assert/assert_instance_of.ts";
 
@@ -921,4 +922,10 @@ Deno.test("#numberOfMatches", () => {
 Deno.test("#totalMoney", () => {
   assertEquals(totalMoney(4), 10);
   assertEquals(totalMoney(10), 37);
+});
+
+Deno.test("#largestOddNumber", () => {
+  assertEquals(largestOddNumber("52"), "5");
+  assertEquals(largestOddNumber("4206"), "");
+  assertEquals(largestOddNumber("35427"), "35427");
 });
