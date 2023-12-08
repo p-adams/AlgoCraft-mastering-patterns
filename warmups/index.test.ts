@@ -1,7 +1,4 @@
-import {
-  assert,
-  assertEquals,
-} from "https://deno.land/std@0.113.0/testing/asserts.ts";
+import { assertEquals } from "https://deno.land/std@0.113.0/testing/asserts.ts";
 import {
   arrReverse,
   checkPalindromeRec,
@@ -16,7 +13,6 @@ import {
   evenOddNumber,
   countCharacters,
   arithmeticTriplets,
-  TreeNode,
   knightProbability,
   isSequence,
   isValid,
@@ -118,8 +114,10 @@ import {
   totalMoney,
   largestOddNumber,
   findPeaks,
+  lastStoneWeight,
 } from "./index.ts";
 import { assertInstanceOf } from "https://deno.land/std@0.200.0/assert/assert_instance_of.ts";
+import { TreeNode } from "./models.ts";
 
 Deno.test("#maxMinElements", () => {
   assertEquals([5, 1], maxMinElements([1, 2, 3, 4, 5]));
@@ -934,4 +932,8 @@ Deno.test("#largestOddNumber", () => {
 Deno.test("#findPeaks", () => {
   assertEquals(findPeaks([2, 4, 4]), []);
   assertEquals(findPeaks([1, 4, 3, 8, 5]), [1, 3]);
+});
+
+Deno.test("#lastStoneWeight", () => {
+  assertEquals(lastStoneWeight([2, 7, 4, 1, 8, 1]), 1);
 });

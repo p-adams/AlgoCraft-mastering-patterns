@@ -1,3 +1,5 @@
+import { MaxHeap, TreeNode } from "./models.ts";
+
 function maxMinElements(input: number[]): [number, number] {
   return [Math.max(...input), Math.min(...input)];
 }
@@ -185,37 +187,6 @@ function arithmeticTriplets(input: number[], diff: number): number {
     }
   }
   return occ;
-}
-
-export class TreeNode {
-  #val: number;
-  #left: TreeNode | null;
-  #right: TreeNode | null;
-  constructor(val: number, left?: TreeNode | null, right?: TreeNode | null) {
-    this.#val = val;
-    this.#left = left ?? null;
-    this.#right = right ?? null;
-  }
-
-  public get val(): number {
-    return this.#val;
-  }
-
-  public get left(): TreeNode | null {
-    return this.#left;
-  }
-
-  public set left(v: TreeNode | null) {
-    this.#left = v;
-  }
-
-  public get right(): TreeNode | null {
-    return this.#right;
-  }
-
-  public set right(v: TreeNode | null) {
-    this.#right = v;
-  }
 }
 
 function mergeTrees(
@@ -2215,7 +2186,32 @@ function tree2str(root: TreeNode | null): string {
   return `${root.val}(${left})(${right})`;
 }
 
+function lastStoneWeight(stones: number[]): number {
+  const maxHeap = new MaxHeap();
+
+  for (const stone of stones) {
+    maxHeap.push(stone);
+  }
+
+  while (maxHeap.heap.length > 1) {
+    const stone1 = maxHeap.pop()!;
+    const stone2 = maxHeap.pop()!;
+
+    if (stone1 !== stone2) {
+      maxHeap.push(Math.abs(stone2 - stone1));
+    }
+  }
+
+  return maxHeap.heap.length === 1 ? maxHeap.heap[0] : 0;
+}
+
+// Example usage:
+const stones = [2, 7, 4, 1, 8, 1];
+const result = lastStoneWeight(stones);
+console.log(result); // Output: 1
+
 export {
+  lastStoneWeight,
   tree2str,
   findPeaks,
   largestOddNumber,
