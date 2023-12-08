@@ -2205,11 +2205,6 @@ function lastStoneWeight(stones: number[]): number {
   return maxHeap.heap.length === 1 ? maxHeap.heap[0] : 0;
 }
 
-// Example usage:
-const stones = [2, 7, 4, 1, 8, 1];
-const result = lastStoneWeight(stones);
-console.log(result); // Output: 1
-
 export {
   lastStoneWeight,
   tree2str,
