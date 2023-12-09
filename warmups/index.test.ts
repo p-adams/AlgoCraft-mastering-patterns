@@ -115,6 +115,7 @@ import {
   largestOddNumber,
   findPeaks,
   lastStoneWeight,
+  findKDistantIndices,
 } from "./index.ts";
 import { assertInstanceOf } from "https://deno.land/std@0.200.0/assert/assert_instance_of.ts";
 import { TreeNode } from "./models.ts";
@@ -936,4 +937,11 @@ Deno.test("#findPeaks", () => {
 
 Deno.test("#lastStoneWeight", () => {
   assertEquals(lastStoneWeight([2, 7, 4, 1, 8, 1]), 1);
+});
+
+Deno.test("#findKDistantIndices", () => {
+  assertEquals(
+    findKDistantIndices([3, 4, 9, 1, 3, 9, 5], 9, 1),
+    [1, 2, 3, 4, 5, 6]
+  );
 });

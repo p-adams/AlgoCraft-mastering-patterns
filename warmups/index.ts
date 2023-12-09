@@ -2216,7 +2216,21 @@ function inorderTraversal(root: TreeNode | null): number[] {
   return [...left, root.val, ...right];
 }
 
+function findKDistantIndices(nums: number[], key: number, k: number): number[] {
+  const n = nums.length,
+    result: number[] = [];
+  let j = 0;
+  for (let i = 0; i < n; i++)
+    if (nums[i] === key) {
+      const end = Math.min(n, i + k + 1);
+      j = Math.max(i - k, j);
+      while (j < end) result.push(j++);
+    }
+  return result;
+}
+
 export {
+  findKDistantIndices,
   inorderTraversal,
   lastStoneWeight,
   tree2str,
