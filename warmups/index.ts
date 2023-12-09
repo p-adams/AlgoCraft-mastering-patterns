@@ -2205,7 +2205,19 @@ function lastStoneWeight(stones: number[]): number {
   return maxHeap.heap.length === 1 ? maxHeap.heap[0] : 0;
 }
 
+function inorderTraversal(root: TreeNode | null): number[] {
+  if (root === null) {
+    return [];
+  }
+  const left = inorderTraversal(root.left);
+  const right = inorderTraversal(root.right);
+
+  // Concatenate left, root value, and right
+  return [...left, root.val, ...right];
+}
+
 export {
+  inorderTraversal,
   lastStoneWeight,
   tree2str,
   findPeaks,
