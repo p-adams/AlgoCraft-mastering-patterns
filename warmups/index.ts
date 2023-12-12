@@ -2229,7 +2229,26 @@ function findKDistantIndices(nums: number[], key: number, k: number): number[] {
   return result;
 }
 
+function findSpecialInteger(arr: number[]): number {
+  const m = new Map();
+  for (const el of arr) {
+    if (m.has(el)) {
+      m.set(el, m.get(el) + 1);
+    } else {
+      m.set(el, 1);
+    }
+  }
+
+  for (const [i, v] of m.entries()) {
+    if (v > Math.floor(arr.length / 4)) {
+      return i;
+    }
+  }
+  return -1;
+}
+
 export {
+  findSpecialInteger,
   findKDistantIndices,
   inorderTraversal,
   lastStoneWeight,

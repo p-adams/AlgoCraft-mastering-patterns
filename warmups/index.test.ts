@@ -116,6 +116,7 @@ import {
   findPeaks,
   lastStoneWeight,
   findKDistantIndices,
+  findSpecialInteger,
 } from "./index.ts";
 import { assertInstanceOf } from "https://deno.land/std@0.200.0/assert/assert_instance_of.ts";
 import { TreeNode } from "./models.ts";
@@ -944,4 +945,8 @@ Deno.test("#findKDistantIndices", () => {
     findKDistantIndices([3, 4, 9, 1, 3, 9, 5], 9, 1),
     [1, 2, 3, 4, 5, 6]
   );
+});
+
+Deno.test("#findSpecialInteger", () => {
+  assertEquals(findSpecialInteger([1, 2, 2, 6, 6, 6, 6, 7, 10]), 6);
 });
