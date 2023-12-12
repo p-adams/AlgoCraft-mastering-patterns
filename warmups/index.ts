@@ -2247,7 +2247,12 @@ function findSpecialInteger(arr: number[]): number {
   return -1;
 }
 
+function maxProduct(nums: number[]): number {
+  return -1;
+}
+
 export {
+  maxProduct,
   findSpecialInteger,
   findKDistantIndices,
   inorderTraversal,
