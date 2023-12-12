@@ -2248,7 +2248,13 @@ function findSpecialInteger(arr: number[]): number {
 }
 
 function maxProduct(nums: number[]): number {
-  return -1;
+  let max = -Infinity;
+  for (let i = 0; i < nums.length; i++) {
+    for (let j = 1 + i; j < nums.length; j++) {
+      max = Math.max(max, (nums[i] - 1) * (nums[j] - 1));
+    }
+  }
+  return max;
 }
 
 export {
