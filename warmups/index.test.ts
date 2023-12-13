@@ -119,6 +119,7 @@ import {
   findSpecialInteger,
   maxProduct,
   numSpecial,
+  minOperations,
 } from "./index.ts";
 import { assertInstanceOf } from "https://deno.land/std@0.200.0/assert/assert_instance_of.ts";
 import { TreeNode } from "./models.ts";
@@ -966,4 +967,8 @@ Deno.test("#numSpecial", () => {
     ]),
     1
   );
+});
+
+Deno.test("#minOperations", () => {
+  assertEquals(minOperations(["d1/", "d2/", "../", "d21/", "./"]), 2);
 });

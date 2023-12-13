@@ -2294,7 +2294,12 @@ function numSpecial(mat: number[][]): number {
   return pos;
 }
 
+function minOperations(logs: string[]): number {
+  return -1;
+}
+
 export {
+  minOperations,
   numSpecial,
   maxProduct,
   findSpecialInteger,
