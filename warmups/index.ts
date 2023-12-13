@@ -2257,7 +2257,45 @@ function maxProduct(nums: number[]): number {
   return max;
 }
 
+function numSpecial(mat: number[][]): number {
+  function checkSpecial(
+    mat: number[][],
+    row: number,
+    column: number,
+    numRows: number,
+    numCols: number
+  ) {
+    for (let index = 0; index < numCols; index++) {
+      if (index !== column && mat[row][index] === 1) {
+        return false;
+      }
+    }
+
+    for (let index = 0; index < numRows; index++) {
+      if (index !== row && mat[index][column] === 1) {
+        return false;
+      }
+    }
+
+    return true;
+  }
+  let pos = 0;
+  const m = mat.length;
+  const n = mat[0].length;
+  for (let i = 0; i < m; i++) {
+    for (let j = 0; j < n; j++) {
+      if (mat[i][j] === 1) {
+        if (checkSpecial(mat, i, j, m, n)) {
+          pos++;
+        }
+      }
+    }
+  }
+  return pos;
+}
+
 export {
+  numSpecial,
   maxProduct,
   findSpecialInteger,
   findKDistantIndices,

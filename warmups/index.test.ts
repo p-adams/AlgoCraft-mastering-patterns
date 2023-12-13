@@ -118,6 +118,7 @@ import {
   findKDistantIndices,
   findSpecialInteger,
   maxProduct,
+  numSpecial,
 } from "./index.ts";
 import { assertInstanceOf } from "https://deno.land/std@0.200.0/assert/assert_instance_of.ts";
 import { TreeNode } from "./models.ts";
@@ -954,4 +955,15 @@ Deno.test("#findSpecialInteger", () => {
 
 Deno.test("#maxProduct", () => {
   assertEquals(maxProduct([3, 4, 5, 2]), 12);
+});
+
+Deno.test("#numSpecial", () => {
+  assertEquals(
+    numSpecial([
+      [1, 0, 0],
+      [0, 0, 1],
+      [1, 0, 0],
+    ]),
+    1
+  );
 });
