@@ -971,4 +971,6 @@ Deno.test("#numSpecial", () => {
 
 Deno.test("#minOperations", () => {
   assertEquals(minOperations(["d1/", "d2/", "../", "d21/", "./"]), 2);
+  assertEquals(minOperations(["d1/", "d2/", "./", "d3/", "../", "d31/"]), 3);
+  assertEquals(minOperations(["d1/", "../", "../", "../"]), 0);
 });

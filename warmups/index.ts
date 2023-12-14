@@ -2295,7 +2295,19 @@ function numSpecial(mat: number[][]): number {
 }
 
 function minOperations(logs: string[]): number {
-  return -1;
+  let operations = 0;
+
+  for (let index = 0; index < logs.length; index++) {
+    const element = logs[index];
+
+    if (element === "../") {
+      operations = Math.max(0, operations - 1);
+    } else if (element !== "./") {
+      operations++;
+    }
+  }
+
+  return operations;
 }
 
 export {
