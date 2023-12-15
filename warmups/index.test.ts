@@ -120,6 +120,7 @@ import {
   maxProduct,
   numSpecial,
   minOperations,
+  destCity,
 } from "./index.ts";
 import { assertInstanceOf } from "https://deno.land/std@0.200.0/assert/assert_instance_of.ts";
 import { TreeNode } from "./models.ts";
@@ -973,4 +974,24 @@ Deno.test("#minOperations", () => {
   assertEquals(minOperations(["d1/", "d2/", "../", "d21/", "./"]), 2);
   assertEquals(minOperations(["d1/", "d2/", "./", "d3/", "../", "d31/"]), 3);
   assertEquals(minOperations(["d1/", "../", "../", "../"]), 0);
+});
+
+Deno.test("#destCity", () => {
+  assertEquals(
+    destCity([
+      ["London", "New York"],
+      ["New York", "Lima"],
+      ["Lima", "Sao Paulo"],
+    ]),
+    "Sao Paulo"
+  );
+  assertEquals(destCity([["A", "Z"]]), "Z");
+  assertEquals(
+    destCity([
+      ["B", "C"],
+      ["D", "B"],
+      ["C", "A"],
+    ]),
+    "A"
+  );
 });

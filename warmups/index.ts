@@ -2310,7 +2310,25 @@ function minOperations(logs: string[]): number {
   return operations;
 }
 
+function destCity(paths: string[][]): string {
+  const startingCities = new Set();
+  for (const path of paths) {
+    const [a, _] = path;
+    startingCities.add(a);
+  }
+
+  for (const path of paths) {
+    const [_, b] = path;
+    if (!startingCities.has(b)) {
+      return b;
+    }
+  }
+
+  return "";
+}
+
 export {
+  destCity,
   minOperations,
   numSpecial,
   maxProduct,
