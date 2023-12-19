@@ -2327,7 +2327,26 @@ function destCity(paths: string[][]): string {
   return "";
 }
 
+function countTestedDevices(batteryPercentages: number[]): number {
+  const n = batteryPercentages.length;
+  let count = 0;
+
+  for (let i = 0; i < n; i++) {
+    if (batteryPercentages[i] > 0) {
+      count++; // Increment the count for the tested device
+
+      // Decrease the battery percentage of devices with indices in the range [i + 1, n - 1]
+      for (let j = i + 1; j < n; j++) {
+        batteryPercentages[j] = Math.max(0, batteryPercentages[j] - 1);
+      }
+    }
+  }
+
+  return count;
+}
+
 export {
+  countTestedDevices,
   destCity,
   minOperations,
   numSpecial,
