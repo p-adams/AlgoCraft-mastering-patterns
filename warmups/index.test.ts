@@ -122,6 +122,7 @@ import {
   minOperations,
   destCity,
   countTestedDevices,
+  findIntersectionValues,
 } from "./index.ts";
 import { assertInstanceOf } from "https://deno.land/std@0.200.0/assert/assert_instance_of.ts";
 import { TreeNode } from "./models.ts";
@@ -999,4 +1000,12 @@ Deno.test("#destCity", () => {
 
 Deno.test("#countTestedDevices", () => {
   assertEquals(countTestedDevices([1, 1, 2, 1, 3]), 3);
+});
+
+Deno.test("#findIntersectionValues", () => {
+  assertEquals(
+    findIntersectionValues([4, 3, 2, 3, 1], [2, 2, 5, 2, 3, 6]),
+    [3, 4]
+  );
+  assertEquals(findIntersectionValues([3, 4, 2, 3], [1, 5]), [0, 0]);
 });

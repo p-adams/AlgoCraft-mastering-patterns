@@ -2345,7 +2345,14 @@ function countTestedDevices(batteryPercentages: number[]): number {
   return count;
 }
 
+function findIntersectionValues(nums1: number[], nums2: number[]): number[] {
+  const res1 = nums1.map((n) => nums2.includes(n)).filter(Boolean).length;
+  const res2 = nums2.map((n) => nums1.includes(n)).filter(Boolean).length;
+  return [res1, res2];
+}
+
 export {
+  findIntersectionValues,
   countTestedDevices,
   destCity,
   minOperations,
