@@ -2351,7 +2351,18 @@ function findIntersectionValues(nums1: number[], nums2: number[]): number[] {
   return [res1, res2];
 }
 
+function buyChoco(prices: number[], money: number): number {
+  const $prices = prices.sort((a, b) => a - b);
+  const fst = $prices[0];
+  const scd = $prices[1];
+  if (money >= fst + scd) {
+    money -= fst + scd;
+  }
+  return money;
+}
+
 export {
+  buyChoco,
   findIntersectionValues,
   countTestedDevices,
   destCity,
