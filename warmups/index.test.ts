@@ -126,6 +126,7 @@ import {
   buyChoco,
   findSubarrays,
   missingNumber,
+  calculateTax,
 } from "./index.ts";
 import { assertInstanceOf } from "https://deno.land/std@0.200.0/assert/assert_instance_of.ts";
 import { TreeNode } from "./models.ts";
@@ -1026,4 +1027,29 @@ Deno.test("#missingNumber", () => {
   assertEquals(missingNumber([3, 0, 1]), 2);
   assertEquals(missingNumber([0, 1]), 2);
   assertEquals(missingNumber([9, 6, 4, 2, 3, 5, 7, 0, 1]), 8);
+});
+
+Deno.test("#calculateTax", () => {
+  assertEquals(
+    calculateTax(
+      [
+        [3, 50],
+        [7, 10],
+        [12, 25],
+      ],
+      10
+    ),
+    2.65
+  );
+  assertEquals(
+    calculateTax(
+      [
+        [1, 0],
+        [4, 25],
+        [5, 50],
+      ],
+      2
+    ),
+    0.25
+  );
 });

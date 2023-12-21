@@ -2390,7 +2390,27 @@ function missingNumber(nums: number[]): number {
   return mn;
 }
 
+function calculateTax(brackets: number[][], income: number): number {
+  const res: number[][] = [];
+
+  brackets.forEach((bracket, index) => {
+    const prev = brackets[index - 1]?.[0] ?? 0;
+    const amt = Math.min(income, bracket[0]) - prev;
+
+    if (amt > 0) {
+      res.push([amt, bracket[1]]);
+    }
+  });
+
+  const totalTax = res.reduce((acc, [amt, percent]) => {
+    return acc + amt * (percent / 100);
+  }, 0);
+
+  return totalTax;
+}
+
 export {
+  calculateTax,
   missingNumber,
   findSubarrays,
   buyChoco,
