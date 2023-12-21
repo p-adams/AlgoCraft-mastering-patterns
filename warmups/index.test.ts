@@ -127,6 +127,7 @@ import {
   findSubarrays,
   missingNumber,
   calculateTax,
+  stringMatching,
 } from "./index.ts";
 import { assertInstanceOf } from "https://deno.land/std@0.200.0/assert/assert_instance_of.ts";
 import { TreeNode } from "./models.ts";
@@ -1052,4 +1053,12 @@ Deno.test("#calculateTax", () => {
     ),
     0.25
   );
+});
+
+Deno.test("#stringMatching", () => {
+  assertEquals(stringMatching(["mass", "as", "hero", "superhero"]), [
+    "as",
+    "hero",
+  ]);
+  assertEquals(stringMatching(["leetcode", "et", "code"]), ["et", "code"]);
 });

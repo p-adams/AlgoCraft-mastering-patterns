@@ -2409,7 +2409,24 @@ function calculateTax(brackets: number[][], income: number): number {
   return totalTax;
 }
 
+function stringMatching(words: string[]): string[] {
+  const $words = words.sort((a, b) => a.length - b.length);
+  const res: string[] = [];
+  for (let index = 0; index < $words.length; index++) {
+    for (let iindex = index + 1; iindex < $words.length; iindex++) {
+      if (
+        $words[iindex].includes($words[index]) &&
+        !res.includes($words[index])
+      ) {
+        res.push($words[index]);
+      }
+    }
+  }
+  return res;
+}
+
 export {
+  stringMatching,
   calculateTax,
   missingNumber,
   findSubarrays,
