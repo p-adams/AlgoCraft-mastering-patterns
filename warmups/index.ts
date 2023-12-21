@@ -2361,7 +2361,20 @@ function buyChoco(prices: number[], money: number): number {
   return money;
 }
 
+function findSubarrays(nums: number[]): boolean {
+  const sums = new Set();
+  for (let i = 0; i < nums.length - 1; i++) {
+    const sum = nums[i] + nums[i + 1];
+    if (sums.has(sum)) {
+      return true;
+    }
+    sums.add(sum);
+  }
+  return false;
+}
+
 export {
+  findSubarrays,
   buyChoco,
   findIntersectionValues,
   countTestedDevices,
