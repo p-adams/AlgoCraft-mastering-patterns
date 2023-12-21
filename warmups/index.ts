@@ -2373,7 +2373,25 @@ function findSubarrays(nums: number[]): boolean {
   return false;
 }
 
+function missingNumber(nums: number[]): number {
+  const n = nums.length;
+  const $nums = nums.sort((a, b) => a - b);
+  const range = [];
+  let mn = -1;
+  for (let index = 0; index <= n; index++) {
+    range.push(index);
+  }
+  for (let index = 0; index < range.length; index++) {
+    if (index !== $nums[index]) {
+      mn = index;
+      break;
+    }
+  }
+  return mn;
+}
+
 export {
+  missingNumber,
   findSubarrays,
   buyChoco,
   findIntersectionValues,

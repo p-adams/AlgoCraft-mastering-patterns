@@ -125,6 +125,7 @@ import {
   findIntersectionValues,
   buyChoco,
   findSubarrays,
+  missingNumber,
 } from "./index.ts";
 import { assertInstanceOf } from "https://deno.land/std@0.200.0/assert/assert_instance_of.ts";
 import { TreeNode } from "./models.ts";
@@ -1019,4 +1020,10 @@ Deno.test("#buyChoco", () => {
 
 Deno.test("#findSubarrays", () => {
   assertEquals(findSubarrays([4, 2, 4]), true);
+});
+
+Deno.test("#missingNumber", () => {
+  assertEquals(missingNumber([3, 0, 1]), 2);
+  assertEquals(missingNumber([0, 1]), 2);
+  assertEquals(missingNumber([9, 6, 4, 2, 3, 5, 7, 0, 1]), 8);
 });
