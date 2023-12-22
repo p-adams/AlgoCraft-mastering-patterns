@@ -2425,7 +2425,25 @@ function stringMatching(words: string[]): string[] {
   return res;
 }
 
+function maxScore(s: string): number {
+  let max = 0;
+  for (let index = 0; index < s.length; index++) {
+    const left = s.substring(0, index + 1);
+    const right = s.substring(index + 1);
+    if (right.length !== 0) {
+      max = Math.max(
+        max,
+        left.split("").filter((d) => d === "0").length +
+          right.split("").filter((d) => d === "1").length
+      );
+    }
+  }
+
+  return max;
+}
+
 export {
+  maxScore,
   stringMatching,
   calculateTax,
   missingNumber,

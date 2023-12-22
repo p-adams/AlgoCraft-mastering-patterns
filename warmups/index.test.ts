@@ -128,6 +128,7 @@ import {
   missingNumber,
   calculateTax,
   stringMatching,
+  maxScore,
 } from "./index.ts";
 import { assertInstanceOf } from "https://deno.land/std@0.200.0/assert/assert_instance_of.ts";
 import { TreeNode } from "./models.ts";
@@ -1061,4 +1062,10 @@ Deno.test("#stringMatching", () => {
     "hero",
   ]);
   assertEquals(stringMatching(["leetcode", "et", "code"]), ["et", "code"]);
+});
+
+Deno.test("#maxScore", () => {
+  assertEquals(maxScore("011101"), 5);
+  assertEquals(maxScore("00111"), 5);
+  assertEquals(maxScore("1111"), 3);
 });
