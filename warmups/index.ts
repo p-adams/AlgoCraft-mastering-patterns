@@ -2444,32 +2444,37 @@ function maxScore(s: string): number {
 }
 
 function isPathCrossing(path: string): boolean {
-  const points = [];
-  points.push({ x: 0, y: 0 });
-  for (let index = 0; index < path.length; index++) {
-    const $path = path[index];
-    const lastPoint: { x: number; y: number } = points[index];
-    if ($path === "N") {
-      points.push({ x: lastPoint.x, y: lastPoint.y - 1 });
-    } else if ($path === "E") {
-      points.push({ x: lastPoint.x + 1, y: lastPoint.y });
-    } else if ($path === "S") {
-      points.push({ x: lastPoint.x, y: lastPoint.y + 1 });
-    } else {
-      points.push({ x: lastPoint.x - 1, y: lastPoint.y });
+  const visited = new Set<string>();
+  let x = 0,
+    y = 0;
+  const startPoint = "0,0";
+  visited.add(startPoint);
+
+  for (let i = 0; i < path.length; i++) {
+    const direction = path[i];
+    switch (direction) {
+      case "N":
+        y--;
+        break;
+      case "E":
+        x++;
+        break;
+      case "S":
+        y++;
+        break;
+      case "W":
+        x--;
+        break;
     }
+
+    const currentPoint = `${x},${y}`;
+    if (visited.has(currentPoint)) {
+      return true;
+    }
+
+    visited.add(currentPoint);
   }
 
-  for (let index = 0; index < points.length; index++) {
-    for (let iindex = index + 1; iindex < points.length; iindex++) {
-      if (
-        points[index].x === points[iindex].x &&
-        points[index].y === points[iindex].y
-      ) {
-        return true;
-      }
-    }
-  }
   return false;
 }
 
