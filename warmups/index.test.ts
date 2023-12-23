@@ -129,6 +129,7 @@ import {
   calculateTax,
   stringMatching,
   maxScore,
+  isPathCrossing,
 } from "./index.ts";
 import { assertInstanceOf } from "https://deno.land/std@0.200.0/assert/assert_instance_of.ts";
 import { TreeNode } from "./models.ts";
@@ -1068,4 +1069,10 @@ Deno.test("#maxScore", () => {
   assertEquals(maxScore("011101"), 5);
   assertEquals(maxScore("00111"), 5);
   assertEquals(maxScore("1111"), 3);
+});
+
+Deno.test("#isPathCrossing", () => {
+  assertEquals(isPathCrossing("NES"), false);
+
+  assertEquals(isPathCrossing("NESWW"), true);
 });

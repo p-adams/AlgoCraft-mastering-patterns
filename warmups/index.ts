@@ -2443,7 +2443,38 @@ function maxScore(s: string): number {
   return max;
 }
 
+function isPathCrossing(path: string): boolean {
+  const points = [];
+  points.push({ x: 0, y: 0 });
+  for (let index = 0; index < path.length; index++) {
+    const $path = path[index];
+    const lastPoint: { x: number; y: number } = points[index];
+    if ($path === "N") {
+      points.push({ x: lastPoint.x, y: lastPoint.y - 1 });
+    } else if ($path === "E") {
+      points.push({ x: lastPoint.x + 1, y: lastPoint.y });
+    } else if ($path === "S") {
+      points.push({ x: lastPoint.x, y: lastPoint.y + 1 });
+    } else {
+      points.push({ x: lastPoint.x - 1, y: lastPoint.y });
+    }
+  }
+
+  for (let index = 0; index < points.length; index++) {
+    for (let iindex = index + 1; iindex < points.length; iindex++) {
+      if (
+        points[index].x === points[iindex].x &&
+        points[index].y === points[iindex].y
+      ) {
+        return true;
+      }
+    }
+  }
+  return false;
+}
+
 export {
+  isPathCrossing,
   maxScore,
   stringMatching,
   calculateTax,
