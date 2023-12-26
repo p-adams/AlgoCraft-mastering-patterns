@@ -131,6 +131,7 @@ import {
   maxScore,
   isPathCrossing,
   decrypt,
+  average,
 } from "./index.ts";
 import { assertInstanceOf } from "https://deno.land/std@0.200.0/assert/assert_instance_of.ts";
 import { TreeNode } from "./models.ts";
@@ -1080,4 +1081,8 @@ Deno.test("#isPathCrossing", () => {
 
 Deno.test("#decrypt", () => {
   assertEquals(decrypt([5, 7, 1, 4], 3), [12, 10, 16, 13]);
+});
+
+Deno.test("#average", () => {
+  assertEquals(average([4000, 3000, 1000, 2000]), 2500.0);
 });

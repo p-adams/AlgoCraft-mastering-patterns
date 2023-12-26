@@ -2498,7 +2498,14 @@ function decrypt(code: number[], k: number): number[] {
   return decryptedCode;
 }
 
+function average(salary: number[]): number {
+  const sortedSalary = salary.sort((a, b) => a - b);
+  const sum = sortedSalary.slice(1, -1).reduce((a, b) => a + b, 0);
+  return sum / (sortedSalary.length - 2);
+}
+
 export {
+  average,
   decrypt,
   isPathCrossing,
   maxScore,
