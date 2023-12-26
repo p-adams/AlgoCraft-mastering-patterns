@@ -2478,7 +2478,28 @@ function isPathCrossing(path: string): boolean {
   return false;
 }
 
+function decrypt(code: number[], k: number): number[] {
+  const n = code.length;
+  const decryptedCode: number[] = new Array(n).fill(0);
+
+  for (let i = 0; i < n; i++) {
+    if (k > 0) {
+      for (let j = 1; j <= k; j++) {
+        decryptedCode[i] += code[(i + j) % n];
+      }
+    } else if (k < 0) {
+      for (let j = 1; j <= -k; j++) {
+        decryptedCode[i] += code[(i - j + n) % n];
+      }
+    }
+    // If k == 0, no need to add anything, already set to 0 by default.
+  }
+
+  return decryptedCode;
+}
+
 export {
+  decrypt,
   isPathCrossing,
   maxScore,
   stringMatching,
