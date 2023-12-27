@@ -2504,7 +2504,52 @@ function average(salary: number[]): number {
   return sum / (sortedSalary.length - 2);
 }
 
+function floodFill(
+  image: number[][],
+  sr: number,
+  sc: number,
+  color: number
+): number[][] {
+  const m = image.length;
+  const n = image[0].length;
+  const originalColor = image[sr][sc];
+
+  // Check if the color is already the target color
+  if (originalColor === color) {
+    return image;
+  }
+
+  // Define DFS function
+  function dfs(row: number, col: number) {
+    // Check boundaries and color of the pixel
+    if (
+      row < 0 ||
+      row >= m ||
+      col < 0 ||
+      col >= n ||
+      image[row][col] !== originalColor
+    ) {
+      return;
+    }
+
+    // Change color
+    image[row][col] = color;
+
+    // Explore 4-directionally
+    dfs(row - 1, col); // Up
+    dfs(row + 1, col); // Down
+    dfs(row, col - 1); // Left
+    dfs(row, col + 1); // Right
+  }
+
+  // Start DFS from the given pixel
+  dfs(sr, sc);
+
+  return image;
+}
+
 export {
+  floodFill,
   average,
   decrypt,
   isPathCrossing,

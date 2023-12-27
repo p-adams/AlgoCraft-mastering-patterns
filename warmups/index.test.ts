@@ -132,6 +132,7 @@ import {
   isPathCrossing,
   decrypt,
   average,
+  floodFill,
 } from "./index.ts";
 import { assertInstanceOf } from "https://deno.land/std@0.200.0/assert/assert_instance_of.ts";
 import { TreeNode } from "./models.ts";
@@ -1085,4 +1086,24 @@ Deno.test("#decrypt", () => {
 
 Deno.test("#average", () => {
   assertEquals(average([4000, 3000, 1000, 2000]), 2500.0);
+});
+
+Deno.test("#floodFill", () => {
+  assertEquals(
+    floodFill(
+      [
+        [1, 1, 1],
+        [1, 1, 0],
+        [1, 0, 1],
+      ],
+      1,
+      1,
+      2
+    ),
+    [
+      [2, 2, 2],
+      [2, 2, 0],
+      [2, 0, 1],
+    ]
+  );
 });
