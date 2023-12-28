@@ -2561,18 +2561,33 @@ function furthestDistanceFromOrigin(moves: string): number {
   return moves.length - 2 * (left > right ? right : left);
 }
 function sortEvenOdd(nums: number[]): number[] {
-  const evens = nums
-    .map((n, i) => (i % 2 === 0 ? n : null))
-    .filter((v) => v !== null)
-    .sort((a, b) => a! - b!);
-  const odds = nums
-    .map((n, i) => (i % 2 !== 0 ? n : null))
-    .filter((v) => v !== null)
-    .sort((a, b) => b! - a!);
+  const evens: number[] = [];
+  const odds: number[] = [];
 
-  return evens
-    .flatMap((value, index) => [value, odds[index]])
-    .filter((v) => v !== undefined) as number[];
+  for (let i = 0; i < nums.length; i++) {
+    if (i % 2 === 0) {
+      evens.push(nums[i]);
+    } else {
+      odds.push(nums[i]);
+    }
+  }
+
+  evens.sort((a, b) => a - b);
+  odds.sort((a, b) => b - a);
+
+  const result: number[] = [];
+  const maxLength = Math.max(evens.length, odds.length);
+
+  for (let i = 0; i < maxLength; i++) {
+    if (i < evens.length) {
+      result.push(evens[i]);
+    }
+    if (i < odds.length) {
+      result.push(odds[i]);
+    }
+  }
+
+  return result;
 }
 
 export {
