@@ -2590,7 +2590,27 @@ function sortEvenOdd(nums: number[]): number[] {
   return result;
 }
 
+function minMaxGame(nums: number[]): number {
+  while (nums.length > 1) {
+    const n = nums.length;
+    if (n === 1) {
+      return nums[0];
+    }
+    const newNums = Array(n / 2);
+    for (let index = 0; index < n / 2; index++) {
+      if (index % 2 === 0) {
+        newNums[index] = Math.min(nums[2 * index], nums[2 * index + 1]);
+      } else {
+        newNums[index] = Math.max(nums[2 * index], nums[2 * index + 1]);
+      }
+    }
+    nums = newNums;
+  }
+  return nums[0];
+}
+
 export {
+  minMaxGame,
   sortEvenOdd,
   furthestDistanceFromOrigin,
   floodFill,

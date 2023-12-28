@@ -135,6 +135,7 @@ import {
   floodFill,
   furthestDistanceFromOrigin,
   sortEvenOdd,
+  minMaxGame,
 } from "./index.ts";
 import { assertInstanceOf } from "https://deno.land/std@0.200.0/assert/assert_instance_of.ts";
 import { TreeNode } from "./models.ts";
@@ -1121,4 +1122,8 @@ Deno.test("#furthestDistanceFromOrigin", () => {
 Deno.test("#sortEvenOdd", () => {
   assertEquals(sortEvenOdd([4, 1, 2, 3]), [2, 3, 4, 1]);
   assertEquals(sortEvenOdd([2, 1]), [2, 1]);
+});
+
+Deno.test("#minMaxGame", () => {
+  assertEquals(minMaxGame([1, 3, 5, 2, 4, 8, 2, 2]), 1);
 });
