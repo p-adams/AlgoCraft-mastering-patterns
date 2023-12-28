@@ -133,6 +133,7 @@ import {
   decrypt,
   average,
   floodFill,
+  furthestDistanceFromOrigin,
 } from "./index.ts";
 import { assertInstanceOf } from "https://deno.land/std@0.200.0/assert/assert_instance_of.ts";
 import { TreeNode } from "./models.ts";
@@ -1106,4 +1107,8 @@ Deno.test("#floodFill", () => {
       [2, 0, 1],
     ]
   );
+});
+
+Deno.test("#furthestDistanceFromOrigin", () => {
+  assertEquals(furthestDistanceFromOrigin("L_RL__R"), 3);
 });

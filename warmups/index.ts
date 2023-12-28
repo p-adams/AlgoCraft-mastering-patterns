@@ -2548,7 +2548,21 @@ function floodFill(
   return image;
 }
 
+function furthestDistanceFromOrigin(moves: string): number {
+  let left = 0;
+  let right = 0;
+  for (const move of moves) {
+    if (move === "L") {
+      left++;
+    } else if (move === "R") {
+      right++;
+    }
+  }
+  return moves.length - 2 * (left > right ? right : left);
+}
+
 export {
+  furthestDistanceFromOrigin,
   floodFill,
   average,
   decrypt,
