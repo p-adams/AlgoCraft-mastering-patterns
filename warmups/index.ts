@@ -2560,8 +2560,23 @@ function furthestDistanceFromOrigin(moves: string): number {
   }
   return moves.length - 2 * (left > right ? right : left);
 }
+function sortEvenOdd(nums: number[]): number[] {
+  const evens = nums
+    .map((n, i) => (i % 2 === 0 ? n : null))
+    .filter((v) => v !== null)
+    .sort((a, b) => a! - b!);
+  const odds = nums
+    .map((n, i) => (i % 2 !== 0 ? n : null))
+    .filter((v) => v !== null)
+    .sort((a, b) => b! - a!);
+
+  return evens
+    .flatMap((value, index) => [value, odds[index]])
+    .filter((v) => v !== undefined) as number[];
+}
 
 export {
+  sortEvenOdd,
   furthestDistanceFromOrigin,
   floodFill,
   average,

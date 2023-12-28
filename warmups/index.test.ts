@@ -134,6 +134,7 @@ import {
   average,
   floodFill,
   furthestDistanceFromOrigin,
+  sortEvenOdd,
 } from "./index.ts";
 import { assertInstanceOf } from "https://deno.land/std@0.200.0/assert/assert_instance_of.ts";
 import { TreeNode } from "./models.ts";
@@ -1111,4 +1112,13 @@ Deno.test("#floodFill", () => {
 
 Deno.test("#furthestDistanceFromOrigin", () => {
   assertEquals(furthestDistanceFromOrigin("L_RL__R"), 3);
+});
+
+Deno.test("#furthestDistanceFromOrigin", () => {
+  assertEquals(furthestDistanceFromOrigin("L_RL__R"), 3);
+});
+
+Deno.test("#sortEvenOdd", () => {
+  assertEquals(sortEvenOdd([4, 1, 2, 3]), [2, 3, 4, 1]);
+  assertEquals(sortEvenOdd([2, 1]), [2, 1]);
 });
