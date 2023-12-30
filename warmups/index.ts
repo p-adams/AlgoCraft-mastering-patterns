@@ -2609,7 +2609,28 @@ function minMaxGame(nums: number[]): number {
   return nums[0];
 }
 
+function makeEqual(words: string[]): boolean {
+  const charCounts = new Map<string, number>();
+
+  // Count occurrences of each character in words
+  for (const word of words) {
+    for (const char of word) {
+      charCounts.set(char, (charCounts.get(char) || 0) + 1);
+    }
+  }
+
+  // Check if counts are the same for all characters
+  for (const count of charCounts.values()) {
+    if (count % words.length !== 0) {
+      return false;
+    }
+  }
+
+  return true;
+}
+
 export {
+  makeEqual,
   minMaxGame,
   sortEvenOdd,
   furthestDistanceFromOrigin,
