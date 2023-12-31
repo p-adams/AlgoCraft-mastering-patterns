@@ -137,6 +137,7 @@ import {
   sortEvenOdd,
   minMaxGame,
   makeEqual,
+  maxLengthBetweenEqualCharacters,
 } from "./index.ts";
 import { assertInstanceOf } from "https://deno.land/std@0.200.0/assert/assert_instance_of.ts";
 import { TreeNode } from "./models.ts";
@@ -1131,4 +1132,9 @@ Deno.test("#minMaxGame", () => {
 
 Deno.test("#makeEqual", () => {
   assertEquals(makeEqual(["abc", "aabc", "bc"]), true);
+});
+
+Deno.test("#maxLengthBetweenEqualCharacters", () => {
+  assertEquals(maxLengthBetweenEqualCharacters("aa"), 0);
+  assertEquals(maxLengthBetweenEqualCharacters("abca"), 2);
 });

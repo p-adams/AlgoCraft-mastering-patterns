@@ -2629,7 +2629,23 @@ function makeEqual(words: string[]): boolean {
   return true;
 }
 
+function maxLengthBetweenEqualCharacters(s: string): number {
+  let maxLength = -1;
+
+  for (let i = 0; i < s.length; i++) {
+    const firstIndex = s.indexOf(s[i]);
+    const lastIndex = s.lastIndexOf(s[i]);
+
+    if (firstIndex !== lastIndex) {
+      maxLength = Math.max(maxLength, lastIndex - firstIndex - 1);
+    }
+  }
+
+  return maxLength;
+}
+
 export {
+  maxLengthBetweenEqualCharacters,
   makeEqual,
   minMaxGame,
   sortEvenOdd,
