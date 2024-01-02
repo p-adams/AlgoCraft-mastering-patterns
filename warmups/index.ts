@@ -2677,7 +2677,47 @@ function threeConsecutiveOdds(arr: number[]): boolean {
   return false;
 }
 
+function findRelativeRanks(scores: number[]): string[] {
+  // Create a copy of the scores array to sort
+  const sortedScores = [...scores];
+
+  // Sort the array in descending order to get the placement
+  sortedScores.sort((a, b) => b - a);
+
+  // Create a map to store athlete index and their rank
+  const athleteRankMap: { [key: string]: number } = {};
+
+  // Iterate through the sorted array and assign ranks
+  for (let i = 0; i < scores.length; i++) {
+    const athleteIndex = scores.indexOf(sortedScores[i]);
+    const rank = i + 1;
+    athleteRankMap[athleteIndex] = rank;
+  }
+
+  // Create an array to store the result ranks
+  const resultRanks = [];
+
+  // Iterate through the original array to get the ranks
+  for (let i = 0; i < scores.length; i++) {
+    const rank = athleteRankMap[i];
+
+    // Assign the appropriate medal or rank
+    if (rank === 1) {
+      resultRanks.push("Gold Medal");
+    } else if (rank === 2) {
+      resultRanks.push("Silver Medal");
+    } else if (rank === 3) {
+      resultRanks.push("Bronze Medal");
+    } else {
+      resultRanks.push(rank.toString());
+    }
+  }
+
+  return resultRanks;
+}
+
 export {
+  findRelativeRanks,
   threeConsecutiveOdds,
   minimumSum,
   maxLengthBetweenEqualCharacters,
