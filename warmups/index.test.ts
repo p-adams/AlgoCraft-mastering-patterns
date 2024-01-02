@@ -139,6 +139,7 @@ import {
   makeEqual,
   maxLengthBetweenEqualCharacters,
   minimumSum,
+  threeConsecutiveOdds,
 } from "./index.ts";
 import { assertInstanceOf } from "https://deno.land/std@0.200.0/assert/assert_instance_of.ts";
 import { TreeNode } from "./models.ts";
@@ -1142,4 +1143,10 @@ Deno.test("#maxLengthBetweenEqualCharacters", () => {
 
 Deno.test("#minimumSum", () => {
   assertEquals(minimumSum([8, 6, 1, 5, 3]), 9);
+});
+
+Deno.test("#threeConsecutiveOdds", () => {
+  assertEquals(threeConsecutiveOdds([2, 6, 4, 1]), false);
+  assertEquals(threeConsecutiveOdds([1, 2, 34, 3, 4, 5, 7, 23, 12]), true);
+  assertEquals(threeConsecutiveOdds([1]), false);
 });

@@ -2661,7 +2661,24 @@ function minimumSum(nums: number[]): number {
   return min !== Infinity ? min : -1;
 }
 
+function threeConsecutiveOdds(arr: number[]): boolean {
+  const n = arr.length;
+
+  const isOdd = (num: number) => num % 2 !== 0;
+
+  for (let i = 0; i < n - 2; i++) {
+    const [a, b, c] = [arr[i], arr[i + 1], arr[i + 2]];
+
+    if (isOdd(a) && isOdd(b) && isOdd(c)) {
+      return true;
+    }
+  }
+
+  return false;
+}
+
 export {
+  threeConsecutiveOdds,
   minimumSum,
   maxLengthBetweenEqualCharacters,
   makeEqual,
