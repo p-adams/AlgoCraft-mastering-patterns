@@ -2644,7 +2644,25 @@ function maxLengthBetweenEqualCharacters(s: string): number {
   return maxLength;
 }
 
+function minimumSum(nums: number[]): number {
+  let min = Infinity;
+  const n = nums.length;
+  for (let i = 0; i < n; i++) {
+    for (let j = 0; j < n; j++) {
+      for (let k = 0; k < n; k++) {
+        if (i < j && j < k) {
+          if (nums[i] < nums[j] && nums[k] < nums[j]) {
+            min = Math.min(min, nums[i] + nums[j] + nums[k]);
+          }
+        }
+      }
+    }
+  }
+  return min !== Infinity ? min : -1;
+}
+
 export {
+  minimumSum,
   maxLengthBetweenEqualCharacters,
   makeEqual,
   minMaxGame,

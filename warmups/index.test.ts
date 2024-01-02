@@ -138,6 +138,7 @@ import {
   minMaxGame,
   makeEqual,
   maxLengthBetweenEqualCharacters,
+  minimumSum,
 } from "./index.ts";
 import { assertInstanceOf } from "https://deno.land/std@0.200.0/assert/assert_instance_of.ts";
 import { TreeNode } from "./models.ts";
@@ -1137,4 +1138,8 @@ Deno.test("#makeEqual", () => {
 Deno.test("#maxLengthBetweenEqualCharacters", () => {
   assertEquals(maxLengthBetweenEqualCharacters("aa"), 0);
   assertEquals(maxLengthBetweenEqualCharacters("abca"), 2);
+});
+
+Deno.test("#minimumSum", () => {
+  assertEquals(minimumSum([8, 6, 1, 5, 3]), 9);
 });
