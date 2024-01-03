@@ -141,6 +141,7 @@ import {
   minimumSum,
   threeConsecutiveOdds,
   findRelativeRanks,
+  semiOrderedPermutation,
 } from "./index.ts";
 import { assertInstanceOf } from "https://deno.land/std@0.200.0/assert/assert_instance_of.ts";
 import { TreeNode } from "./models.ts";
@@ -1160,4 +1161,8 @@ Deno.test("#findRelativeRanks", () => {
     "4",
     "5",
   ]);
+});
+
+Deno.test("#semiOrderedPermutation", () => {
+  assertEquals(semiOrderedPermutation([2, 1, 4, 3]), 2);
 });

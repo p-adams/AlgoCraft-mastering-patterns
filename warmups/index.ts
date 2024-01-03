@@ -2716,7 +2716,16 @@ function findRelativeRanks(scores: number[]): string[] {
   return resultRanks;
 }
 
+function semiOrderedPermutation(nums: number[]): number {
+  const firstOne = nums.indexOf(1);
+  const lastN = nums.lastIndexOf(nums.length);
+  return firstOne > lastN
+    ? nums.length - lastN - 2 + firstOne
+    : nums.length - lastN - 1 + firstOne;
+}
+
 export {
+  semiOrderedPermutation,
   findRelativeRanks,
   threeConsecutiveOdds,
   minimumSum,
