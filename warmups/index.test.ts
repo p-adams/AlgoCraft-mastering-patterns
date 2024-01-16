@@ -143,6 +143,7 @@ import {
   findRelativeRanks,
   semiOrderedPermutation,
   lengthOfLIS,
+  numberGame,
 } from "./index.ts";
 import { assertInstanceOf } from "https://deno.land/std@0.200.0/assert/assert_instance_of.ts";
 import { TreeNode } from "./models.ts";
@@ -1170,4 +1171,8 @@ Deno.test("#semiOrderedPermutation", () => {
 
 Deno.test("#lengthOfLIS", () => {
   assertEquals(lengthOfLIS([10, 9, 2, 5, 3, 7, 101, 18]), 4);
+});
+
+Deno.test("#numberGame", () => {
+  assertEquals(numberGame([5, 4, 2, 3]), [3, 2, 5, 4]);
 });

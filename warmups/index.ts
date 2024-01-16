@@ -2743,7 +2743,19 @@ function lengthOfLIS(nums: number[]): number {
   return Math.max(...dp);
 }
 
+function numberGame(nums: number[]): number[] {
+  nums.sort((a, b) => a - b);
+  const arr = [];
+  for (let i = 0; i < nums.length; i += 2) {
+    arr.push(nums[i + 1]);
+    arr.push(nums[i]);
+  }
+
+  return arr;
+}
+
 export {
+  numberGame,
   lengthOfLIS,
   semiOrderedPermutation,
   findRelativeRanks,
