@@ -2754,7 +2754,28 @@ function numberGame(nums: number[]): number[] {
   return arr;
 }
 
+function uniqueOccurrences(arr: number[]): boolean {
+  const m = new Map<number, number>();
+  const seen = new Set();
+  for (const el of arr) {
+    if (m.has(el)) {
+      m.set(el, m.get(el)! + 1);
+    } else {
+      m.set(el, 1);
+    }
+  }
+  for (const v of m.values()) {
+    if (seen.has(v)) {
+      return false;
+    } else {
+      seen.add(v);
+    }
+  }
+  return true;
+}
+
 export {
+  uniqueOccurrences,
   numberGame,
   lengthOfLIS,
   semiOrderedPermutation,

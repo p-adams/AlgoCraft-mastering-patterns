@@ -144,6 +144,7 @@ import {
   semiOrderedPermutation,
   lengthOfLIS,
   numberGame,
+  uniqueOccurrences,
 } from "./index.ts";
 import { assertInstanceOf } from "https://deno.land/std@0.200.0/assert/assert_instance_of.ts";
 import { TreeNode } from "./models.ts";
@@ -1175,4 +1176,10 @@ Deno.test("#lengthOfLIS", () => {
 
 Deno.test("#numberGame", () => {
   assertEquals(numberGame([5, 4, 2, 3]), [3, 2, 5, 4]);
+});
+
+Deno.test("#uniqueOccurrences", () => {
+  assertEquals(uniqueOccurrences([1, 2, 2, 1, 1, 3]), true);
+  assertEquals(uniqueOccurrences([1, 2]), false);
+  assertEquals(uniqueOccurrences([-3, 0, 1, -3, 1, 1, 1, -3, 10, 0]), true);
 });
