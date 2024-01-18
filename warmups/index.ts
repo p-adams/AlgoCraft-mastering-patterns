@@ -2774,7 +2774,26 @@ function uniqueOccurrences(arr: number[]): boolean {
   return true;
 }
 
+function climbStairs(n: number): number {
+  if (n <= 1) {
+    return 1;
+  }
+
+  // Initialize an array to store solutions to subproblems
+  const ways: number[] = new Array(n + 1);
+  ways[0] = 1;
+  ways[1] = 1;
+
+  // Fill the array using the recurrence relation
+  for (let i = 2; i <= n; i++) {
+    ways[i] = ways[i - 1] + ways[i - 2];
+  }
+
+  return ways[n];
+}
+
 export {
+  climbStairs,
   uniqueOccurrences,
   numberGame,
   lengthOfLIS,

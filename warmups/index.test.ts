@@ -145,6 +145,7 @@ import {
   lengthOfLIS,
   numberGame,
   uniqueOccurrences,
+  climbStairs,
 } from "./index.ts";
 import { assertInstanceOf } from "https://deno.land/std@0.200.0/assert/assert_instance_of.ts";
 import { TreeNode } from "./models.ts";
@@ -1182,4 +1183,9 @@ Deno.test("#uniqueOccurrences", () => {
   assertEquals(uniqueOccurrences([1, 2, 2, 1, 1, 3]), true);
   assertEquals(uniqueOccurrences([1, 2]), false);
   assertEquals(uniqueOccurrences([-3, 0, 1, -3, 1, 1, 1, -3, 10, 0]), true);
+});
+
+Deno.test("#climbStairs", () => {
+  assertEquals(climbStairs(2), 2);
+  assertEquals(climbStairs(3), 3);
 });
