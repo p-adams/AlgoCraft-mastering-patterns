@@ -2792,7 +2792,20 @@ function climbStairs(n: number): number {
   return ways[n];
 }
 
+function numberOfPoints(nums: number[][]): number {
+  const pointsSet = new Set<number>();
+
+  for (const [start, end] of nums) {
+    for (let i = start; i <= end; i++) {
+      pointsSet.add(i);
+    }
+  }
+
+  return pointsSet.size;
+}
+
 export {
+  numberOfPoints,
   climbStairs,
   uniqueOccurrences,
   numberGame,
