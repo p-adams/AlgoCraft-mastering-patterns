@@ -150,6 +150,7 @@ import {
 } from "./index.ts";
 import { assertInstanceOf } from "https://deno.land/std@0.200.0/assert/assert_instance_of.ts";
 import { TreeNode } from "./models.ts";
+import { maxFrequencyElements } from "./index.ts";
 
 Deno.test("#maxMinElements", () => {
   assertEquals([5, 1], maxMinElements([1, 2, 3, 4, 5]));
@@ -1207,4 +1208,9 @@ Deno.test("#numberOfPoints", () => {
     ]),
     7
   );
+});
+
+Deno.test("#maxFrequencyElements", () => {
+  assertEquals(maxFrequencyElements([1, 2, 2, 3, 1, 4]), 4);
+  assertEquals(maxFrequencyElements([1, 2, 3, 4, 5]), 5);
 });

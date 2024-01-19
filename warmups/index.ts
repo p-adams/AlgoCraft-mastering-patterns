@@ -2804,7 +2804,33 @@ function numberOfPoints(nums: number[][]): number {
   return pointsSet.size;
 }
 
+function maxFrequencyElements(nums: number[]): number {
+  const freq = new Map();
+  // Count frequencies of elements
+  for (const n of nums) {
+    freq.set(n, (freq.get(n) || 0) + 1);
+  }
+
+  let max = Number.MIN_VALUE;
+  let sum = 0;
+
+  // Calculate maximum frequency
+  for (const [, v] of freq) {
+    max = Math.max(max, v);
+  }
+
+  // Count elements with maximum frequency
+  for (const [, v] of freq) {
+    if (v === max) {
+      sum += v;
+    }
+  }
+
+  return sum;
+}
+
 export {
+  maxFrequencyElements,
   numberOfPoints,
   climbStairs,
   uniqueOccurrences,
