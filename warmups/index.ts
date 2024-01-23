@@ -2829,7 +2829,14 @@ function maxFrequencyElements(nums: number[]): number {
   return sum;
 }
 
+function timeRequiredToBuy(tickets: number[], k: number): number {
+  return tickets.reduce((time, ticketsLeft, i) => {
+    return time + Math.min(ticketsLeft, tickets[k] - (i > k ? 1 : 0));
+  }, 0);
+}
+
 export {
+  timeRequiredToBuy,
   maxFrequencyElements,
   numberOfPoints,
   climbStairs,
