@@ -2849,7 +2849,26 @@ function minimumCost(nums: number[]): number {
   return nums[0] + min1 + min2;
 }
 
+function findIndices(
+  nums: number[],
+  indexDifference: number,
+  valueDifference: number
+): number[] {
+  const res = [-1, -1];
+  for (let index = 0; index < nums.length; index++) {
+    for (let iindex = index + indexDifference; iindex < nums.length; iindex++) {
+      if (Math.abs(nums[index] - nums[iindex]) >= valueDifference) {
+        res[0] = index;
+        res[1] = iindex;
+        return res; // Break out of the loop once a valid pair is found
+      }
+    }
+  }
+  return res;
+}
+
 export {
+  findIndices,
   minimumCost,
   timeRequiredToBuy,
   maxFrequencyElements,

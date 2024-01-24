@@ -153,6 +153,7 @@ import { TreeNode } from "./models.ts";
 import { maxFrequencyElements } from "./index.ts";
 import { timeRequiredToBuy } from "./index.ts";
 import { minimumCost } from "./index.ts";
+import { findIndices } from "./index.ts";
 
 Deno.test("#maxMinElements", () => {
   assertEquals([5, 1], maxMinElements([1, 2, 3, 4, 5]));
@@ -1223,4 +1224,8 @@ Deno.test("#timeRequiredToBuy", () => {
 
 Deno.test("#minimumCost", () => {
   assertEquals(minimumCost([1, 2, 3, 12]), 6);
+});
+
+Deno.test("#findIndices", () => {
+  assertEquals(findIndices([5, 1, 4, 1], 2, 4), [0, 3]);
 });
