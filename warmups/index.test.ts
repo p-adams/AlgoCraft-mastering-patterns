@@ -152,6 +152,7 @@ import { assertInstanceOf } from "https://deno.land/std@0.200.0/assert/assert_in
 import { TreeNode } from "./models.ts";
 import { maxFrequencyElements } from "./index.ts";
 import { timeRequiredToBuy } from "./index.ts";
+import { minimumCost } from "./index.ts";
 
 Deno.test("#maxMinElements", () => {
   assertEquals([5, 1], maxMinElements([1, 2, 3, 4, 5]));
@@ -1218,4 +1219,8 @@ Deno.test("#maxFrequencyElements", () => {
 
 Deno.test("#timeRequiredToBuy", () => {
   assertEquals(timeRequiredToBuy([2, 3, 2], 2), 6);
+});
+
+Deno.test("#minimumCost", () => {
+  assertEquals(minimumCost([1, 2, 3, 12]), 6);
 });

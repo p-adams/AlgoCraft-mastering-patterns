@@ -2835,7 +2835,12 @@ function timeRequiredToBuy(tickets: number[], k: number): number {
   }, 0);
 }
 
+function minimumCost(nums: number[]): number {
+  return -1;
+}
+
 export {
+  minimumCost,
   timeRequiredToBuy,
   maxFrequencyElements,
   numberOfPoints,
