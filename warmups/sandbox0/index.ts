@@ -1,4 +1,4 @@
-import { MaxHeap, TreeNode } from "./models.ts";
+import { MaxHeap, TreeNode } from "../models.ts";
 
 function maxMinElements(input: number[]): [number, number] {
   return [Math.max(...input), Math.min(...input)];

@@ -101,3 +101,15 @@ export class TreeNode {
     this.#right = v;
   }
 }
+
+export class NumArray {
+  #nums;
+  constructor(nums: number[]) {
+    this.#nums = nums;
+  }
+
+  sumRange(left: number, right: number): number {
+    const $nums = this.#nums.slice(left, right + 1).reduce((a, b) => a + b, 0);
+    return $nums;
+  }
+}

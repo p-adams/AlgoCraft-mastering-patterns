@@ -149,7 +149,7 @@ import {
   numberOfPoints,
 } from "./index.ts";
 import { assertInstanceOf } from "https://deno.land/std@0.200.0/assert/assert_instance_of.ts";
-import { TreeNode } from "./models.ts";
+import { TreeNode } from "../models.ts";
 import { maxFrequencyElements } from "./index.ts";
 import { timeRequiredToBuy } from "./index.ts";
 import { minimumCost } from "./index.ts";
