@@ -10,3 +10,7 @@ Deno.test("#Range Sum Query", () => {
   assertEquals(obj.sumRange(2, 5), -1);
   assertEquals(obj.sumRange(0, 5), -3);
 });
+
+Deno.test("#longestCommonSubsequence", () => {
+  assertEquals(Sandbox1.longestCommonSubsequence("abcde", "ace"), 3);
+});
