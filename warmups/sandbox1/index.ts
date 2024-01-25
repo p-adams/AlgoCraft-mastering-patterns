@@ -49,7 +49,29 @@ function longestCommonSubsequence(text1: string, text2: string): number {
   return dp[m][n];
 }
 
+function arrayRankTransform(arr: number[]): number[] {
+  // Create a sorted copy of the array
+  const sortedArr = [...arr].sort((a, b) => a - b);
+
+  // Create a map to store the rank of each unique element
+  const rankMap = new Map<number, number>();
+
+  // Assign ranks to unique elements based on their position in the sorted array
+  let rank = 1;
+  for (const num of sortedArr) {
+    if (!rankMap.has(num)) {
+      rankMap.set(num, rank++);
+    }
+  }
+
+  // Replace each element in the original array with its rank
+  const result = arr.map((num) => rankMap.get(num)!);
+
+  return result;
+}
+
 export default {
+  arrayRankTransform,
   longestCommonSubsequence,
   maxAscendingSum,
 };

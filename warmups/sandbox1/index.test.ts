@@ -14,3 +14,7 @@ Deno.test("#Range Sum Query", () => {
 Deno.test("#longestCommonSubsequence", () => {
   assertEquals(Sandbox1.longestCommonSubsequence("abcde", "ace"), 3);
 });
+
+Deno.test("#arrayRankTransform", () => {
+  assertEquals(Sandbox1.arrayRankTransform([40, 10, 20, 30]), [4, 1, 2, 3]);
+});
