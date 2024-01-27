@@ -18,3 +18,9 @@ Deno.test("#longestCommonSubsequence", () => {
 Deno.test("#arrayRankTransform", () => {
   assertEquals(Sandbox1.arrayRankTransform([40, 10, 20, 30]), [4, 1, 2, 3]);
 });
+
+Deno.test("#isMonotonic", () => {
+  assertEquals(Sandbox1.isMonotonic([1, 2, 2, 3]), true);
+  assertEquals(Sandbox1.isMonotonic([6, 5, 4, 4]), true);
+  assertEquals(Sandbox1.isMonotonic([1, 3, 2]), false);
+});

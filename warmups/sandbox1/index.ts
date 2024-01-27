@@ -70,7 +70,29 @@ function arrayRankTransform(arr: number[]): number[] {
   return result;
 }
 
+function isMonotonic(nums: number[]): boolean {
+  let increasing = true;
+  let decreasing = true;
+
+  for (let i = 1; i < nums.length; i++) {
+    if (nums[i] > nums[i - 1]) {
+      decreasing = false; // If current element is greater than previous, not decreasing
+    } else if (nums[i] < nums[i - 1]) {
+      increasing = false; // If current element is less than previous, not increasing
+    }
+
+    // If neither increasing nor decreasing, array is not monotonic
+    if (!increasing && !decreasing) {
+      return false;
+    }
+  }
+
+  // If either increasing or decreasing is true, array is monotonic
+  return true;
+}
+
 export default {
+  isMonotonic,
   arrayRankTransform,
   longestCommonSubsequence,
   maxAscendingSum,
