@@ -91,7 +91,41 @@ function isMonotonic(nums: number[]): boolean {
   return true;
 }
 
+function evalRPN(tokens: string[]): number {
+  const ops = ["+", "-", "*", "/"];
+  const seen = [];
+  for (const token of tokens) {
+    if (!ops.includes(token)) {
+      seen.push(token);
+    } else {
+      const b = seen.pop();
+      const a = seen.pop();
+      let res = 0;
+      switch (token) {
+        case "+":
+          res = Number(a) + Number(b);
+          break;
+        case "-":
+          res = Number(a) - Number(b);
+          break;
+        case "*":
+          res = Number(a) * Number(b);
+          break;
+        case "/":
+          res = Math.trunc(Number(a) / Number(b));
+          break;
+        default:
+          break;
+      }
+      seen.push(res);
+    }
+  }
+  const lst = seen.pop();
+  return Math.floor(Number(lst));
+}
+
 export default {
+  evalRPN,
   isMonotonic,
   arrayRankTransform,
   longestCommonSubsequence,

@@ -24,3 +24,26 @@ Deno.test("#isMonotonic", () => {
   assertEquals(Sandbox1.isMonotonic([6, 5, 4, 4]), true);
   assertEquals(Sandbox1.isMonotonic([1, 3, 2]), false);
 });
+
+Deno.test("#evalRPN", () => {
+  assertEquals(Sandbox1.evalRPN(["2", "1", "+", "3", "*"]), 9);
+  assertEquals(Sandbox1.evalRPN(["4", "13", "5", "/", "+"]), 6);
+  assertEquals(
+    Sandbox1.evalRPN([
+      "10",
+      "6",
+      "9",
+      "3",
+      "+",
+      "-11",
+      "*",
+      "/",
+      "*",
+      "17",
+      "+",
+      "5",
+      "+",
+    ]),
+    22
+  );
+});
