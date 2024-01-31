@@ -47,3 +47,10 @@ Deno.test("#evalRPN", () => {
     22
   );
 });
+
+Deno.test("#dailyTemperatures", () => {
+  assertEquals(
+    Sandbox1.dailyTemperatures([73, 74, 75, 71, 69, 72, 76, 73]),
+    [1, 1, 4, 2, 1, 1, 0, 0]
+  );
+});
