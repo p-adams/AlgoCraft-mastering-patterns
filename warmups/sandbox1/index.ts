@@ -167,7 +167,21 @@ function sequentialDigits(low: number, high: number): number[] {
   return result;
 }
 
+function minimumCost(cost: number[]): number {
+  cost.sort((a, b) => b - a);
+  let out = 0;
+  let sum = 0;
+  for (let i = 0; i < cost.length; i++) {
+    sum += cost[i];
+  }
+  for (let i = 2; i < cost.length; i += 3) {
+    out += cost[i];
+  }
+  return sum - out;
+}
+
 export default {
+  minimumCost,
   sequentialDigits,
   dailyTemperatures,
   evalRPN,

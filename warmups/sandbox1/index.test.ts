@@ -58,3 +58,7 @@ Deno.test("#dailyTemperatures", () => {
 Deno.test("#sequentialDigits", () => {
   assertEquals(Sandbox1.sequentialDigits(100, 300), [123, 234]);
 });
+
+Deno.test("#minimumCost", () => {
+  assertEquals(Sandbox1.minimumCost([1, 2, 3]), 5);
+});
