@@ -200,7 +200,46 @@ function countQuadruplets(nums: number[]): number {
   return count;
 }
 
+function bestHand(ranks: number[], suits: string[]): string {
+  const hand = ranks.map((rank, index) => ({ rank, suit: suits[index] }));
+  hand.sort((a, b) => a.rank - b.rank);
+  function isFlush(hand: { rank: number; suit: string }[]): boolean {
+    return hand.every((card) => card.suit === hand[0].suit);
+  }
+
+  function isThreeOfAKind(hand: { rank: number; suit: string }[]): boolean {
+    for (let i = 0; i <= hand.length - 3; i++) {
+      if (
+        hand[i].rank === hand[i + 1].rank &&
+        hand[i + 1].rank === hand[i + 2].rank
+      ) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  function isPair(hand: { rank: number; suit: string }[]): boolean {
+    for (let i = 0; i <= hand.length - 2; i++) {
+      if (hand[i].rank === hand[i + 1].rank) {
+        return true;
+      }
+    }
+    return false;
+  }
+  if (isFlush(hand)) {
+    return "Flush";
+  } else if (isThreeOfAKind(hand)) {
+    return "Three of a Kind";
+  } else if (isPair(hand)) {
+    return "Pair";
+  } else {
+    return "High Card";
+  }
+}
+
 export default {
+  bestHand,
   countQuadruplets,
   minimumCost,
   sequentialDigits,

@@ -68,3 +68,18 @@ Deno.test("#countQuadruplets", () => {
   assertEquals(Sandbox1.countQuadruplets([3, 3, 6, 4, 5]), 0);
   assertEquals(Sandbox1.countQuadruplets([1, 1, 1, 3, 5]), 4);
 });
+
+Deno.test("#bestHand", () => {
+  assertEquals(
+    Sandbox1.bestHand([13, 2, 3, 1, 9], ["a", "a", "a", "a", "a"]),
+    "Flush"
+  );
+  assertEquals(
+    Sandbox1.bestHand([4, 4, 2, 4, 4], ["d", "a", "a", "b", "c"]),
+    "Three of a Kind"
+  );
+  assertEquals(
+    Sandbox1.bestHand([10, 10, 2, 12, 9], ["a", "b", "c", "a", "d"]),
+    "Pair"
+  );
+});
