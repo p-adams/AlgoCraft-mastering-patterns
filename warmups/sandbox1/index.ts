@@ -238,7 +238,32 @@ function bestHand(ranks: number[], suits: string[]): string {
   }
 }
 
+function maximumPopulation(logs: number[][]): number {
+  const years = new Array(101).fill(0); // Array to store population count for each year from 1950 to 2050
+
+  // Iterate through each person's birth and death years
+  for (const [birth, death] of logs) {
+    for (let year = birth; year < death; year++) {
+      years[year - 1950]++; // Increment population count for the corresponding year
+    }
+  }
+
+  let maxPopulation = 0;
+  let maxYear = 1950;
+
+  // Find the year with the maximum population
+  for (let year = 1950; year <= 2050; year++) {
+    if (years[year - 1950] > maxPopulation) {
+      maxPopulation = years[year - 1950];
+      maxYear = year;
+    }
+  }
+
+  return maxYear;
+}
+
 export default {
+  maximumPopulation,
   bestHand,
   countQuadruplets,
   minimumCost,

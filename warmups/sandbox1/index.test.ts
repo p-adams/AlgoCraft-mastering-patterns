@@ -83,3 +83,13 @@ Deno.test("#bestHand", () => {
     "Pair"
   );
 });
+
+Deno.test("#maximumPopulation", () => {
+  assertEquals(
+    Sandbox1.maximumPopulation([
+      [1993, 1999],
+      [2000, 2010],
+    ]),
+    1993
+  );
+});
