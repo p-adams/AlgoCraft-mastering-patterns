@@ -62,3 +62,9 @@ Deno.test("#sequentialDigits", () => {
 Deno.test("#minimumCost", () => {
   assertEquals(Sandbox1.minimumCost([1, 2, 3]), 5);
 });
+
+Deno.test("#countQuadruplets", () => {
+  assertEquals(Sandbox1.countQuadruplets([1, 2, 3, 6]), 1);
+  assertEquals(Sandbox1.countQuadruplets([3, 3, 6, 4, 5]), 0);
+  assertEquals(Sandbox1.countQuadruplets([1, 1, 1, 3, 5]), 4);
+});

@@ -180,7 +180,28 @@ function minimumCost(cost: number[]): number {
   return sum - out;
 }
 
+function countQuadruplets(nums: number[]): number {
+  let count = 0;
+  for (let a = 0; a < nums.length; a++) {
+    for (let b = 1; b < nums.length; b++) {
+      for (let c = 2; c < nums.length; c++) {
+        for (let d = 3; d < nums.length; d++) {
+          if (
+            nums[a] + nums[b] + nums[c] === nums[d] &&
+            a < b &&
+            b < c &&
+            c < d
+          )
+            ++count;
+        }
+      }
+    }
+  }
+  return count;
+}
+
 export default {
+  countQuadruplets,
   minimumCost,
   sequentialDigits,
   dailyTemperatures,
