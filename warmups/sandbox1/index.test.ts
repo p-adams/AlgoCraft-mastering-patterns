@@ -54,3 +54,7 @@ Deno.test("#dailyTemperatures", () => {
     [1, 1, 4, 2, 1, 1, 0, 0]
   );
 });
+
+Deno.test("#sequentialDigits", () => {
+  assertEquals(Sandbox1.sequentialDigits(100, 300), [123, 234]);
+});

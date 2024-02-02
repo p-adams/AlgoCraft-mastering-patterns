@@ -147,7 +147,28 @@ function dailyTemperatures(temperatures: number[]): number[] {
   return result;
 }
 
+function sequentialDigits(low: number, high: number): number[] {
+  const result: number[] = [];
+  const digits = "123456789";
+
+  for (
+    let length = low.toString().length;
+    length <= high.toString().length;
+    length++
+  ) {
+    for (let start = 0; start < 10 - length; start++) {
+      const num = parseInt(digits.substr(start, length));
+      if (num >= low && num <= high) {
+        result.push(num);
+      }
+    }
+  }
+
+  return result;
+}
+
 export default {
+  sequentialDigits,
   dailyTemperatures,
   evalRPN,
   isMonotonic,
