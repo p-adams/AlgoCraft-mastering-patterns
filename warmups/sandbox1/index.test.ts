@@ -93,3 +93,10 @@ Deno.test("#maximumPopulation", () => {
     1993
   );
 });
+
+Deno.test("#construct2DArray", () => {
+  assertEquals(Sandbox1.construct2DArray([1, 2, 3, 4], 2, 2), [
+    [1, 2],
+    [3, 4],
+  ]);
+});

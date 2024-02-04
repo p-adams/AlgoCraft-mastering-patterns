@@ -262,7 +262,22 @@ function maximumPopulation(logs: number[][]): number {
   return maxYear;
 }
 
+function construct2DArray(
+  original: number[],
+  m: number,
+  n: number
+): number[][] {
+  if (m * n !== original.length) {
+    return [];
+  }
+
+  return Array.from({ length: m }, (_, index) =>
+    original.slice(index * n, index * n + n)
+  );
+}
+
 export default {
+  construct2DArray,
   maximumPopulation,
   bestHand,
   countQuadruplets,
