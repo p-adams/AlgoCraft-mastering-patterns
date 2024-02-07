@@ -276,7 +276,34 @@ function construct2DArray(
   );
 }
 
+function frequencySortStr(s: string): string {
+  const charMap = new Map<string, number>();
+
+  // Count frequencies of each character
+  for (const char of s) {
+    charMap.set(char, (charMap.get(char) || 0) + 1);
+  }
+
+  // Sort characters by frequency in descending order
+  const sortedChars = [...charMap].sort((a, b) => {
+    if (a[1] !== b[1]) {
+      return b[1] - a[1]; // Sort by frequency in descending order
+    } else {
+      return a[0].localeCompare(b[0]); // Sort alphabetically for characters with the same frequency
+    }
+  });
+
+  // Construct the sorted string
+  let result = "";
+  for (const [char, count] of sortedChars) {
+    result += char.repeat(count);
+  }
+
+  return result;
+}
+
 export default {
+  frequencySortStr,
   construct2DArray,
   maximumPopulation,
   bestHand,

@@ -100,3 +100,8 @@ Deno.test("#construct2DArray", () => {
     [3, 4],
   ]);
 });
+
+Deno.test("#frequencySortStr", () => {
+  assertEquals(Sandbox1.frequencySortStr("tree"), "eert");
+  assertEquals(Sandbox1.frequencySortStr("cccaaa"), "aaaccc");
+});
