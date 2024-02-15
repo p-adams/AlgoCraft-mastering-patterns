@@ -105,3 +105,7 @@ Deno.test("#frequencySortStr", () => {
   assertEquals(Sandbox1.frequencySortStr("tree"), "eert");
   assertEquals(Sandbox1.frequencySortStr("cccaaa"), "aaaccc");
 });
+
+Deno.test("#maxDepth", () => {
+  assertEquals(Sandbox1.maxDepth("(1+(2*3)+((8)/4))+1"), 3);
+});

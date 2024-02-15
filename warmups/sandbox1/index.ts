@@ -302,7 +302,24 @@ function frequencySortStr(s: string): string {
   return result;
 }
 
+function maxDepth(s: string): number {
+  let depth = 0;
+  let maxDepth = 0;
+
+  for (const char of s) {
+    if (char === "(") {
+      depth++;
+      maxDepth = Math.max(maxDepth, depth);
+    } else if (char === ")") {
+      depth--;
+    }
+  }
+
+  return maxDepth;
+}
+
 export default {
+  maxDepth,
   frequencySortStr,
   construct2DArray,
   maximumPopulation,
