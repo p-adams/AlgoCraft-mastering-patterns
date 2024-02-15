@@ -109,3 +109,7 @@ Deno.test("#frequencySortStr", () => {
 Deno.test("#maxDepth", () => {
   assertEquals(Sandbox1.maxDepth("(1+(2*3)+((8)/4))+1"), 3);
 });
+
+Deno.test("#replaceDigits", () => {
+  assertEquals(Sandbox1.replaceDigits("a1c1e1"), "abcdef");
+});

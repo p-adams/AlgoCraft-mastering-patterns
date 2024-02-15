@@ -318,7 +318,33 @@ function maxDepth(s: string): number {
   return maxDepth;
 }
 
+function replaceDigits(s: string): string {
+  function shift(ch: string, digit: number): string {
+    const startCharCode = ch.charCodeAt(0);
+    const shiftedCharCode = startCharCode + digit;
+    return String.fromCharCode(shiftedCharCode);
+  }
+
+  let result = "";
+  for (let index = 1; index < s.length; index += 2) {
+    const prevChar = s[index - 1];
+    const digit = parseInt(s[index], 10);
+    if (!isNaN(digit)) {
+      const shiftedChar = shift(prevChar, digit);
+      result += prevChar + shiftedChar;
+    } else {
+      result += prevChar + s[index];
+    }
+  }
+  // Handle the case when the string length is odd
+  if (s.length % 2 !== 0) {
+    result += s[s.length - 1];
+  }
+  return result;
+}
+
 export default {
+  replaceDigits,
   maxDepth,
   frequencySortStr,
   construct2DArray,
