@@ -343,7 +343,62 @@ function replaceDigits(s: string): string {
   return result;
 }
 
+function findLeastNumOfUniqueInts(arr: number[], k: number): number {
+  const frequencyMap: Map<number, number> = new Map();
+
+  // Count the frequency of each integer in the array
+  for (const num of arr) {
+    frequencyMap.set(num, (frequencyMap.get(num) || 0) + 1);
+  }
+
+  // Sort unique integers based on their frequencies
+  const sortedFrequencies = Array.from(frequencyMap.values()).sort(
+    (a, b) => a - b
+  );
+
+  let numUniqueIntegers = frequencyMap.size;
+  let remainingRemovals = k;
+
+  // Remove integers with the lowest frequencies until k removals are done
+  for (const frequency of sortedFrequencies) {
+    if (remainingRemovals >= frequency) {
+      remainingRemovals -= frequency;
+      numUniqueIntegers--;
+    } else {
+      break;
+    }
+  }
+
+  return numUniqueIntegers;
+}
+
+function countPoints(rings: string): number {
+  const rods: Map<string, Set<string>> = new Map();
+
+  // Iterate through each ring and store its color on the respective rod
+  for (let i = 0; i < rings.length; i += 2) {
+    const color = rings[i];
+    const rod = rings[i + 1];
+    if (!rods.has(rod)) {
+      rods.set(rod, new Set());
+    }
+    rods.get(rod)?.add(color);
+  }
+
+  let count = 0;
+  for (const colors of rods.values()) {
+    // Check if a rod has all three colors
+    if (colors.size === 3) {
+      count++;
+    }
+  }
+
+  return count;
+}
+
 export default {
+  countPoints,
+  findLeastNumOfUniqueInts,
   replaceDigits,
   maxDepth,
   frequencySortStr,

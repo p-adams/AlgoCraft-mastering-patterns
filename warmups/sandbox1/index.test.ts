@@ -113,3 +113,11 @@ Deno.test("#maxDepth", () => {
 Deno.test("#replaceDigits", () => {
   assertEquals(Sandbox1.replaceDigits("a1c1e1"), "abcdef");
 });
+
+Deno.test("#findLeastNumOfUniqueInts", () => {
+  assertEquals(Sandbox1.findLeastNumOfUniqueInts([5, 5, 4], 1), 1);
+});
+
+Deno.test("#countPoints", () => {
+  assertEquals(Sandbox1.countPoints("B0B6G0R6R0R6G9"), 1);
+});
