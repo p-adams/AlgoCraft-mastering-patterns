@@ -396,7 +396,22 @@ function countPoints(rings: string): number {
   return count;
 }
 
+function makeSmallestPalindrome(s: string): string {
+  const $s = s.split("");
+  for (let i = 0, j = $s.length - 1; i < j; i++, j--) {
+    if ($s[i] !== $s[j]) {
+      if ($s[i] < $s[j]) {
+        $s[j] = $s[i];
+      } else {
+        $s[i] = $s[j];
+      }
+    }
+  }
+  return $s.join("");
+}
+
 export default {
+  makeSmallestPalindrome,
   countPoints,
   findLeastNumOfUniqueInts,
   replaceDigits,

@@ -121,3 +121,9 @@ Deno.test("#findLeastNumOfUniqueInts", () => {
 Deno.test("#countPoints", () => {
   assertEquals(Sandbox1.countPoints("B0B6G0R6R0R6G9"), 1);
 });
+
+Deno.test("#makeSmallestPalindrome", () => {
+  assertEquals(Sandbox1.makeSmallestPalindrome("egcfe"), "efcfe");
+  assertEquals(Sandbox1.makeSmallestPalindrome("abcd"), "abba");
+  assertEquals(Sandbox1.makeSmallestPalindrome("seven"), "neven");
+});
