@@ -410,7 +410,12 @@ function makeSmallestPalindrome(s: string): string {
   return $s.join("");
 }
 
+function numOfStrings(patterns: string[], word: string): number {
+  return patterns.filter((p) => word.includes(p)).length;
+}
+
 export default {
+  numOfStrings,
   makeSmallestPalindrome,
   countPoints,
   findLeastNumOfUniqueInts,

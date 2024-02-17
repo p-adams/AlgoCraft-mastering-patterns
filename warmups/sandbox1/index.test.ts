@@ -127,3 +127,9 @@ Deno.test("#makeSmallestPalindrome", () => {
   assertEquals(Sandbox1.makeSmallestPalindrome("abcd"), "abba");
   assertEquals(Sandbox1.makeSmallestPalindrome("seven"), "neven");
 });
+
+Deno.test("#numOfStrings", () => {
+  assertEquals(Sandbox1.numOfStrings(["a", "abc", "bc", "d"], "abc"), 3);
+  assertEquals(Sandbox1.numOfStrings(["a", "b", "c"], "aaaaabbbbb"), 2);
+  assertEquals(Sandbox1.numOfStrings(["a", "a", "a"], "ab"), 3);
+});
