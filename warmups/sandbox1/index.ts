@@ -414,7 +414,15 @@ function numOfStrings(patterns: string[], word: string): number {
   return patterns.filter((p) => word.includes(p)).length;
 }
 
+function reversePrefix(word: string, ch: string): string {
+  const index = word.indexOf(ch) + 1;
+  const prefix = word.slice(0, index).split("").reverse().join("");
+  const rest = word.slice(index);
+  return prefix.concat(rest);
+}
+
 export default {
+  reversePrefix,
   numOfStrings,
   makeSmallestPalindrome,
   countPoints,

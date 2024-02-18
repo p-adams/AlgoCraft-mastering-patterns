@@ -133,3 +133,7 @@ Deno.test("#numOfStrings", () => {
   assertEquals(Sandbox1.numOfStrings(["a", "b", "c"], "aaaaabbbbb"), 2);
   assertEquals(Sandbox1.numOfStrings(["a", "a", "a"], "ab"), 3);
 });
+
+Deno.test("#reversePrefix", () => {
+  assertEquals(Sandbox1.reversePrefix("abcdefd", "d"), "dcbaefd");
+});
