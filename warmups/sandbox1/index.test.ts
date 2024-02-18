@@ -137,3 +137,8 @@ Deno.test("#numOfStrings", () => {
 Deno.test("#reversePrefix", () => {
   assertEquals(Sandbox1.reversePrefix("abcdefd", "d"), "dcbaefd");
 });
+
+Deno.test("#freqAlphabets", () => {
+  assertEquals(Sandbox1.freqAlphabets("10#11#12"), "jkab");
+  assertEquals(Sandbox1.freqAlphabets("1326#"), "acz");
+});

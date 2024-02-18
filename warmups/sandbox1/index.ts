@@ -421,7 +421,33 @@ function reversePrefix(word: string, ch: string): string {
   return prefix.concat(rest);
 }
 
+function freqAlphabets(s: string): string {
+  const alphabet = "abcdefghijklmnopqrstuvwxyz";
+  const chMap = new Map<string, string>();
+
+  // Construct the character mapping
+  for (let i = 1; i <= 26; i++) {
+    const letter = i <= 9 ? `${i}` : `${i}#`;
+    chMap.set(letter, alphabet[i - 1]);
+  }
+
+  let res = "";
+  let i = s.length - 1;
+  while (i >= 0) {
+    if (s[i] === "#") {
+      res = chMap.get(s.substring(i - 2, i + 1)) + res;
+      i -= 3;
+    } else {
+      res = chMap.get(s[i]) + res;
+      i--;
+    }
+  }
+
+  return res;
+}
+
 export default {
+  freqAlphabets,
   reversePrefix,
   numOfStrings,
   makeSmallestPalindrome,
