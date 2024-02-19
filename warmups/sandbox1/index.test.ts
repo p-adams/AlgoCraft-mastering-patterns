@@ -142,3 +142,9 @@ Deno.test("#freqAlphabets", () => {
   assertEquals(Sandbox1.freqAlphabets("10#11#12"), "jkab");
   assertEquals(Sandbox1.freqAlphabets("1326#"), "acz");
 });
+
+Deno.test("#isPowerTwo", () => {
+  assertEquals(Sandbox1.isPowerOfTwo(1), true);
+  assertEquals(Sandbox1.isPowerOfTwo(16), true);
+  assertEquals(Sandbox1.isPowerOfTwo(1), true);
+});

@@ -446,7 +446,12 @@ function freqAlphabets(s: string): string {
   return res;
 }
 
+function isPowerOfTwo(n: number): boolean {
+  return n > 0 && (n & (n - 1)) === 0;
+}
+
 export default {
+  isPowerOfTwo,
   freqAlphabets,
   reversePrefix,
   numOfStrings,
