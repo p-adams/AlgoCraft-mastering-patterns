@@ -480,7 +480,23 @@ function missingNumber(nums: number[]): number {
   return mn;
 }
 
+function halvesAreAlike(s: string): boolean {
+  const n = s.length;
+  const vowels = ["a", "e", "i", "o", "u", "A", "E", "I", "O", "U"];
+  const a = s
+    .substring(0, n / 2)
+    .split("")
+    .filter((ch) => vowels.includes(ch));
+  const b = s
+    .substring(n / 2)
+    .split("")
+    .filter((ch) => vowels.includes(ch));
+
+  return a.length === b.length;
+}
+
 export default {
+  halvesAreAlike,
   missingNumber,
   countKeyChanges,
   isPowerOfTwo,

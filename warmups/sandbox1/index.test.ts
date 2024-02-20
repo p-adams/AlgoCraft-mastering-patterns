@@ -157,3 +157,8 @@ Deno.test("#countKeyChanges", () => {
 Deno.test("#missingNumber", () => {
   assertEquals(Sandbox1.missingNumber([3, 0, 1]), 2);
 });
+
+Deno.test("#", () => {
+  assertEquals(Sandbox1.halvesAreAlike("book"), true);
+  assertEquals(Sandbox1.halvesAreAlike("textbook"), false);
+});
