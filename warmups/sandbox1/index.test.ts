@@ -148,3 +148,8 @@ Deno.test("#isPowerTwo", () => {
   assertEquals(Sandbox1.isPowerOfTwo(16), true);
   assertEquals(Sandbox1.isPowerOfTwo(1), true);
 });
+
+Deno.test("#countKeyChanges", () => {
+  assertEquals(Sandbox1.countKeyChanges("aAbBcC"), 2);
+  assertEquals(Sandbox1.countKeyChanges("AaAaAaaA"), 0);
+});

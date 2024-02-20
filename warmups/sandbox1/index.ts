@@ -450,7 +450,21 @@ function isPowerOfTwo(n: number): boolean {
   return n > 0 && (n & (n - 1)) === 0;
 }
 
+function countKeyChanges(s: string): number {
+  const $s = s.split("").map((ch) => ch.toLowerCase());
+  let c = 0;
+  for (let index = 1; index < $s.length; index++) {
+    const element = $s[index];
+    const element2 = $s[index - 1];
+    if (element !== element2) {
+      ++c;
+    }
+  }
+  return c;
+}
+
 export default {
+  countKeyChanges,
   isPowerOfTwo,
   freqAlphabets,
   reversePrefix,
