@@ -153,3 +153,7 @@ Deno.test("#countKeyChanges", () => {
   assertEquals(Sandbox1.countKeyChanges("aAbBcC"), 2);
   assertEquals(Sandbox1.countKeyChanges("AaAaAaaA"), 0);
 });
+
+Deno.test("#missingNumber", () => {
+  assertEquals(Sandbox1.missingNumber([3, 0, 1]), 2);
+});
