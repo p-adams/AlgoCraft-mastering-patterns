@@ -495,7 +495,26 @@ function halvesAreAlike(s: string): boolean {
   return a.length === b.length;
 }
 
+function findJudge(n: number, trust: number[][]): number {
+  const trusts = Array(n + 1).fill(0);
+  const trustedBy = Array(n + 1).fill(0);
+
+  for (const [a, b] of trust) {
+    trusts[a]++;
+    trustedBy[b]++;
+  }
+
+  for (let i = 1; i <= n; i++) {
+    if (trusts[i] === 0 && trustedBy[i] === n - 1) {
+      return i;
+    }
+  }
+
+  return -1;
+}
+
 export default {
+  findJudge,
   halvesAreAlike,
   missingNumber,
   countKeyChanges,

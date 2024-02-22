@@ -158,7 +158,11 @@ Deno.test("#missingNumber", () => {
   assertEquals(Sandbox1.missingNumber([3, 0, 1]), 2);
 });
 
-Deno.test("#", () => {
+Deno.test("#halvesAreAlike", () => {
   assertEquals(Sandbox1.halvesAreAlike("book"), true);
   assertEquals(Sandbox1.halvesAreAlike("textbook"), false);
+});
+
+Deno.test("#findJudge", () => {
+  assertEquals(Sandbox1.findJudge(2, [[1, 2]]), 2);
 });
