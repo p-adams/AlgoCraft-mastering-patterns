@@ -190,3 +190,7 @@ Deno.test("#removeTrailingZeros", () => {
   assertEquals(Sandbox1.removeTrailingZeros("51230100"), "512301");
   assertEquals(Sandbox1.removeTrailingZeros("123"), "123");
 });
+
+Deno.test("#squareIsWhite", () => {
+  assertEquals(Sandbox1.squareIsWhite("a1"), true);
+});
