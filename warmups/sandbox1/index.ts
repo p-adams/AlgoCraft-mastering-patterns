@@ -1,3 +1,5 @@
+import { numSpecial } from "../sandbox0/index.ts";
+
 function maxAscendingSum(nums: number[]): number {
   const n = nums.length;
   let maxSum = 0;
@@ -553,7 +555,12 @@ function findCheapestPrice(
   return visited[dst] === Number.MAX_VALUE ? -1 : visited[dst];
 }
 
+function removeTrailingZeros(num: string): string {
+  return num.replace(/0+$/, "");
+}
+
 export default {
+  removeTrailingZeros,
   findCheapestPrice,
   findJudge,
   halvesAreAlike,

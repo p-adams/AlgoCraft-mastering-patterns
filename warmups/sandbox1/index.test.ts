@@ -185,3 +185,8 @@ Deno.test("#findCheapestPrice", () => {
     700
   );
 });
+
+Deno.test("#removeTrailingZeros", () => {
+  assertEquals(Sandbox1.removeTrailingZeros("51230100"), "512301");
+  assertEquals(Sandbox1.removeTrailingZeros("123"), "123");
+});
