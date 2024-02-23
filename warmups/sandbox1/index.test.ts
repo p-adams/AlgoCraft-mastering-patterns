@@ -166,3 +166,22 @@ Deno.test("#halvesAreAlike", () => {
 Deno.test("#findJudge", () => {
   assertEquals(Sandbox1.findJudge(2, [[1, 2]]), 2);
 });
+
+Deno.test("#findCheapestPrice", () => {
+  assertEquals(
+    Sandbox1.findCheapestPrice(
+      4,
+      [
+        [0, 1, 100],
+        [1, 2, 100],
+        [2, 0, 100],
+        [1, 3, 600],
+        [2, 3, 200],
+      ],
+      0,
+      3,
+      1
+    ),
+    700
+  );
+});
