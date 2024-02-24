@@ -577,7 +577,16 @@ function squareIsWhite(coordinates: string): boolean {
   return ($x + $y) % 2 !== 0 ? true : false;
 }
 
+function generateTheString(n: number): string {
+  if (n % 2 === 1) {
+    return String.fromCharCode(...new Array(n).fill(97));
+  }
+
+  return String.fromCharCode(...new Array(n - 1).fill(97), 98);
+}
+
 export default {
+  generateTheString,
   squareIsWhite,
   removeTrailingZeros,
   findCheapestPrice,

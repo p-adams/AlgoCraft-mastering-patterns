@@ -194,3 +194,7 @@ Deno.test("#removeTrailingZeros", () => {
 Deno.test("#squareIsWhite", () => {
   assertEquals(Sandbox1.squareIsWhite("a1"), true);
 });
+
+Deno.test("#generateTheString", () => {
+  assertEquals(Sandbox1.generateTheString(4), "aaab");
+});
