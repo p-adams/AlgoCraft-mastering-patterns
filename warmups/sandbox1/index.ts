@@ -1,3 +1,4 @@
+import { TreeNode } from "../models.ts";
 import { numSpecial } from "../sandbox0/index.ts";
 
 function maxAscendingSum(nums: number[]): number {
@@ -585,7 +586,25 @@ function generateTheString(n: number): string {
   return String.fromCharCode(...new Array(n - 1).fill(97), 98);
 }
 
+function isSameTree(p: TreeNode | null, q: TreeNode | null): boolean {
+  // If both trees are empty, they are considered the same
+  if (p === null && q === null) {
+    return true;
+  }
+  // If only one of the trees is empty, they are not the same
+  if (p === null || q === null) {
+    return false;
+  }
+  // If the values of the current nodes are not equal, they are not the same
+  if (p.val !== q.val) {
+    return false;
+  }
+  // Recursively check if the left subtrees and right subtrees are the same
+  return isSameTree(p.left, q.left) && isSameTree(p.right, q.right);
+}
+
 export default {
+  isSameTree,
   generateTheString,
   squareIsWhite,
   removeTrailingZeros,

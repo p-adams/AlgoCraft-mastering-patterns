@@ -1,6 +1,6 @@
 import { assertEquals } from "https://deno.land/std@0.113.0/testing/asserts.ts";
 import Sandbox1 from "./index.ts";
-import { NumArray } from "../models.ts";
+import { NumArray, TreeNode } from "../models.ts";
 Deno.test("#maxAscendingSum", () => {
   assertEquals(Sandbox1.maxAscendingSum([10, 20, 30, 5, 10, 50]), 65);
 });
@@ -197,4 +197,10 @@ Deno.test("#squareIsWhite", () => {
 
 Deno.test("#generateTheString", () => {
   assertEquals(Sandbox1.generateTheString(4), "aaab");
+});
+
+Deno.test("#isSameTree", () => {
+  const p = new TreeNode(1, new TreeNode(2), new TreeNode(3));
+  const q = new TreeNode(1, new TreeNode(2), new TreeNode(3));
+  assertEquals(Sandbox1.isSameTree(p, q), true);
 });
