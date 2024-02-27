@@ -213,3 +213,9 @@ Deno.test("#diameterOfBinaryTree", () => {
   );
   assertEquals(Sandbox1.diameterOfBinaryTree(root), 3);
 });
+
+Deno.test("#reverseString", () => {
+  const s = ["h", "e", "l", "l", "o"];
+  Sandbox1.reverseString(s);
+  assertEquals(s, ["o", "l", "l", "e", "h"]);
+});
