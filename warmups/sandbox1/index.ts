@@ -637,7 +637,23 @@ function reverseString(s: string[]) {
   }
 }
 
+function areOccurrencesEqual(s: string): boolean {
+  const m = new Map<string, number>();
+  for (const ch of s) {
+    m.set(ch, m.get(ch) ? m.get(ch)! + 1 : 1);
+  }
+  const vals = Array.from(m.values());
+  for (let index = 1; index < vals.length; index++) {
+    if (vals[index - 1] !== vals[index]) {
+      return false;
+    }
+  }
+
+  return true;
+}
+
 export default {
+  areOccurrencesEqual,
   reverseString,
   diameterOfBinaryTree,
   isSameTree,

@@ -219,3 +219,8 @@ Deno.test("#reverseString", () => {
   Sandbox1.reverseString(s);
   assertEquals(s, ["o", "l", "l", "e", "h"]);
 });
+
+Deno.test("#areOccurrencesEqual", () => {
+  assertEquals(Sandbox1.areOccurrencesEqual("abacbc"), true);
+  assertEquals(Sandbox1.areOccurrencesEqual("aaabb"), false);
+});
