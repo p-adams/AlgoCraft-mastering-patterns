@@ -204,3 +204,12 @@ Deno.test("#isSameTree", () => {
   const q = new TreeNode(1, new TreeNode(2), new TreeNode(3));
   assertEquals(Sandbox1.isSameTree(p, q), true);
 });
+
+Deno.test("#diameterOfBinaryTree", () => {
+  const root = new TreeNode(
+    1,
+    new TreeNode(2, new TreeNode(4), new TreeNode(5)),
+    new TreeNode(3)
+  );
+  assertEquals(Sandbox1.diameterOfBinaryTree(root), 3);
+});
