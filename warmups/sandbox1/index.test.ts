@@ -224,3 +224,7 @@ Deno.test("#areOccurrencesEqual", () => {
   assertEquals(Sandbox1.areOccurrencesEqual("abacbc"), true);
   assertEquals(Sandbox1.areOccurrencesEqual("aaabb"), false);
 });
+
+Deno.test("#sortString", () => {
+  assertEquals(Sandbox1.sortString("aaaabbbbcccc"), "abccbaabccba");
+});

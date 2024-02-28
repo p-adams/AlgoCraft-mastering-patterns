@@ -652,7 +652,48 @@ function areOccurrencesEqual(s: string): boolean {
   return true;
 }
 
+function sortString(s: string): string {
+  const charCount: number[] = Array(26).fill(0);
+
+  // Count the frequency of each character in the input string
+  for (const char of s) {
+    const index = char.charCodeAt(0) - "a".charCodeAt(0);
+    charCount[index]++;
+  }
+
+  let result = "";
+
+  // Process characters from 'a' to 'z' and then from 'z' to 'a' repeatedly
+  let processed = false;
+  while (!processed) {
+    processed = true;
+
+    // Process characters from 'a' to 'z'
+    for (let i = 0; i < 26; i++) {
+      const char = String.fromCharCode("a".charCodeAt(0) + i);
+      if (charCount[i] > 0) {
+        result += char;
+        charCount[i]--;
+        processed = false;
+      }
+    }
+
+    // Process characters from 'z' to 'a'
+    for (let i = 25; i >= 0; i--) {
+      const char = String.fromCharCode("a".charCodeAt(0) + i);
+      if (charCount[i] > 0) {
+        result += char;
+        charCount[i]--;
+        processed = false;
+      }
+    }
+  }
+
+  return result;
+}
+
 export default {
+  sortString,
   areOccurrencesEqual,
   reverseString,
   diameterOfBinaryTree,
