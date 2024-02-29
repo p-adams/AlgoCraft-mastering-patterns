@@ -228,3 +228,7 @@ Deno.test("#areOccurrencesEqual", () => {
 Deno.test("#sortString", () => {
   assertEquals(Sandbox1.sortString("aaaabbbbcccc"), "abccbaabccba");
 });
+
+Deno.test("#removePalindromeSub", () => {
+  assertEquals(Sandbox1.removePalindromeSub("ababa"), 1);
+});
