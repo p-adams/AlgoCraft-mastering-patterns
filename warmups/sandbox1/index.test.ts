@@ -1,6 +1,6 @@
 import { assertEquals } from "https://deno.land/std@0.113.0/testing/asserts.ts";
 import Sandbox1 from "./index.ts";
-import { NumArray, TreeNode } from "../models.ts";
+import { NumArray, TreeNode, ListNode } from "../models.ts";
 Deno.test("#maxAscendingSum", () => {
   assertEquals(Sandbox1.maxAscendingSum([10, 20, 30, 5, 10, 50]), 65);
 });
@@ -231,4 +231,14 @@ Deno.test("#sortString", () => {
 
 Deno.test("#removePalindromeSub", () => {
   assertEquals(Sandbox1.removePalindromeSub("ababa"), 1);
+});
+
+Deno.test("#middleNode", () => {
+  const nn = new ListNode(5, null);
+  const nn1 = new ListNode(4, nn);
+  const nn2 = new ListNode(3, nn1);
+  const nn3 = new ListNode(2, nn2);
+  const head = new ListNode(1, nn3);
+  const mid = Sandbox1.middleNode(head);
+  assertEquals(mid?.val, 3);
 });

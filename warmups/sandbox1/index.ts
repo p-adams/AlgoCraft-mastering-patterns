@@ -1,3 +1,4 @@
+import { ListNode } from "../models.ts";
 import { TreeNode } from "../models.ts";
 import { numSpecial } from "../sandbox0/index.ts";
 
@@ -696,7 +697,23 @@ function removePalindromeSub(s: string): number {
   return s === s.split("").reverse().join("") ? 1 : 2;
 }
 
+function middleNode(head: ListNode | null): ListNode | null | undefined {
+  if (!head) return null;
+
+  let slow: ListNode | null = head;
+  let fast: ListNode | null = head;
+
+  // Move slow pointer one step at a time and fast pointer two steps at a time
+  while (fast && fast.next) {
+    slow = slow!.next;
+    fast = fast.next.next;
+  }
+
+  return slow;
+}
+
 export default {
+  middleNode,
   removePalindromeSub,
   sortString,
   areOccurrencesEqual,
