@@ -242,3 +242,7 @@ Deno.test("#middleNode", () => {
   const mid = Sandbox1.middleNode(head);
   assertEquals(mid?.val, 3);
 });
+
+Deno.test("#getCommon", () => {
+  assertEquals(Sandbox1.getCommon([1, 2, 3], [2, 4]), 2);
+});

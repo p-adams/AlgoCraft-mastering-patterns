@@ -712,7 +712,28 @@ function middleNode(head: ListNode | null): ListNode | null | undefined {
   return slow;
 }
 
+function getCommon(nums1: number[], nums2: number[]): number {
+  let i = 0;
+  let j = 0;
+  let minCommon = Infinity;
+
+  while (i < nums1.length && j < nums2.length) {
+    if (nums1[i] === nums2[j]) {
+      minCommon = Math.min(minCommon, nums1[i]);
+      i++;
+      j++;
+    } else if (nums1[i] < nums2[j]) {
+      i++;
+    } else {
+      j++;
+    }
+  }
+
+  return minCommon === Infinity ? -1 : minCommon;
+}
+
 export default {
+  getCommon,
   middleNode,
   removePalindromeSub,
   sortString,
