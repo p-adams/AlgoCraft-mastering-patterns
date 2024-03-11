@@ -732,7 +732,12 @@ function getCommon(nums1: number[], nums2: number[]): number {
   return minCommon === Infinity ? -1 : minCommon;
 }
 
+function customSortString(order: string, s: string): string {
+  return "";
+}
+
 export default {
+  customSortString,
   getCommon,
   middleNode,
   removePalindromeSub,

@@ -246,3 +246,7 @@ Deno.test("#middleNode", () => {
 Deno.test("#getCommon", () => {
   assertEquals(Sandbox1.getCommon([1, 2, 3], [2, 4]), 2);
 });
+
+Deno.test("#customSortString", () => {
+  assertEquals(Sandbox1.customSortString("cba", "abcd"), "cbad");
+});
