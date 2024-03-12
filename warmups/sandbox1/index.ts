@@ -733,7 +733,31 @@ function getCommon(nums1: number[], nums2: number[]): number {
 }
 
 function customSortString(order: string, s: string): string {
-  return "";
+  const frequencyMap = new Map<string, number>();
+
+  // Step 1: Create a map to store the frequency of characters in the string s
+  for (const char of s) {
+    frequencyMap.set(char, (frequencyMap.get(char) || 0) + 1);
+  }
+
+  let result = "";
+
+  // Step 2: Iterate through each character in the order string
+  for (const char of order) {
+    // Step 3: If the character exists in the frequency map, append it to the result string
+    if (frequencyMap.has(char)) {
+      result += char.repeat(frequencyMap.get(char)!);
+      frequencyMap.delete(char);
+    }
+  }
+
+  // Step 4: Append any remaining characters (not in the order string) to the result string
+  for (const [char, count] of frequencyMap.entries()) {
+    result += char.repeat(count);
+  }
+
+  // Step 5: Return the result string
+  return result;
 }
 
 export default {
