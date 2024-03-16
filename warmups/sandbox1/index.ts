@@ -776,7 +776,6 @@ function judgeCircle(moves: string): boolean {
       case "D":
         path.y++;
         break;
-
       default:
         break;
     }
