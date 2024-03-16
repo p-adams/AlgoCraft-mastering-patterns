@@ -250,3 +250,8 @@ Deno.test("#getCommon", () => {
 Deno.test("#customSortString", () => {
   assertEquals(Sandbox1.customSortString("cba", "abcd"), "cbad");
 });
+
+Deno.test("#judgeCircle", () => {
+  assertEquals(Sandbox1.judgeCircle("UD"), true);
+  assertEquals(Sandbox1.judgeCircle("LL"), false);
+});

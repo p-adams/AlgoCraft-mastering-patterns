@@ -760,7 +760,32 @@ function customSortString(order: string, s: string): string {
   return result;
 }
 
+function judgeCircle(moves: string): boolean {
+  const path = { x: 0, y: 0 };
+  for (const move of moves) {
+    switch (move) {
+      case "R":
+        path.x++;
+        break;
+      case "L":
+        path.x--;
+        break;
+      case "U":
+        path.y--;
+        break;
+      case "D":
+        path.y++;
+        break;
+
+      default:
+        break;
+    }
+  }
+  return path.x === 0 && path.y === 0;
+}
+
 export default {
+  judgeCircle,
   customSortString,
   getCommon,
   middleNode,
