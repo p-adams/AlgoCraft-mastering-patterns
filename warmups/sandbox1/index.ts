@@ -783,7 +783,12 @@ function judgeCircle(moves: string): boolean {
   return path.x === 0 && path.y === 0;
 }
 
+function insert(intervals: number[][], newInterval: number[]): number[][] {
+  return [];
+}
+
 export default {
+  insert,
   judgeCircle,
   customSortString,
   getCommon,

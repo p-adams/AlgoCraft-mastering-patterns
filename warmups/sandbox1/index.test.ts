@@ -255,3 +255,19 @@ Deno.test("#judgeCircle", () => {
   assertEquals(Sandbox1.judgeCircle("UD"), true);
   assertEquals(Sandbox1.judgeCircle("LL"), false);
 });
+
+Deno.test("#insert", () => {
+  assertEquals(
+    Sandbox1.insert(
+      [
+        [1, 3],
+        [6, 9],
+      ],
+      [2, 5]
+    ),
+    [
+      [1, 5],
+      [6, 9],
+    ]
+  );
+});
