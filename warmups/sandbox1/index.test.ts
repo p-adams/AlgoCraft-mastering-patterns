@@ -271,3 +271,7 @@ Deno.test("#insert", () => {
     ]
   );
 });
+
+Deno.test("#minTimeToType", () => {
+  assertEquals(Sandbox1.minTimeToType("abc"), 5);
+});

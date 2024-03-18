@@ -810,7 +810,31 @@ function insert(intervals: number[][], newInterval: number[]): number[][] {
   return result;
 }
 
+function minTimeToType(word: string): number {
+  let currentTime = 0;
+  let currentChar = "a";
+
+  for (let i = 0; i < word.length; i++) {
+    const targetChar = word[i];
+
+    // Calculate clockwise and counterclockwise distances
+    const clockwiseDistance = Math.abs(
+      targetChar.charCodeAt(0) - currentChar.charCodeAt(0)
+    );
+    const counterclockwiseDistance = 26 - clockwiseDistance;
+
+    // Update currentTime
+    currentTime += Math.min(clockwiseDistance, counterclockwiseDistance) + 1;
+
+    // Update currentChar
+    currentChar = targetChar;
+  }
+
+  return currentTime;
+}
+
 export default {
+  minTimeToType,
   insert,
   judgeCircle,
   customSortString,
