@@ -275,3 +275,7 @@ Deno.test("#insert", () => {
 Deno.test("#minTimeToType", () => {
   assertEquals(Sandbox1.minTimeToType("abc"), 5);
 });
+
+Deno.test("#leastInterval", () => {
+  assertEquals(Sandbox1.leastInterval(["A", "A", "A", "B", "B", "B"], 2), 8);
+});

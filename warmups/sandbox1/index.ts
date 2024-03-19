@@ -833,7 +833,39 @@ function minTimeToType(word: string): number {
   return currentTime;
 }
 
+function leastInterval(tasks: string[], n: number): number {
+  const taskCountMap: Map<string, number> = new Map();
+
+  // Count the frequency of each task
+  for (const task of tasks) {
+    taskCountMap.set(task, (taskCountMap.get(task) || 0) + 1);
+  }
+
+  // Sort tasks based on their frequency in descending order
+  const sortedTasks = Array.from(taskCountMap.values()).sort((a, b) => b - a);
+
+  // Get the frequency of the most frequent task
+  const maxFrequency = sortedTasks[0];
+
+  // Count how many tasks have the same maximum frequency
+  let maxCount = 0;
+  for (const frequency of sortedTasks) {
+    if (frequency === maxFrequency) {
+      maxCount++;
+    } else {
+      break;
+    }
+  }
+
+  // Calculate the total number of intervals required
+  const totalIntervals = (maxFrequency - 1) * (n + 1) + maxCount;
+
+  // Return the maximum of totalIntervals and the length of the tasks array
+  return Math.max(totalIntervals, tasks.length);
+}
+
 export default {
+  leastInterval,
   minTimeToType,
   insert,
   judgeCircle,
