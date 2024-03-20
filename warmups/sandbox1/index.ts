@@ -864,7 +864,12 @@ function leastInterval(tasks: string[], n: number): number {
   return Math.max(totalIntervals, tasks.length);
 }
 
+function minOperations(nums: number[], k: number): number {
+  return -1;
+}
+
 export default {
+  minOperations,
   leastInterval,
   minTimeToType,
   insert,
