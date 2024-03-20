@@ -865,7 +865,7 @@ function leastInterval(tasks: string[], n: number): number {
 }
 
 function minOperations(nums: number[], k: number): number {
-  return -1;
+  return nums.reduce((acc, curr) => (curr < k ? ++acc : acc), 0);
 }
 
 export default {
