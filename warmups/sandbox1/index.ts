@@ -868,7 +868,27 @@ function minOperations(nums: number[], k: number): number {
   return nums.reduce((acc, curr) => (curr < k ? ++acc : acc), 0);
 }
 
+function reverseList(head: ListNode | null): ListNode | null {
+  // Base case: If head is null or head is the last node
+  if (!head || !head.next) {
+    return head;
+  }
+
+  // Recursively reverse the sublist starting from head.next
+  const reversedList = reverseList(head.next);
+
+  // Reverse the pointer of head.next to point back to head
+  head.next.next = head;
+
+  // Set head's next pointer to null to avoid cycles
+  head.next = null;
+
+  // Return the new head of the reversed list
+  return reversedList;
+}
+
 export default {
+  reverseList,
   minOperations,
   leastInterval,
   minTimeToType,

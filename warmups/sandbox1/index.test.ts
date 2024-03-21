@@ -283,3 +283,12 @@ Deno.test("#leastInterval", () => {
 Deno.test("#minOperations", () => {
   assertEquals(Sandbox1.minOperations([2, 11, 10, 1, 3], 10), 3);
 });
+
+Deno.test("#reverseList", () => {
+  const nn = new ListNode(5, null);
+  const nn1 = new ListNode(4, nn);
+  const nn2 = new ListNode(3, nn1);
+  const nn3 = new ListNode(2, nn2);
+  const head = new ListNode(1, nn3);
+  assertEquals(Sandbox1.reverseList(head)?.val, 5);
+});
