@@ -887,7 +887,37 @@ function reverseList(head: ListNode | null): ListNode | null {
   return reversedList;
 }
 
+function isLinkedListPalindrome(head: ListNode | null): boolean {
+  if (!head || !head.next) {
+    return true; // Empty list or single node is considered palindrome
+  }
+
+  // Use slow and fast pointers to find the middle of the list
+  let slow: ListNode | null = head;
+  let fast: ListNode | null = head;
+  while (fast && fast.next) {
+    slow = slow!.next;
+    fast = fast.next.next;
+  }
+
+  // Reverse the second half of the list
+  let secondHalfReversed = reverseList(slow);
+
+  // Compare the first half with the reversed second half
+  let firstHalf = head;
+  while (firstHalf && secondHalfReversed) {
+    if (firstHalf.val !== secondHalfReversed.val) {
+      return false; // Nodes don't match, not a palindrome
+    }
+    firstHalf = firstHalf.next!;
+    secondHalfReversed = secondHalfReversed.next;
+  }
+
+  return true;
+}
+
 export default {
+  isLinkedListPalindrome,
   reverseList,
   minOperations,
   leastInterval,

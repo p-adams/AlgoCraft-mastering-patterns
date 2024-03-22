@@ -292,3 +292,12 @@ Deno.test("#reverseList", () => {
   const head = new ListNode(1, nn3);
   assertEquals(Sandbox1.reverseList(head)?.val, 5);
 });
+
+Deno.test("#isLinkedListPalindrome", () => {
+  const nn = new ListNode(1, null);
+  const nn1 = new ListNode(2, nn);
+  const nn2 = new ListNode(2, nn1);
+  const head = new ListNode(1, nn2);
+
+  assertEquals(Sandbox1.isLinkedListPalindrome(head), true);
+});
