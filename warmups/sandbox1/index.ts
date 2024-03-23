@@ -916,7 +916,31 @@ function isLinkedListPalindrome(head: ListNode | null): boolean {
   return true;
 }
 
+function isSumEqual(
+  firstWord: string,
+  secondWord: string,
+  targetWord: string
+): boolean {
+  function getNumericalValue(word: string): number {
+    let numericalValue = "";
+    for (const letter of word) {
+      numericalValue += (letter.charCodeAt(0) - "a".charCodeAt(0)).toString();
+    }
+    return parseInt(numericalValue);
+  }
+
+  const numericalValueFirstWord = getNumericalValue(firstWord);
+  const numericalValueSecondWord = getNumericalValue(secondWord);
+  const numericalValueTargetWord = getNumericalValue(targetWord);
+
+  return (
+    numericalValueFirstWord + numericalValueSecondWord ===
+    numericalValueTargetWord
+  );
+}
+
 export default {
+  isSumEqual,
   isLinkedListPalindrome,
   reverseList,
   minOperations,
