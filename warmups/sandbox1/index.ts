@@ -939,7 +939,22 @@ function isSumEqual(
   );
 }
 
+function findDuplicate(nums: number[]): number {
+  const m = new Map();
+  for (const iterator of nums) {
+    m.set(iterator, (m.get(iterator) || 0) + 1);
+  }
+  let res = -1;
+  for (const [k, v] of m) {
+    if (v > 1) {
+      res = k;
+    }
+  }
+  return res;
+}
+
 export default {
+  findDuplicate,
   isSumEqual,
   isLinkedListPalindrome,
   reverseList,

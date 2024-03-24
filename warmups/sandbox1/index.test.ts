@@ -305,3 +305,8 @@ Deno.test("#isLinkedListPalindrome", () => {
 Deno.test("#isSumEqual", () => {
   assertEquals(Sandbox1.isSumEqual("acb", "cba", "cdb"), true);
 });
+
+Deno.test("#findDuplicate", () => {
+  assertEquals(Sandbox1.findDuplicate([1, 3, 4, 2, 2]), 2);
+  assertEquals(Sandbox1.findDuplicate([3, 1, 3, 4, 2]), 3);
+});
