@@ -953,7 +953,22 @@ function findDuplicate(nums: number[]): number {
   return res;
 }
 
+function findDuplicates(nums: number[]): number[] {
+  const m = new Map();
+  for (const iterator of nums) {
+    m.set(iterator, (m.get(iterator) || 0) + 1);
+  }
+  const res = [];
+  for (const [k, v] of m) {
+    if (v === 2) {
+      res.push(k);
+    }
+  }
+  return res;
+}
+
 export default {
+  findDuplicates,
   findDuplicate,
   isSumEqual,
   isLinkedListPalindrome,

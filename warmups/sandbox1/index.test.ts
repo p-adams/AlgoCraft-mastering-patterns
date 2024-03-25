@@ -310,3 +310,7 @@ Deno.test("#findDuplicate", () => {
   assertEquals(Sandbox1.findDuplicate([1, 3, 4, 2, 2]), 2);
   assertEquals(Sandbox1.findDuplicate([3, 1, 3, 4, 2]), 3);
 });
+
+Deno.test("#findDuplicates", () => {
+  assertEquals(Sandbox1.findDuplicates([4, 3, 2, 7, 8, 2, 3, 1]), [3, 2]);
+});
