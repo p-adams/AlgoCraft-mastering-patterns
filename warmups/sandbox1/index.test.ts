@@ -314,3 +314,8 @@ Deno.test("#findDuplicate", () => {
 Deno.test("#findDuplicates", () => {
   assertEquals(Sandbox1.findDuplicates([4, 3, 2, 7, 8, 2, 3, 1]), [3, 2]);
 });
+
+Deno.test("#percentageLetter", () => {
+  assertEquals(Sandbox1.percentageLetter("foobar", "o"), 33);
+  assertEquals(Sandbox1.percentageLetter("jjjj", "k"), 0);
+});

@@ -967,7 +967,23 @@ function findDuplicates(nums: number[]): number[] {
   return res;
 }
 
+function percentageLetter(s: string, letter: string): number {
+  const len = s.length;
+  const m = new Map();
+  for (const iterator of s) {
+    m.set(iterator, (m.get(iterator) || 0) + 1);
+  }
+  let res = 0;
+  for (const [k, v] of m) {
+    if (k === letter) {
+      res = (v / len) * 100;
+    }
+  }
+  return Math.floor(res);
+}
+
 export default {
+  percentageLetter,
   findDuplicates,
   findDuplicate,
   isSumEqual,
