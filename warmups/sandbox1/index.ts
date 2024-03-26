@@ -982,7 +982,18 @@ function percentageLetter(s: string, letter: string): number {
   return Math.floor(res);
 }
 
+function minimumSum(num: number): number {
+  const sorted = String(num)
+    .split("")
+    .sort((a, b) => +a - +b);
+
+  return (
+    Number(`${sorted[0]}${sorted[2]}`) + Number(`${sorted[1]}${sorted[3]}`)
+  );
+}
+
 export default {
+  minimumSum,
   percentageLetter,
   findDuplicates,
   findDuplicate,

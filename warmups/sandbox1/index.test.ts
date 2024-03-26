@@ -319,3 +319,7 @@ Deno.test("#percentageLetter", () => {
   assertEquals(Sandbox1.percentageLetter("foobar", "o"), 33);
   assertEquals(Sandbox1.percentageLetter("jjjj", "k"), 0);
 });
+
+Deno.test("#minimumSum", () => {
+  assertEquals(Sandbox1.minimumSum(2932), 52);
+});
