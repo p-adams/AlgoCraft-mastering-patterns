@@ -323,3 +323,7 @@ Deno.test("#percentageLetter", () => {
 Deno.test("#minimumSum", () => {
   assertEquals(Sandbox1.minimumSum(2932), 52);
 });
+
+Deno.test("#numSubarrayProductLessThanK", () => {
+  assertEquals(Sandbox1.numSubarrayProductLessThanK([10, 5, 2, 6], 100), 8);
+});
