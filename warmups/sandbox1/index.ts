@@ -1018,7 +1018,25 @@ function numSubarrayProductLessThanK(nums: number[], k: number): number {
   return result;
 }
 
+function maxSubarrayLength(nums: number[], k: number): number {
+  let left = 0,
+    right = 0;
+  let maxLen = 1;
+  const freqs: any = {};
+  freqs[nums[left]] = 1;
+  while (right < nums.length) {
+    right++;
+    maxLen = Math.max(maxLen, right - left);
+    while (freqs[nums[right]] == k) {
+      freqs[nums[left++]]--;
+    }
+    freqs[nums[right]] = freqs[nums[right]] ? freqs[nums[right]] + 1 : 1;
+  }
+  return maxLen;
+}
+
 export default {
+  maxSubarrayLength,
   numSubarrayProductLessThanK,
   minimumSum,
   percentageLetter,

@@ -327,3 +327,7 @@ Deno.test("#minimumSum", () => {
 Deno.test("#numSubarrayProductLessThanK", () => {
   assertEquals(Sandbox1.numSubarrayProductLessThanK([10, 5, 2, 6], 100), 8);
 });
+
+Deno.test("#maxSubarrayLength", () => {
+  assertEquals(Sandbox1.maxSubarrayLength([1, 2, 3, 1, 2, 3, 1, 2], 2), 6);
+});
