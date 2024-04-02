@@ -331,3 +331,7 @@ Deno.test("#numSubarrayProductLessThanK", () => {
 Deno.test("#maxSubarrayLength", () => {
   assertEquals(Sandbox1.maxSubarrayLength([1, 2, 3, 1, 2, 3, 1, 2], 2), 6);
 });
+
+Deno.test("#lengthOfLastWord", () => {
+  assertEquals(Sandbox1.lengthOfLastWord("Hello world   "), 5);
+});

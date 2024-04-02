@@ -1035,7 +1035,13 @@ function maxSubarrayLength(nums: number[], k: number): number {
   return maxLen;
 }
 
+function lengthOfLastWord(s: string): number {
+  const $words = s.trim().split(" ");
+  return $words[$words.length - 1].length;
+}
+
 export default {
+  lengthOfLastWord,
   maxSubarrayLength,
   numSubarrayProductLessThanK,
   minimumSum,
