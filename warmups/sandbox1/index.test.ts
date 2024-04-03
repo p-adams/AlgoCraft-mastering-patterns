@@ -335,3 +335,17 @@ Deno.test("#maxSubarrayLength", () => {
 Deno.test("#lengthOfLastWord", () => {
   assertEquals(Sandbox1.lengthOfLastWord("Hello world   "), 5);
 });
+
+Deno.test("#exist", () => {
+  assertEquals(
+    Sandbox1.exist(
+      [
+        ["A", "B", "C", "E"],
+        ["S", "F", "C", "S"],
+        ["A", "D", "E", "E"],
+      ],
+      "ABCCED"
+    ),
+    true
+  );
+});
