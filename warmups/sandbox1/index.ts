@@ -1082,7 +1082,26 @@ function exist(board: string[][], word: string): boolean {
   return false;
 }
 
+function makeGood(s: string): string {
+  const stack: string[] = [];
+
+  for (const char of s) {
+    const prevChar = stack[stack.length - 1];
+    if (
+      prevChar &&
+      Math.abs(char.charCodeAt(0) - prevChar.charCodeAt(0)) === 32
+    ) {
+      stack.pop(); // Remove both characters
+    } else {
+      stack.push(char);
+    }
+  }
+
+  return stack.join("");
+}
+
 export default {
+  makeGood,
   exist,
   lengthOfLastWord,
   maxSubarrayLength,

@@ -349,3 +349,7 @@ Deno.test("#exist", () => {
     true
   );
 });
+
+Deno.test("#makeGood", () => {
+  assertEquals(Sandbox1.makeGood("leEeetcode"), "leetcode");
+});
