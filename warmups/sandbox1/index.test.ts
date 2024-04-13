@@ -357,3 +357,8 @@ Deno.test("#makeGood", () => {
 Deno.test("#repeatedCharacter", () => {
   assertEquals(Sandbox1.repeatedCharacter("abccbaacz"), "c");
 });
+
+Deno.test("#canBeTypedWords", () => {
+  assertEquals(Sandbox1.canBeTypedWords("hello world", "ad"), 1);
+  assertEquals(Sandbox1.canBeTypedWords("leet code", "lt"), 1);
+});

@@ -1114,7 +1114,31 @@ function repeatedCharacter(s: string): string {
   return fst;
 }
 
+function canBeTypedWords(text: string, brokenLetters: string): number {
+  const brokenSet = new Set(brokenLetters.split(""));
+  let count = 0;
+
+  for (const word of text.split(" ")) {
+    let canBeTyped = true;
+
+    // Check each letter in the word
+    for (const char of word) {
+      if (brokenSet.has(char)) {
+        canBeTyped = false;
+        break; // If a broken letter is found, stop checking this word
+      }
+    }
+
+    if (canBeTyped) {
+      count++;
+    }
+  }
+
+  return count;
+}
+
 export default {
+  canBeTypedWords,
   repeatedCharacter,
   makeGood,
   exist,
