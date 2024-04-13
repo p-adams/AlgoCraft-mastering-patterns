@@ -1137,7 +1137,27 @@ function canBeTypedWords(text: string, brokenLetters: string): number {
   return count;
 }
 
+function digitCount(num: string): boolean {
+  const freq = new Map<string, number>();
+
+  // Count the occurrences of each digit
+  for (const digit of num) {
+    freq.set(digit, (freq.get(digit) || 0) + 1);
+  }
+
+  // Check if the count of each digit matches the value of that digit
+  for (let i = 0; i < num.length; i++) {
+    const count = freq.get(i.toString()) || 0;
+    if (parseInt(num[i]) !== count) {
+      return false;
+    }
+  }
+
+  return true;
+}
+
 export default {
+  digitCount,
   canBeTypedWords,
   repeatedCharacter,
   makeGood,

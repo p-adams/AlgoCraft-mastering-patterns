@@ -362,3 +362,8 @@ Deno.test("#canBeTypedWords", () => {
   assertEquals(Sandbox1.canBeTypedWords("hello world", "ad"), 1);
   assertEquals(Sandbox1.canBeTypedWords("leet code", "lt"), 1);
 });
+
+Deno.test("#digitCount", () => {
+  assertEquals(Sandbox1.digitCount("1210"), true);
+  assertEquals(Sandbox1.digitCount("030"), false);
+});
