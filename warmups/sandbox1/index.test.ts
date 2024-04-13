@@ -353,3 +353,7 @@ Deno.test("#exist", () => {
 Deno.test("#makeGood", () => {
   assertEquals(Sandbox1.makeGood("leEeetcode"), "leetcode");
 });
+
+Deno.test("#repeatedCharacter", () => {
+  assertEquals(Sandbox1.repeatedCharacter("abccbaacz"), "c");
+});

@@ -1100,7 +1100,22 @@ function makeGood(s: string): string {
   return stack.join("");
 }
 
+function repeatedCharacter(s: string): string {
+  let fst = "";
+  const seen = new Set();
+  for (const ch of s) {
+    if (seen.has(ch)) {
+      fst = ch;
+      return fst;
+    } else {
+      seen.add(ch);
+    }
+  }
+  return fst;
+}
+
 export default {
+  repeatedCharacter,
   makeGood,
   exist,
   lengthOfLastWord,
