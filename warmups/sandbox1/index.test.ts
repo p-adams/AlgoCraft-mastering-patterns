@@ -367,3 +367,7 @@ Deno.test("#digitCount", () => {
   assertEquals(Sandbox1.digitCount("1210"), true);
   assertEquals(Sandbox1.digitCount("030"), false);
 });
+
+Deno.test("#fizzBuzz", () => {
+  assertEquals(Sandbox1.fizzBuzz(3), ["1", "2", "Fizz"]);
+});

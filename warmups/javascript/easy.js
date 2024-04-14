@@ -93,6 +93,29 @@ function reduceElements(input, fn, init) {
   return value;
 }
 
+/*
+const spamChecker = antiSpammer();
+spamChecker("message1");
+spamChecker("message2");
+spamChecker("message2");
+**/
+
+function _antiSpammer(wait = 10_000) {
+  const $incoming = new Map();
+  return (incoming) => {
+    const currentTime = Date.now();
+    if (
+      $incoming.has(incoming) &&
+      currentTime - $incoming.get(incoming) < wait
+    ) {
+      console.log(`CANNOT PROCESS: ${incoming}. Please try again :(`);
+      return;
+    }
+    $incoming.set(incoming, currentTime);
+    console.log(`PROCESSED: ${incoming}`);
+  };
+}
+
 export const easy = {
   compose,
   createCounter,

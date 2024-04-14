@@ -1156,7 +1156,24 @@ function digitCount(num: string): boolean {
   return true;
 }
 
+function fizzBuzz(n: number): string[] {
+  const res: string[] = [];
+  for (let index = 1; index <= n; index++) {
+    if (index % 3 === 0 && index % 5 === 0) {
+      res.push("FizzBuzz");
+    } else if (index % 3 === 0) {
+      res.push("Fizz");
+    } else if (index % 5 === 0) {
+      res.push("Buzz");
+    } else {
+      res.push(index.toString());
+    }
+  }
+  return res;
+}
+
 export default {
+  fizzBuzz,
   digitCount,
   canBeTypedWords,
   repeatedCharacter,
