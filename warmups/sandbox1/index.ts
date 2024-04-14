@@ -1172,7 +1172,27 @@ function fizzBuzz(n: number): string[] {
   return res;
 }
 
+function sumOfLeftLeaves(root: TreeNode | null): number {
+  if (!root) {
+    return 0; // If the root is null, return 0
+  }
+
+  let sum = 0;
+
+  if (root.left && !root.left.left && !root.left.right) {
+    // If the left child is a leaf node, add its value to the sum
+    sum += root.left.val;
+  }
+
+  // Recursively calculate the sum of left leaves in the left and right subtrees
+  sum += sumOfLeftLeaves(root.left);
+  sum += sumOfLeftLeaves(root.right);
+
+  return sum;
+}
+
 export default {
+  sumOfLeftLeaves,
   fizzBuzz,
   digitCount,
   canBeTypedWords,

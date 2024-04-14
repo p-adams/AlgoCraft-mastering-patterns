@@ -371,3 +371,12 @@ Deno.test("#digitCount", () => {
 Deno.test("#fizzBuzz", () => {
   assertEquals(Sandbox1.fizzBuzz(3), ["1", "2", "Fizz"]);
 });
+
+Deno.test("#sumOfLeftLeaves", () => {
+  const root = new TreeNode(
+    3,
+    new TreeNode(9),
+    new TreeNode(20, new TreeNode(15), new TreeNode(7))
+  );
+  assertEquals(Sandbox1.sumOfLeftLeaves(root), 24);
+});
