@@ -1216,7 +1216,37 @@ function sumNumbers(root: TreeNode | null): number {
   return dfs(root, 0);
 }
 
+function greatestLetter(s: string): string {
+  const letters = new Set();
+  for (const item of s) {
+    letters.add(item);
+  }
+  for (let i = 25; i >= 0; i--) {
+    if (
+      letters.has(String.fromCharCode(97 + i)) &&
+      letters.has(String.fromCharCode(65 + i))
+    ) {
+      return String.fromCharCode(65 + i);
+    }
+  }
+  return "";
+}
+
+function sumOfEncryptedInt(nums: number[]): number {
+  function encrypt(x: number): number {
+    const maxDigit = Math.max(...String(x).split("").map(Number));
+    return Number(String(maxDigit).repeat(String(x).length));
+  }
+  let sum = 0;
+  for (const num of nums) {
+    sum += encrypt(num);
+  }
+  return sum;
+}
+
 export default {
+  sumOfEncryptedInt,
+  greatestLetter,
   sumNumbers,
   sumOfLeftLeaves,
   fizzBuzz,

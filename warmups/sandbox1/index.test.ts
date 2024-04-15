@@ -385,3 +385,13 @@ Deno.test("#sumNumbers", () => {
   const root = new TreeNode(1, new TreeNode(2), new TreeNode(3));
   assertEquals(Sandbox1.sumNumbers(root), 25);
 });
+
+Deno.test("#greatestLetter", () => {
+  assertEquals(Sandbox1.greatestLetter("lEeTcOdE"), "E");
+  assertEquals(Sandbox1.greatestLetter("arRAzFif"), "R");
+  assertEquals(Sandbox1.greatestLetter("AbCdEfGhIjK"), "");
+});
+
+Deno.test("#sumOfEncryptedInt", () => {
+  assertEquals(Sandbox1.sumOfEncryptedInt([1, 2, 3]), 6);
+});
