@@ -380,3 +380,8 @@ Deno.test("#sumOfLeftLeaves", () => {
   );
   assertEquals(Sandbox1.sumOfLeftLeaves(root), 24);
 });
+
+Deno.test("#sumNumbers", () => {
+  const root = new TreeNode(1, new TreeNode(2), new TreeNode(3));
+  assertEquals(Sandbox1.sumNumbers(root), 25);
+});

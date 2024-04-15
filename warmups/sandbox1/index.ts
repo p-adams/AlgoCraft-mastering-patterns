@@ -1191,7 +1191,33 @@ function sumOfLeftLeaves(root: TreeNode | null): number {
   return sum;
 }
 
+function sumNumbers(root: TreeNode | null): number {
+  function dfs(node: TreeNode | null, currentSum: number): number {
+    if (!node) {
+      return 0; // If the node is null, return 0
+    }
+
+    // Update the current sum by appending the current node's value
+    currentSum = currentSum * 10 + node.val;
+
+    // If the node is a leaf, return the current sum
+    if (!node.left && !node.right) {
+      return currentSum;
+    }
+
+    // Recursively calculate the sum of root-to-leaf numbers in the left and right subtrees
+    const leftSum = dfs(node.left, currentSum);
+    const rightSum = dfs(node.right, currentSum);
+
+    // Return the sum of left and right subtree sums
+    return leftSum + rightSum;
+  }
+
+  return dfs(root, 0);
+}
+
 export default {
+  sumNumbers,
   sumOfLeftLeaves,
   fizzBuzz,
   digitCount,
