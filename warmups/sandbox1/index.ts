@@ -1244,7 +1244,16 @@ function sumOfEncryptedInt(nums: number[]): number {
   return sum;
 }
 
+function scoreOfStrings(s: string): number {
+  const scores = [];
+  for (let i = 1; i < s.length; ++i) {
+    scores.push(Math.abs(s[i - 1].charCodeAt(0) - s[i].charCodeAt(0)));
+  }
+  return scores.reduce((prev, curr) => prev + curr, 0);
+}
+
 export default {
+  scoreOfStrings,
   sumOfEncryptedInt,
   greatestLetter,
   sumNumbers,

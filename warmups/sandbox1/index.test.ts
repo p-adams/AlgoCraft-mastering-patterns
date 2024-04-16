@@ -395,3 +395,7 @@ Deno.test("#greatestLetter", () => {
 Deno.test("#sumOfEncryptedInt", () => {
   assertEquals(Sandbox1.sumOfEncryptedInt([1, 2, 3]), 6);
 });
+
+Deno.test("#scoreOfStrings", () => {
+  assertEquals(Sandbox1.scoreOfStrings("hello"), 13);
+});
