@@ -1252,7 +1252,21 @@ function scoreOfStrings(s: string): number {
   return scores.reduce((prev, curr) => prev + curr, 0);
 }
 
+function checkString(s: string): boolean {
+  let foundBAfterA = false;
+  for (let i = 0; i < s.length; i++) {
+    if (s[i] === "a" && foundBAfterA) {
+      return false; // "b" found after "a"
+    }
+    if (s[i] === "b") {
+      foundBAfterA = true;
+    }
+  }
+  return true; // No "b" found after "a"
+}
+
 export default {
+  checkString,
   scoreOfStrings,
   sumOfEncryptedInt,
   greatestLetter,

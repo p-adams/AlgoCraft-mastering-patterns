@@ -399,3 +399,8 @@ Deno.test("#sumOfEncryptedInt", () => {
 Deno.test("#scoreOfStrings", () => {
   assertEquals(Sandbox1.scoreOfStrings("hello"), 13);
 });
+
+Deno.test("#checkString", () => {
+  assertEquals(Sandbox1.checkString("aaabbb"), true);
+  assertEquals(Sandbox1.checkString("abab"), false);
+});
